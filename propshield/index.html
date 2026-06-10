@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropShield — Stop Blowing Funded Accounts. Pass Evals With Math, Not Hope.</title>
+<meta name="description" content="The risk cockpit built for futures prop firm traders. Trailing drawdown tracking, position sizing, Monte Carlo pass-probability, and a prop-aware trade journal. One-time price, works offline, your data never leaves your device.">
+<meta property="og:title" content="PropShield — Funded Trader Risk Cockpit">
+<meta property="og:description" content="Know your pass probability before you pay for the next reset. Built for Apex, Topstep, MFFU and every futures prop firm.">
+<style>
+:root{
+  --bg:#0b0e14; --bg2:#11151f; --card:#161b27; --border:#262e42;
+  --text:#e8ecf4; --muted:#8b94a8; --accent:#3dd68c; --accent2:#2bb673;
+  --danger:#ff5c5c; --warn:#ffb454;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
+header{padding:18px 0;border-bottom:1px solid var(--border)}
+.header-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.4rem;font-weight:800}
+.logo span{color:var(--accent)}
+.btn{display:inline-block;background:var(--accent);color:#06251a;padding:14px 32px;border-radius:12px;font-weight:800;text-decoration:none;font-size:1.05rem;border:none;cursor:pointer}
+.btn:hover{background:var(--accent2)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);font-weight:600}
+.btn.sm{padding:9px 20px;font-size:.9rem}
+.hero{padding:90px 0 70px;text-align:center}
+.hero .badge{display:inline-block;background:rgba(61,214,140,.12);color:var(--accent);padding:6px 16px;border-radius:99px;font-size:.82rem;font-weight:700;letter-spacing:.5px;margin-bottom:22px}
+h1{font-size:clamp(2.1rem,5.5vw,3.6rem);line-height:1.12;letter-spacing:-1.5px;font-weight:900;max-width:850px;margin:0 auto 22px}
+h1 em{color:var(--accent);font-style:normal}
+.hero p{font-size:1.18rem;color:var(--muted);max-width:640px;margin:0 auto 36px}
+.hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero .sub-cta{margin-top:14px;font-size:.85rem;color:var(--muted)}
+section{padding:70px 0}
+section.alt{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+h2{font-size:clamp(1.6rem,3.5vw,2.3rem);letter-spacing:-1px;text-align:center;margin-bottom:14px}
+.section-sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 48px;font-size:1.05rem}
+.grid{display:grid;gap:20px}
+.cols-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cols-2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.card .icon{font-size:1.8rem;margin-bottom:12px}
+.card h3{font-size:1.12rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.94rem}
+.pain{border-left:3px solid var(--danger)}
+.stat{text-align:center}
+.stat .n{font-size:2.6rem;font-weight:900;color:var(--danger);letter-spacing:-1px}
+.stat p{color:var(--muted);font-size:.9rem}
+.price-card{max-width:460px;margin:0 auto;text-align:center;border-color:var(--accent);position:relative;overflow:hidden}
+.price-card .flag{position:absolute;top:18px;right:-42px;background:var(--accent);color:#06251a;font-weight:800;font-size:.72rem;padding:4px 50px;transform:rotate(45deg)}
+.price-card .price{font-size:3.4rem;font-weight:900;letter-spacing:-2px}
+.price-card .price small{font-size:1rem;color:var(--muted);font-weight:500}
+.price-card .was{color:var(--muted);text-decoration:line-through;font-size:1.1rem}
+.price-card ul{list-style:none;text-align:left;margin:26px 0;font-size:.95rem}
+.price-card li{padding:7px 0;border-bottom:1px solid var(--border)}
+.price-card li:last-child{border:none}
+.price-card li::before{content:'✓  ';color:var(--accent);font-weight:800}
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+.faq summary{cursor:pointer;font-weight:700;font-size:1rem}
+.faq p{color:var(--muted);margin-top:10px;font-size:.94rem}
+footer{padding:40px 0;border-top:1px solid var(--border);color:var(--muted);font-size:.82rem;text-align:center}
+footer p{max-width:780px;margin:0 auto 10px}
+.shot{border:1px solid var(--border);border-radius:16px;background:var(--bg2);padding:18px;font-family:ui-monospace,monospace;font-size:.85rem;color:var(--muted)}
+.shot .bar{display:flex;gap:6px;margin-bottom:14px}
+.shot .dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+.shot .green{color:var(--accent)} .shot .red{color:var(--danger)} .shot .yellow{color:var(--warn)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">Prop<span>Shield</span></div>
+    <div>
+      <a href="app.html" class="btn ghost sm">Live Demo</a>
+      <a href="#pricing" class="btn sm">Get PropShield</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero container">
+  <div class="badge">BUILT FOR FUTURES PROP TRADERS · APEX · TOPSTEP · MFFU · TPT &amp; MORE</div>
+  <h1>Stop donating resets to your prop firm. <em>Pass with math, not hope.</em></h1>
+  <p>PropShield is the risk cockpit that tracks your trailing drawdown in real terms, sizes every trade off the room you actually have left, and tells you your <b>statistical probability of passing</b> — before you pay for another evaluation.</p>
+  <div class="cta-row">
+    <a href="#pricing" class="btn">Get Lifetime Access →</a>
+    <a href="app.html" class="btn ghost">Try the Live Demo</a>
+  </div>
+  <div class="sub-cta">One-time payment · Works 100% offline · Your trading data never leaves your device</div>
+</div>
+
+<section class="alt">
+  <div class="container">
+    <h2>The evaluation game is rigged against your emotions</h2>
+    <p class="section-sub">Prop firms profit when you fail. The numbers are brutal — and almost every failure is the same story:</p>
+    <div class="grid cols-3">
+      <div class="card stat"><div class="n">~90%</div><p>of evaluation attempts fail — most within the first two weeks</p></div>
+      <div class="card stat"><div class="n">#1</div><p>cause of failure: breaching the trailing drawdown — a rule most traders can't even calculate mid-session</p></div>
+      <div class="card stat"><div class="n">$1,000s</div><p>spent per trader per year on resets and re-evaluations that a sizing rule would have prevented</p></div>
+    </div>
+    <div class="grid cols-3" style="margin-top:20px">
+      <div class="card pain"><h3>"I didn't know where my drawdown was"</h3><p>Intraday trailing drawdown moves with every tick of unrealized profit. Almost nobody tracks it correctly — until the platform liquidates them.</p></div>
+      <div class="card pain"><h3>"One oversized trade killed it"</h3><p>You sized off your account balance instead of your remaining drawdown room. Two stop-outs at full size and a $50K eval is gone.</p></div>
+      <div class="card pain"><h3>"I keep paying for resets"</h3><p>Without knowing your pass probability, every reset is a lottery ticket. With it, you know exactly which stat to fix before paying again.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Five weapons. One cockpit.</h2>
+    <p class="section-sub">Everything runs locally in your browser — no account, no subscription servers, no broker keys, no data leaving your machine.</p>
+    <div class="grid cols-3">
+      <div class="card"><div class="icon">📊</div><h3>Drawdown Cockpit</h3><p>Live balance, high-water mark, and exact breach level for intraday-trailing, EOD-trailing, or static drawdown — with SAFE / CAUTION / DANGER status so you know when to cut size or stop.</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Room-Based Position Sizer</h3><p>The only sizer built for prop accounts: contracts calculated from your <b>remaining drawdown room</b>, for all 16 major CME futures including micros, capped at your firm's contract limit.</p></div>
+      <div class="card"><div class="icon">🎲</div><h3>Pass Probability Engine</h3><p>2,000 Monte Carlo simulations of your evaluation using your real win rate and averages, against your firm's exact rules. See whether the next $150 reset is an investment or a donation.</p></div>
+      <div class="card"><div class="icon">📓</div><h3>Prop-Aware Journal</h3><p>Win rate, profit factor, expectancy, equity curve — plus the one thing generic journals miss: an automatic consistency-rule check (best day % of profit) so payouts never get denied.</p></div>
+      <div class="card"><div class="icon">🏛</div><h3>Firm Rules Compare</h3><p>Side-by-side reference of drawdown style, daily loss, consistency rules and payout splits across Apex, Topstep, MFFU, TakeProfit, Tradeify, Bulenox and Elite — plus presets that configure the app in one click.</p></div>
+      <div class="card"><div class="icon">🔒</div><h3>Yours Forever</h3><p>One-time payment, lifetime updates. Runs from a single file — desktop, laptop, even your phone. Export/import your data as JSON anytime. No login. No tracking. No monthly bleed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <h2>Know your odds before you pay</h2>
+    <p class="section-sub">A real session with the Pass Probability Engine:</p>
+    <div class="grid cols-2">
+      <div class="shot">
+        <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <div>» Win rate 45% · Avg win $300 · Avg loss $150 · 3 trades/day</div>
+        <div>» Apex 50K · $2,500 intraday trailing · target $3,000</div>
+        <div>&nbsp;</div>
+        <div>Running 2,000 simulations...</div>
+        <div class="green">PASS PROBABILITY: 71.4%</div>
+        <div class="red">Blown: 22.1%</div>
+        <div class="yellow">Timed out: 6.5% · Median: 11 days</div>
+        <div>&nbsp;</div>
+        <div>Expectancy: +$52.50/trade (+$157.50/day)</div>
+        <div class="green">→ Strong odds. Stay mechanical.</div>
+      </div>
+      <div class="shot">
+        <div class="bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+        <div>» Same trader, but risking 2x size (avg loss $300)</div>
+        <div>&nbsp;</div>
+        <div>Running 2,000 simulations...</div>
+        <div class="red">PASS PROBABILITY: 38.2%</div>
+        <div class="red">Blown: 55.9%</div>
+        <div>&nbsp;</div>
+        <div class="yellow">→ Same strategy. Same edge. Double the size</div>
+        <div class="yellow">&nbsp;&nbsp;cut the pass rate nearly in half.</div>
+        <div>&nbsp;</div>
+        <div>This is the lesson that costs most traders</div>
+        <div>$1,000+ in resets to learn. Here it's one click.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <h2>Less than the cost of one reset</h2>
+    <p class="section-sub">You'll spend $100–170 on your next evaluation attempt. Spend $49 once to stop repeating it.</p>
+    <div class="card price-card">
+      <div class="flag">LAUNCH</div>
+      <h3 style="font-size:1.2rem">PropShield — Lifetime</h3>
+      <div style="margin:14px 0 4px"><span class="was">$99</span></div>
+      <div class="price">$49 <small>one-time</small></div>
+      <ul>
+        <li>All 5 modules — Cockpit, Sizer, Simulator, Journal, Firm Rules</li>
+        <li>All 16 CME futures contracts incl. micros</li>
+        <li>Lifetime updates — every new firm preset &amp; feature</li>
+        <li>Works offline — single file, runs anywhere</li>
+        <li>Your data stays on YOUR device, always</li>
+        <li>14-day no-questions refund</li>
+      </ul>
+      <!-- TODO: replace # with your Gumroad / Whop / Lemon Squeezy checkout URL -->
+      <a href="#" class="btn" style="width:100%">Get Lifetime Access — $49</a>
+      <p style="color:var(--muted);font-size:.8rem;margin-top:12px">Instant download · Secure checkout · Price increases to $99 after launch window</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt faq">
+  <div class="container" style="max-width:760px">
+    <h2>FAQ</h2>
+    <p class="section-sub"></p>
+    <details><summary>Does it connect to my broker / Rithmic / Tradovate?</summary><p>No — by design. PropShield is a planning and discipline layer, not an auto-trader. No API keys means zero risk to your account, zero ToS issues with your prop firm, and zero chance of your data leaking. You log trades in seconds and everything else is computed for you.</p></details>
+    <details><summary>Which prop firms does it support?</summary><p>Any futures prop firm. It ships with one-click presets for Apex, Topstep, MyFundedFutures, TakeProfit Trader, Tradeify, Bulenox and Elite Trader Funding, and every rule (drawdown amount/type, daily loss, consistency %, contract caps) is fully editable — so it works for any firm, any account size, evals and funded accounts alike.</p></details>
+    <details><summary>Is it really one-time? What's the catch?</summary><p>Really one-time. There's no server to pay for — the entire app runs in your browser, which is also why your data is private. Lifetime updates are delivered as new versions of the file.</p></details>
+    <details><summary>Will this make me profitable?</summary><p>No tool can give you an edge — and anyone who claims otherwise is selling you a dream. What PropShield does is stop a working edge from being destroyed by sizing errors and rule breaches, which is statistically the #1 reason eval attempts fail.</p></details>
+    <details><summary>Does it work on mobile?</summary><p>Yes. It's a responsive web app — open the file or your hosted copy on any phone or tablet.</p></details>
+  </div>
+</section>
+
+<section style="text-align:center">
+  <div class="container">
+    <h2>Your edge deserves to survive the rules.</h2>
+    <p class="section-sub">Join the traders who stopped guessing where their drawdown is.</p>
+    <a href="#pricing" class="btn">Get PropShield — $49 Lifetime →</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><b>Risk disclosure:</b> Futures trading involves substantial risk of loss and is not suitable for every investor. PropShield is an educational and analytical tool. It does not provide financial advice, does not guarantee evaluation success or trading profits, and is not affiliated with or endorsed by any proprietary trading firm mentioned. Firm rules and prices change frequently — always verify current terms with the firm directly. Hypothetical or simulated performance results have inherent limitations and do not represent actual trading.</p>
+    <p>© 2026 PropShield. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

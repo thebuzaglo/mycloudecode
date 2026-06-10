@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropShield — Funded Trader Risk Cockpit</title>
+<meta name="description" content="The all-in-one risk cockpit for futures prop firm traders. Track trailing drawdown, size positions, simulate pass probability, and journal trades — 100% offline, your data never leaves your device.">
+<style>
+:root{
+  --bg:#0b0e14; --bg2:#11151f; --card:#161b27; --card2:#1c2333;
+  --border:#262e42; --text:#e8ecf4; --muted:#8b94a8;
+  --accent:#3dd68c; --accent2:#2bb673; --danger:#ff5c5c; --warn:#ffb454; --info:#5ca8ff;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh}
+a{color:var(--accent)}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+header{background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px;flex-wrap:wrap}
+.logo{font-size:1.3rem;font-weight:800;letter-spacing:-.5px}
+.logo span{color:var(--accent)}
+.logo small{display:block;font-size:.65rem;font-weight:400;color:var(--muted);letter-spacing:1px}
+.header-actions{display:flex;gap:8px;flex-wrap:wrap}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;padding-bottom:10px}
+nav.tabs button{background:none;border:1px solid transparent;color:var(--muted);padding:9px 16px;border-radius:10px;cursor:pointer;font-size:.92rem;font-weight:600;white-space:nowrap}
+nav.tabs button:hover{color:var(--text);background:var(--card)}
+nav.tabs button.active{color:var(--accent);background:var(--card);border-color:var(--border)}
+main{padding:26px 0 80px}
+section.tab{display:none}
+section.tab.active{display:block}
+h2{font-size:1.35rem;margin-bottom:6px}
+h3{font-size:1.05rem;margin-bottom:10px}
+.sub{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.grid{display:grid;gap:16px}
+.grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.grid.cols-4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.metric .label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.metric .value{font-size:1.55rem;font-weight:800;letter-spacing:-.5px}
+.metric .hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.pos{color:var(--accent)} .neg{color:var(--danger)} .wrn{color:var(--warn)}
+.banner{border-radius:var(--radius);padding:14px 20px;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:10px;border:1px solid}
+.banner.safe{background:rgba(61,214,140,.08);border-color:rgba(61,214,140,.35);color:var(--accent)}
+.banner.warn{background:rgba(255,180,84,.08);border-color:rgba(255,180,84,.35);color:var(--warn)}
+.banner.danger{background:rgba(255,92,92,.1);border-color:rgba(255,92,92,.4);color:var(--danger)}
+.progress{background:var(--bg);border-radius:99px;height:10px;overflow:hidden;margin-top:8px}
+.progress>div{height:100%;border-radius:99px;background:var(--accent);transition:width .4s}
+.progress>div.warn{background:var(--warn)} .progress>div.danger{background:var(--danger)}
+label{display:block;font-size:.8rem;color:var(--muted);margin:10px 0 4px;font-weight:600}
+input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:9px 12px;border-radius:9px;font-size:.92rem}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+.row{display:flex;gap:12px}.row>*{flex:1}
+button.btn{background:var(--accent);color:#06251a;border:none;padding:10px 18px;border-radius:10px;font-weight:700;cursor:pointer;font-size:.92rem}
+button.btn:hover{background:var(--accent2)}
+button.btn.ghost{background:var(--card2);color:var(--text);border:1px solid var(--border)}
+button.btn.sm{padding:6px 12px;font-size:.8rem}
+button.btn.danger{background:rgba(255,92,92,.15);color:var(--danger);border:1px solid rgba(255,92,92,.4)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{color:var(--muted);text-align:left;font-size:.75rem;text-transform:uppercase;letter-spacing:.6px;padding:8px;border-bottom:1px solid var(--border)}
+td{padding:9px 8px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+.table-wrap{overflow-x:auto}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.72rem;font-weight:700}
+.pill.green{background:rgba(61,214,140,.15);color:var(--accent)}
+.pill.red{background:rgba(255,92,92,.15);color:var(--danger)}
+.pill.blue{background:rgba(92,168,255,.15);color:var(--info)}
+.pill.yellow{background:rgba(255,180,84,.15);color:var(--warn)}
+canvas{width:100%;border-radius:10px;background:var(--bg)}
+#eqChart{height:240px}#simChart{height:260px}
+.note{font-size:.8rem;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-top:14px;line-height:1.5}
+.mt{margin-top:16px}.mb{margin-bottom:16px}
+.big-result{text-align:center;padding:10px 0}
+.big-result .pct{font-size:3rem;font-weight:900;letter-spacing:-2px}
+.big-result .lbl{color:var(--muted);font-size:.85rem}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--card2);border:1px solid var(--accent);color:var(--text);padding:12px 22px;border-radius:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .3s;z-index:99}
+#toast.show{opacity:1}
+.checklist label{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--text);font-weight:500;margin:8px 0;cursor:pointer}
+.checklist input{width:auto}
+@media(max-width:640px){.row{flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="logo">Prop<span>Shield</span><small>FUNDED TRADER RISK COCKPIT</small></div>
+      <div class="header-actions">
+        <button class="btn ghost sm" onclick="exportData()">⬇ Export Data</button>
+        <button class="btn ghost sm" onclick="document.getElementById('importFile').click()">⬆ Import</button>
+        <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(event)">
+      </div>
+    </div>
+    <nav class="tabs">
+      <button data-tab="dashboard" class="active" onclick="showTab('dashboard')">📊 Dashboard</button>
+      <button data-tab="risk" onclick="showTab('risk')">🎯 Position Sizer</button>
+      <button data-tab="sim" onclick="showTab('sim')">🎲 Pass Probability</button>
+      <button data-tab="journal" onclick="showTab('journal')">📓 Journal</button>
+      <button data-tab="firms" onclick="showTab('firms')">🏛 Firm Rules</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+<!-- ===================== DASHBOARD ===================== -->
+<section class="tab active" id="tab-dashboard">
+  <h2>Account Cockpit</h2>
+  <p class="sub">Live view of where you stand vs. your firm's rules. Balance and drawdown are computed automatically from your journal.</p>
+  <div id="statusBanner"></div>
+  <div class="grid cols-4 mb">
+    <div class="card metric"><div class="label">Current Balance</div><div class="value" id="mBalance">—</div><div class="hint" id="mBalanceHint"></div></div>
+    <div class="card metric"><div class="label">Drawdown Level (Breach)</div><div class="value" id="mDD">—</div><div class="hint" id="mDDHint"></div></div>
+    <div class="card metric"><div class="label">Room Before Breach</div><div class="value" id="mRoom">—</div><div class="hint">Hit this and the account is gone</div></div>
+    <div class="card metric"><div class="label">Today's P&amp;L</div><div class="value" id="mToday">—</div><div class="hint" id="mTodayHint"></div></div>
+  </div>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Profit Target Progress</h3>
+      <div id="targetProgress"></div>
+      <h3 class="mt">Daily Loss Limit Usage</h3>
+      <div id="dailyProgress"></div>
+      <h3 class="mt">Pre-Session Checklist</h3>
+      <div class="checklist" id="checklist"></div>
+    </div>
+    <div class="card">
+      <h3>Account Setup</h3>
+      <label>Firm Preset (prefills rules — always verify with your firm)</label>
+      <select id="setFirm" onchange="applyFirmPreset()"></select>
+      <div class="row">
+        <div><label>Account Size ($)</label><input type="number" id="setSize" value="50000"></div>
+        <div><label>Starting Balance ($)</label><input type="number" id="setStart" value="50000"></div>
+      </div>
+      <div class="row">
+        <div><label>Max Drawdown ($)</label><input type="number" id="setDD" value="2500"></div>
+        <div><label>Drawdown Type</label>
+          <select id="setDDType">
+            <option value="trailing-intraday">Trailing — Intraday/Real-time</option>
+            <option value="trailing-eod">Trailing — End of Day</option>
+            <option value="static">Static (fixed floor)</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div><label>Trailing stops at start + ($)</label><input type="number" id="setDDStop" value="100" title="Apex-style: drawdown stops trailing once it reaches start balance + this offset. Use 0 if it locks at the starting balance."></div>
+        <div><label>Daily Loss Limit ($, 0 = none)</label><input type="number" id="setDaily" value="0"></div>
+      </div>
+      <div class="row">
+        <div><label>Profit Target ($)</label><input type="number" id="setTarget" value="3000"></div>
+        <div><label>Max Contracts</label><input type="number" id="setMaxC" value="10"></div>
+      </div>
+      <label>Consistency Rule — max % of profit from best day (0 = none)</label>
+      <input type="number" id="setConsistency" value="30">
+      <button class="btn mt" onclick="saveAccount()">Save Account Settings</button>
+      <div class="note">⚠️ Firm rules change frequently. Presets are a convenience, not legal truth — always confirm the current rules in your firm's official help center.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== POSITION SIZER ===================== -->
+<section class="tab" id="tab-risk">
+  <h2>Position Sizer</h2>
+  <p class="sub">How many contracts can you actually afford? Sized off your <b>remaining drawdown room</b> — the only number that matters in a prop account.</p>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="row">
+        <div><label>Instrument</label><select id="rsSymbol"></select></div>
+        <div><label>Stop Loss (ticks)</label><input type="number" id="rsTicks" value="16"></div>
+      </div>
+      <div class="row">
+        <div><label>Risk Mode</label>
+          <select id="rsMode">
+            <option value="pctRoom">% of remaining drawdown room</option>
+            <option value="fixed">Fixed $ amount</option>
+          </select>
+        </div>
+        <div><label id="rsAmtLabel">Risk (% of room)</label><input type="number" id="rsAmt" value="10"></div>
+      </div>
+      <button class="btn mt" onclick="calcRisk()">Calculate Size</button>
+      <div class="note">Pro rule of thumb: never risk more than 10–20% of your remaining drawdown room on a single trade. At 10%, you survive 10 consecutive losers. At 50%, two bad trades end the account.</div>
+    </div>
+    <div class="card" id="rsResult">
+      <h3>Result</h3>
+      <p class="sub">Enter your trade parameters and hit calculate.</p>
+    </div>
+  </div>
+  <div class="card mt">
+    <h3>Contract Reference</h3>
+    <div class="table-wrap"><table id="contractTable"></table></div>
+  </div>
+</section>
+
+<!-- ===================== SIMULATOR ===================== -->
+<section class="tab" id="tab-sim">
+  <h2>Pass Probability Engine</h2>
+  <p class="sub">Monte Carlo simulation: 2,000 simulated evaluations with your stats against your firm's drawdown rules. Know your odds <i>before</i> you pay for the next reset.</p>
+  <div class="grid cols-2">
+    <div class="card">
+      <div class="row">
+        <div><label>Win Rate (%)</label><input type="number" id="smWin" value="45"></div>
+        <div><label>Avg Winner ($)</label><input type="number" id="smAvgW" value="300"></div>
+      </div>
+      <div class="row">
+        <div><label>Avg Loser ($)</label><input type="number" id="smAvgL" value="150"></div>
+        <div><label>Trades per Day</label><input type="number" id="smTPD" value="3"></div>
+      </div>
+      <div class="row">
+        <div><label>Max Days (eval window)</label><input type="number" id="smDays" value="60"></div>
+        <div><label>Stop trading day at −($)</label><input type="number" id="smStopDay" value="500" title="Personal daily stop: quit for the day after losing this much. 0 = no personal stop."></div>
+      </div>
+      <div class="note">Uses the account rules from your Dashboard setup (drawdown amount, type, daily loss limit, profit target). Tweak your stats to see exactly which lever moves your pass rate the most.</div>
+      <button class="btn mt" onclick="runSim()">Run 2,000 Simulations</button>
+    </div>
+    <div class="card">
+      <div class="big-result"><div class="pct" id="smPass">—</div><div class="lbl">probability of passing the evaluation</div></div>
+      <div class="grid cols-3 mt">
+        <div class="metric"><div class="label">Blown</div><div class="value neg" id="smBlow">—</div></div>
+        <div class="metric"><div class="label">Timed Out</div><div class="value wrn" id="smTime">—</div></div>
+        <div class="metric"><div class="label">Median Days to Pass</div><div class="value" id="smMed">—</div></div>
+      </div>
+      <div id="smInsight" class="note mt"></div>
+    </div>
+  </div>
+  <div class="card mt">
+    <h3>Sample Equity Paths</h3>
+    <canvas id="simChart" height="260"></canvas>
+  </div>
+</section>
+
+<!-- ===================== JOURNAL ===================== -->
+<section class="tab" id="tab-journal">
+  <h2>Trade Journal</h2>
+  <p class="sub">Every trade you log updates your balance, trailing drawdown, and stats automatically.</p>
+  <div class="grid cols-2">
+    <div class="card">
+      <h3>Log a Trade</h3>
+      <div class="row">
+        <div><label>Date</label><input type="date" id="jDate"></div>
+        <div><label>Instrument</label><select id="jSymbol"></select></div>
+        <div><label>Side</label><select id="jSide"><option>Long</option><option>Short</option></select></div>
+      </div>
+      <div class="row">
+        <div><label>Contracts</label><input type="number" id="jQty" value="1"></div>
+        <div><label>Entry</label><input type="number" step="any" id="jEntry"></div>
+        <div><label>Exit</label><input type="number" step="any" id="jExit"></div>
+      </div>
+      <div class="row">
+        <div><label>Fees ($)</label><input type="number" step="any" id="jFees" value="0"></div>
+        <div><label>P&amp;L ($) — auto, or type to override</label><input type="number" step="any" id="jPnl" placeholder="auto from entry/exit"></div>
+      </div>
+      <label>Notes / setup</label>
+      <input type="text" id="jNotes" placeholder="e.g. NQ opening drive, A+ setup">
+      <button class="btn mt" onclick="addTrade()">Add Trade</button>
+    </div>
+    <div class="card">
+      <h3>Performance Stats</h3>
+      <div class="grid cols-3" id="statsGrid"></div>
+      <div id="consistencyBox" class="mt"></div>
+    </div>
+  </div>
+  <div class="card mt">
+    <h3>Equity Curve</h3>
+    <canvas id="eqChart" height="240"></canvas>
+  </div>
+  <div class="card mt">
+    <h3>Trade Log</h3>
+    <div class="table-wrap"><table id="tradeTable"></table></div>
+  </div>
+</section>
+
+<!-- ===================== FIRMS ===================== -->
+<section class="tab" id="tab-firms">
+  <h2>Prop Firm Rules — Quick Compare</h2>
+  <p class="sub">Typical 50K evaluation terms at major futures prop firms. <b>Rules and prices change constantly</b> — treat this as a starting map, and verify everything on the firm's official site before paying.</p>
+  <div class="card">
+    <div class="table-wrap"><table id="firmTable"></table></div>
+    <div class="note">💡 Almost every firm runs 50–90% discount promos monthly. Never pay full price for an evaluation. Reference data compiled 2025 — verify before purchase.</div>
+  </div>
+</section>
+
+</main>
+<div id="toast"></div>
+
+<script>
+/* ============ DATA ============ */
+const CONTRACTS = [
+  {sym:'ES',  name:'E-mini S&P 500',        tick:0.25,    tickVal:12.50},
+  {sym:'MES', name:'Micro E-mini S&P 500',  tick:0.25,    tickVal:1.25},
+  {sym:'NQ',  name:'E-mini Nasdaq-100',     tick:0.25,    tickVal:5.00},
+  {sym:'MNQ', name:'Micro E-mini Nasdaq',   tick:0.25,    tickVal:0.50},
+  {sym:'YM',  name:'E-mini Dow',            tick:1.00,    tickVal:5.00},
+  {sym:'MYM', name:'Micro E-mini Dow',      tick:1.00,    tickVal:0.50},
+  {sym:'RTY', name:'E-mini Russell 2000',   tick:0.10,    tickVal:5.00},
+  {sym:'M2K', name:'Micro Russell 2000',    tick:0.10,    tickVal:0.50},
+  {sym:'CL',  name:'Crude Oil',             tick:0.01,    tickVal:10.00},
+  {sym:'MCL', name:'Micro Crude Oil',       tick:0.01,    tickVal:1.00},
+  {sym:'GC',  name:'Gold',                  tick:0.10,    tickVal:10.00},
+  {sym:'MGC', name:'Micro Gold',            tick:0.10,    tickVal:1.00},
+  {sym:'SI',  name:'Silver',                tick:0.005,   tickVal:25.00},
+  {sym:'6E',  name:'Euro FX',               tick:0.00005, tickVal:6.25},
+  {sym:'ZB',  name:'30-Yr T-Bond',          tick:0.03125, tickVal:31.25},
+  {sym:'ZN',  name:'10-Yr T-Note',          tick:0.015625,tickVal:15.625},
+];
+
+const FIRMS = [
+  {id:'custom', name:'— Custom / Manual —'},
+  {id:'apex',   name:'Apex Trader Funding (50K)', size:50000, target:3000, dd:2500, ddType:'trailing-intraday', ddStop:100, daily:0,    maxC:10, cons:30, price:'~$167/mo (constant 80%+ promos)', payout:'100% of first $25K, then 90%'},
+  {id:'topstep',name:'Topstep (50K Combine)',      size:50000, target:3000, dd:2000, ddType:'trailing-eod',      ddStop:0,   daily:1000, maxC:5,  cons:50, price:'~$49/mo (frequent promos)',      payout:'100% of first $10K, then 90%'},
+  {id:'mffu',   name:'MyFundedFutures (50K Starter)', size:50000, target:3000, dd:2500, ddType:'trailing-eod',   ddStop:0,   daily:0,    maxC:3,  cons:40, price:'~$100/mo',                       payout:'90%, payouts every ~5 win days'},
+  {id:'tpt',    name:'TakeProfit Trader (50K)',    size:50000, target:3000, dd:2000, ddType:'trailing-eod',      ddStop:0,   daily:1100, maxC:6,  cons:0,  price:'~$150/mo (promos common)',        payout:'80–90%, daily payouts on PRO+'},
+  {id:'tradeify',name:'Tradeify (50K Advanced)',   size:50000, target:3000, dd:2000, ddType:'trailing-eod',      ddStop:0,   daily:0,    maxC:5,  cons:20, price:'~$129/mo',                       payout:'90%'},
+  {id:'bulenox',name:'Bulenox (50K)',              size:50000, target:3000, dd:2500, ddType:'trailing-intraday', ddStop:0,   daily:0,    maxC:7,  cons:0,  price:'~$145/mo (90% promos common)',   payout:'90%'},
+  {id:'etf',    name:'Elite Trader Funding (50K)', size:50000, target:3000, dd:2500, ddType:'trailing-eod',      ddStop:0,   daily:0,    maxC:10, cons:0,  price:'~$165/mo (heavy promos)',        payout:'100% of first $12.5K, then 90%'},
+];
+
+const CHECKLIST = [
+  'I know today\'s high-impact news times (FOMC / CPI / NFP)',
+  'My max loss for today is written down and I will stop there',
+  'Position size is pre-calculated — no improvising mid-trade',
+  'I am trading my plan\'s setups only, not boredom trades',
+  'I am rested, sober and not revenge-trading yesterday',
+];
+
+/* ============ STATE ============ */
+const DEFAULTS = {
+  account:{firm:'apex',size:50000,start:50000,dd:2500,ddType:'trailing-intraday',ddStop:100,daily:0,target:3000,maxC:10,cons:30},
+  trades:[], checks:{}
+};
+let state = load();
+function load(){
+  try{ const s = JSON.parse(localStorage.getItem('propshield')); if(s && s.account) return s; }catch(e){}
+  return JSON.parse(JSON.stringify(DEFAULTS));
+}
+function save(){ localStorage.setItem('propshield', JSON.stringify(state)); }
+
+/* ============ HELPERS ============ */
+const $ = id => document.getElementById(id);
+const fmt = n => (n<0?'-':'') + '$' + Math.abs(n).toLocaleString('en-US',{maximumFractionDigits:2});
+const fmt0 = n => (n<0?'-':'') + '$' + Math.abs(n).toLocaleString('en-US',{maximumFractionDigits:0});
+function toast(msg){ const t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2200); }
+function today(){ return new Date().toISOString().slice(0,10); }
+
+function showTab(name){
+  document.querySelectorAll('section.tab').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.remove('active'));
+  $('tab-'+name).classList.add('active');
+  document.querySelector(`nav.tabs button[data-tab="${name}"]`).classList.add('active');
+  if(name==='journal') renderJournal();
+  if(name==='dashboard') renderDashboard();
+}
+
+/* ============ ACCOUNT MATH ============ */
+function sortedTrades(){ return [...state.trades].sort((a,b)=> a.date===b.date ? a.id-b.id : (a.date<b.date?-1:1)); }
+
+function computeAccount(){
+  const a = state.account;
+  let bal = a.start, hwm = a.start;
+  const ts = sortedTrades();
+  if(a.ddType==='trailing-intraday'){
+    for(const t of ts){ bal += t.pnl; if(bal>hwm) hwm=bal; }
+  } else if(a.ddType==='trailing-eod'){
+    let day=null;
+    for(const t of ts){
+      if(day!==null && t.date!==day && bal>hwm) hwm=bal;
+      day=t.date; bal += t.pnl;
+    }
+    if(ts.length && bal>hwm) hwm=bal; // close of last logged day
+  } else { for(const t of ts) bal += t.pnl; }
+  let ddLevel;
+  if(a.ddType==='static') ddLevel = a.start - a.dd;
+  else ddLevel = Math.min(hwm - a.dd, a.start + (a.ddStop||0));
+  const todayPnl = ts.filter(t=>t.date===today()).reduce((s,t)=>s+t.pnl,0);
+  return {bal, hwm, ddLevel, room:bal-ddLevel, todayPnl, totalPnl:bal-a.start};
+}
+
+/* ============ DASHBOARD ============ */
+function renderAccountForm(){
+  const sel = $('setFirm');
+  sel.innerHTML = FIRMS.map(f=>`<option value="${f.id}">${f.name}</option>`).join('');
+  const a = state.account;
+  sel.value = a.firm || 'custom';
+  $('setSize').value=a.size; $('setStart').value=a.start; $('setDD').value=a.dd;
+  $('setDDType').value=a.ddType; $('setDDStop').value=a.ddStop; $('setDaily').value=a.daily;
+  $('setTarget').value=a.target; $('setMaxC').value=a.maxC; $('setConsistency').value=a.cons;
+}
+function applyFirmPreset(){
+  const f = FIRMS.find(x=>x.id===$('setFirm').value);
+  if(!f || f.id==='custom') return;
+  $('setSize').value=f.size; $('setStart').value=f.size; $('setDD').value=f.dd;
+  $('setDDType').value=f.ddType; $('setDDStop').value=f.ddStop; $('setDaily').value=f.daily;
+  $('setTarget').value=f.target; $('setMaxC').value=f.maxC; $('setConsistency').value=f.cons;
+}
+function saveAccount(){
+  state.account = {
+    firm:$('setFirm').value,
+    size:+$('setSize').value, start:+$('setStart').value, dd:+$('setDD').value,
+    ddType:$('setDDType').value, ddStop:+$('setDDStop').value, daily:+$('setDaily').value,
+    target:+$('setTarget').value, maxC:+$('setMaxC').value, cons:+$('setConsistency').value
+  };
+  save(); renderDashboard(); toast('Account settings saved ✓');
+}
+function renderDashboard(){
+  const a = state.account, c = computeAccount();
+  $('mBalance').textContent = fmt0(c.bal);
+  $('mBalance').className = 'value ' + (c.totalPnl>=0?'pos':'neg');
+  $('mBalanceHint').textContent = (c.totalPnl>=0?'+':'') + fmt0(c.totalPnl).replace('$-','-$') + ' total P&L';
+  $('mDD').textContent = fmt0(c.ddLevel);
+  $('mDDHint').textContent = a.ddType==='static' ? 'Static floor' : (a.ddType==='trailing-eod'?'Trails end-of-day':'Trails in real time') + ` · HWM ${fmt0(c.hwm)}`;
+  const roomEl = $('mRoom');
+  roomEl.textContent = fmt0(c.room);
+  roomEl.className = 'value ' + (c.room > a.dd*0.5 ? 'pos' : c.room > a.dd*0.25 ? 'wrn' : 'neg');
+  $('mToday').textContent = fmt0(c.todayPnl);
+  $('mToday').className = 'value ' + (c.todayPnl>=0?'pos':'neg');
+  $('mTodayHint').textContent = a.daily>0 ? `Daily loss limit: ${fmt0(a.daily)}` : 'No firm daily loss limit — set your own';
+
+  // status banner
+  const pctRoom = c.room / a.dd;
+  let cls='safe', msg='✅ SAFE — Plenty of room. Trade your plan, nothing fancy.';
+  if(c.room<=0){ cls='danger'; msg='💀 BREACHED — Balance is at/below the drawdown level.'; }
+  else if(pctRoom<0.25){ cls='danger'; msg='🚨 DANGER — Less than 25% of drawdown room left. Trade micros only, or stop for the week.'; }
+  else if(pctRoom<0.5){ cls='warn'; msg='⚠️ CAUTION — Under half your drawdown room remains. Cut size by 50% and take only A+ setups.'; }
+  $('statusBanner').innerHTML = `<div class="banner ${cls}">${msg}</div>`;
+
+  // target progress
+  const tp = Math.max(0, Math.min(100, c.totalPnl/a.target*100));
+  $('targetProgress').innerHTML = `<div class="sub" style="margin:0">${fmt0(Math.max(0,c.totalPnl))} of ${fmt0(a.target)} (${tp.toFixed(0)}%)</div><div class="progress"><div style="width:${tp}%"></div></div>`;
+  // daily loss
+  if(a.daily>0){
+    const used = Math.max(0, -c.todayPnl), dp = Math.min(100, used/a.daily*100);
+    $('dailyProgress').innerHTML = `<div class="sub" style="margin:0">${fmt0(used)} of ${fmt0(a.daily)} used (${dp.toFixed(0)}%)</div><div class="progress"><div class="${dp>75?'danger':dp>50?'warn':''}" style="width:${dp}%"></div></div>`;
+  } else $('dailyProgress').innerHTML = '<div class="sub" style="margin:0">No firm limit — discipline is on you.</div>';
+
+  // checklist
+  $('checklist').innerHTML = CHECKLIST.map((c,i)=>
+    `<label><input type="checkbox" ${state.checks[i]?'checked':''} onchange="state.checks[${i}]=this.checked;save()"> ${c}</label>`).join('');
+}
+
+/* ============ POSITION SIZER ============ */
+function renderSymbols(){
+  const opts = CONTRACTS.map(c=>`<option value="${c.sym}">${c.sym} — ${c.name}</option>`).join('');
+  $('rsSymbol').innerHTML = opts; $('jSymbol').innerHTML = opts;
+  $('contractTable').innerHTML = '<tr><th>Symbol</th><th>Name</th><th>Tick Size</th><th>Tick Value</th><th>$ / point</th></tr>' +
+    CONTRACTS.map(c=>`<tr><td><b>${c.sym}</b></td><td>${c.name}</td><td>${c.tick}</td><td>$${c.tickVal}</td><td>$${(c.tickVal/c.tick).toLocaleString()}</td></tr>`).join('');
+}
+$('rsMode')?.addEventListener('change',()=>{ $('rsAmtLabel').textContent = $('rsMode').value==='fixed'?'Risk ($)':'Risk (% of room)'; });
+function calcRisk(){
+  const c = CONTRACTS.find(x=>x.sym===$('rsSymbol').value);
+  const ticks = +$('rsTicks').value, acc = computeAccount(), a = state.account;
+  if(!ticks || ticks<=0){ toast('Enter a stop size in ticks'); return; }
+  const riskBudget = $('rsMode').value==='fixed' ? +$('rsAmt').value : acc.room * (+$('rsAmt').value/100);
+  const perContract = ticks * c.tickVal;
+  const maxByRisk = Math.floor(riskBudget / perContract);
+  const allowed = Math.min(maxByRisk, a.maxC||999);
+  const capped = maxByRisk > (a.maxC||999);
+  $('rsResult').innerHTML = `
+    <h3>Result</h3>
+    <div class="big-result"><div class="pct ${allowed>0?'pos':'neg'}">${allowed}</div><div class="lbl">contracts of ${c.sym}${capped?' (capped by firm max '+a.maxC+')':''}</div></div>
+    <div class="grid cols-3 mt">
+      <div class="metric"><div class="label">Risk / contract</div><div class="value">${fmt(perContract)}</div></div>
+      <div class="metric"><div class="label">Total risk</div><div class="value">${fmt(allowed*perContract)}</div></div>
+      <div class="metric"><div class="label">% of room</div><div class="value ${allowed*perContract/acc.room>0.2?'wrn':'pos'}">${acc.room>0?(allowed*perContract/acc.room*100).toFixed(1):'∞'}%</div></div>
+    </div>
+    ${allowed===0?'<div class="note">Your stop is too wide for your risk budget. Tighten the stop, switch to micros, or wait for a better location.</div>':''}
+    ${acc.room < perContract ? '<div class="note">⚠️ One stop-out on a single contract would breach your account. Step away from the desk.</div>':''}`;
+}
+
+/* ============ MONTE CARLO ============ */
+function runSim(){
+  const a = state.account;
+  const winRate = +$('smWin').value/100, avgW = +$('smAvgW').value, avgL = +$('smAvgL').value;
+  const tpd = Math.max(1,+$('smTPD').value), maxDays = Math.max(1,+$('smDays').value);
+  const personalStop = +$('smStopDay').value;
+  const SIMS = 2000;
+  let pass=0, blow=0, timeout=0; const passDays=[]; const paths=[];
+  for(let s=0;s<SIMS;s++){
+    let bal=a.start, hwm=a.start, dead=false, passed=false, day=0;
+    const path=[bal];
+    for(day=1; day<=maxDays; day++){
+      let dayPnl=0;
+      for(let t=0;t<tpd;t++){
+        const pnl = Math.random()<winRate ? avgW : -avgL;
+        bal+=pnl; dayPnl+=pnl;
+        if(a.ddType==='trailing-intraday' && bal>hwm) hwm=bal;
+        const lvl = a.ddType==='static'? a.start-a.dd : Math.min(hwm-a.dd, a.start+(a.ddStop||0));
+        if(bal<=lvl){ dead=true; break; }
+        if(a.daily>0 && dayPnl<=-a.daily){ dead=true; break; } // firm daily loss = breach on most firms' evals or lockout; treat as breach-day worst case
+        if(bal>=a.start+a.target){ passed=true; break; }
+        if(personalStop>0 && dayPnl<=-personalStop) break; // personal stop: done for the day
+      }
+      if(a.ddType==='trailing-eod' && !dead && bal>hwm) hwm=bal;
+      path.push(bal);
+      if(dead||passed) break;
+    }
+    if(passed){ pass++; passDays.push(day); }
+    else if(dead) blow++;
+    else timeout++;
+    if(s<40) paths.push({path, passed, dead});
+  }
+  const pct = pass/SIMS*100;
+  $('smPass').textContent = pct.toFixed(1)+'%';
+  $('smPass').className = 'pct ' + (pct>=60?'pos':pct>=35?'wrn':'neg');
+  $('smBlow').textContent = (blow/SIMS*100).toFixed(1)+'%';
+  $('smTime').textContent = (timeout/SIMS*100).toFixed(1)+'%';
+  passDays.sort((x,y)=>x-y);
+  $('smMed').textContent = passDays.length? passDays[Math.floor(passDays.length/2)]+'d' : '—';
+  const exp = winRate*avgW - (1-winRate)*avgL;
+  $('smInsight').innerHTML = `Your expectancy is <b>${fmt(exp)}/trade</b> (${fmt(exp*tpd)}/day). ` +
+    (exp<=0 ? 'Negative edge — no amount of risk management passes a losing system. Fix the strategy first.' :
+     pct<35 ? 'Positive edge but high blow-up rate: your risk per trade is too large relative to the drawdown. Cut size or tighten stops and re-run.' :
+     pct<60 ? 'Decent odds. Reducing avg loser or adding a personal daily stop usually moves this above 60%.' :
+     'Strong odds. Stay mechanical — the only way to lose from here is breaking your own rules.');
+  drawSimChart(paths);
+}
+function drawSimChart(paths){
+  const cv=$('simChart'), ctx=cv.getContext('2d');
+  cv.width=cv.clientWidth*2; cv.height=520; ctx.scale(2,2);
+  const W=cv.clientWidth, H=260, a=state.account;
+  ctx.clearRect(0,0,W,H);
+  if(!paths.length) return;
+  let min=a.start-a.dd*1.2, max=a.start+a.target*1.2, maxLen=Math.max(...paths.map(p=>p.path.length),2);
+  const X=i=>10+(W-20)*i/(maxLen-1), Y=v=>H-15-(H-30)*(v-min)/(max-min);
+  // target & start lines
+  ctx.strokeStyle='#3dd68c55'; ctx.setLineDash([5,4]); ctx.beginPath(); ctx.moveTo(0,Y(a.start+a.target)); ctx.lineTo(W,Y(a.start+a.target)); ctx.stroke();
+  ctx.strokeStyle='#8b94a855'; ctx.beginPath(); ctx.moveTo(0,Y(a.start)); ctx.lineTo(W,Y(a.start)); ctx.stroke();
+  ctx.setLineDash([]);
+  for(const p of paths){
+    ctx.strokeStyle = p.passed?'rgba(61,214,140,.5)':p.dead?'rgba(255,92,92,.4)':'rgba(255,180,84,.35)';
+    ctx.lineWidth=1; ctx.beginPath();
+    p.path.forEach((v,i)=>{ const x=X(i),y=Y(Math.max(min,Math.min(max,v))); i?ctx.lineTo(x,y):ctx.moveTo(x,y); });
+    ctx.stroke();
+  }
+  ctx.fillStyle='#8b94a8'; ctx.font='11px sans-serif';
+  ctx.fillText('target', 4, Y(a.start+a.target)-4); ctx.fillText('start', 4, Y(a.start)-4);
+}
+
+/* ============ JOURNAL ============ */
+function tradePnl(){
+  const c = CONTRACTS.find(x=>x.sym===$('jSymbol').value);
+  const e=+$('jEntry').value, x=+$('jExit').value, q=+$('jQty').value||1, f=+$('jFees').value||0;
+  if(!e||!x) return null;
+  const dir = $('jSide').value==='Long'?1:-1;
+  return Math.round(((x-e)*dir/c.tick*c.tickVal*q - f)*100)/100;
+}
+['jEntry','jExit','jQty','jFees','jSide','jSymbol'].forEach(id=>{
+  document.addEventListener('input',e=>{ if(e.target.id===id){ const p=tradePnl(); if(p!==null) $('jPnl').placeholder = p; }});
+});
+function addTrade(){
+  const manual = $('jPnl').value !== '' ? +$('jPnl').value : null;
+  const auto = tradePnl();
+  const pnl = manual!==null ? manual : auto;
+  if(pnl===null){ toast('Enter entry+exit, or a P&L amount'); return; }
+  state.trades.push({
+    id: Date.now(), date: $('jDate').value || today(), sym: $('jSymbol').value,
+    side: $('jSide').value, qty:+$('jQty').value||1,
+    entry:+$('jEntry').value||null, exit:+$('jExit').value||null,
+    pnl, notes: $('jNotes').value
+  });
+  save(); ['jEntry','jExit','jPnl','jNotes'].forEach(id=>$(id).value='');
+  renderJournal(); toast('Trade logged ✓');
+}
+function delTrade(id){ state.trades = state.trades.filter(t=>t.id!==id); save(); renderJournal(); }
+function renderJournal(){
+  $('jDate').value = $('jDate').value || today();
+  const ts = sortedTrades(), a = state.account;
+  // table
+  let html = '<tr><th>Date</th><th>Sym</th><th>Side</th><th>Qty</th><th>Entry</th><th>Exit</th><th>P&L</th><th>Notes</th><th></th></tr>';
+  if(!ts.length) html += '<tr><td colspan="9" style="color:var(--muted)">No trades yet. Log your first trade above.</td></tr>';
+  for(const t of [...ts].reverse()){
+    html += `<tr><td>${t.date}</td><td><b>${t.sym}</b></td><td>${t.side}</td><td>${t.qty}</td><td>${t.entry??'—'}</td><td>${t.exit??'—'}</td>
+      <td class="${t.pnl>=0?'pos':'neg'}"><b>${fmt(t.pnl)}</b></td><td style="color:var(--muted)">${(t.notes||'').slice(0,40)}</td>
+      <td><button class="btn danger sm" onclick="delTrade(${t.id})">✕</button></td></tr>`;
+  }
+  $('tradeTable').innerHTML = html;
+  // stats
+  const wins = ts.filter(t=>t.pnl>0), losses = ts.filter(t=>t.pnl<0);
+  const gw = wins.reduce((s,t)=>s+t.pnl,0), gl = Math.abs(losses.reduce((s,t)=>s+t.pnl,0));
+  const total = gw-gl;
+  const stats = [
+    ['Trades', ts.length],
+    ['Win Rate', ts.length? (wins.length/ts.length*100).toFixed(0)+'%':'—'],
+    ['Total P&L', fmt0(total), total>=0?'pos':'neg'],
+    ['Profit Factor', gl>0? (gw/gl).toFixed(2) : (gw>0?'∞':'—')],
+    ['Avg Win', wins.length? fmt0(gw/wins.length):'—','pos'],
+    ['Avg Loss', losses.length? fmt0(gl/losses.length):'—','neg'],
+    ['Expectancy', ts.length? fmt(total/ts.length):'—', total>=0?'pos':'neg'],
+    ['Best Day', '—'], ['Worst Day','—'],
+  ];
+  // day aggregation
+  const days={}; ts.forEach(t=>{ days[t.date]=(days[t.date]||0)+t.pnl; });
+  const dayVals = Object.values(days);
+  if(dayVals.length){
+    stats[7]=['Best Day', fmt0(Math.max(...dayVals)),'pos'];
+    stats[8]=['Worst Day', fmt0(Math.min(...dayVals)),'neg'];
+  }
+  $('statsGrid').innerHTML = stats.map(([l,v,c])=>`<div class="metric"><div class="label">${l}</div><div class="value ${c||''}" style="font-size:1.15rem">${v}</div></div>`).join('');
+  // consistency
+  if(a.cons>0 && dayVals.length && total>0){
+    const best = Math.max(...dayVals);
+    const pct = best/total*100;
+    const ok = pct <= a.cons;
+    $('consistencyBox').innerHTML = `<div class="banner ${ok?'safe':'warn'}" style="margin:0">
+      ${ok?'✅':'⚠️'} Consistency rule: best day is ${pct.toFixed(0)}% of total profit (limit ${a.cons}%).
+      ${ok?'You\'re compliant.':`You need ~${fmt0(Math.max(0, best*100/a.cons - total))} more profit on other days to comply.`}</div>`;
+  } else $('consistencyBox').innerHTML = '';
+  drawEquity(ts);
+}
+function drawEquity(ts){
+  const cv=$('eqChart'), ctx=cv.getContext('2d');
+  cv.width=cv.clientWidth*2; cv.height=480; ctx.scale(2,2);
+  const W=cv.clientWidth, H=240, a=state.account;
+  ctx.clearRect(0,0,W,H);
+  let bal=a.start; const pts=[bal]; ts.forEach(t=>{bal+=t.pnl; pts.push(bal);});
+  const min=Math.min(...pts, a.start-a.dd), max=Math.max(...pts, a.start+a.target);
+  const X=i=>10+(W-20)*i/Math.max(pts.length-1,1), Y=v=>H-15-(H-30)*(v-min)/(max-min||1);
+  ctx.strokeStyle='#3dd68c55'; ctx.setLineDash([5,4]); ctx.beginPath(); ctx.moveTo(0,Y(a.start+a.target)); ctx.lineTo(W,Y(a.start+a.target)); ctx.stroke();
+  ctx.strokeStyle='#ff5c5c55'; ctx.beginPath(); ctx.moveTo(0,Y(a.start-a.dd)); ctx.lineTo(W,Y(a.start-a.dd)); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.strokeStyle='#3dd68c'; ctx.lineWidth=2; ctx.beginPath();
+  pts.forEach((v,i)=>{ i?ctx.lineTo(X(i),Y(v)):ctx.moveTo(X(i),Y(v)); });
+  ctx.stroke();
+  ctx.fillStyle='#8b94a8'; ctx.font='11px sans-serif';
+  ctx.fillText('target', 4, Y(a.start+a.target)-4);
+  ctx.fillText('initial drawdown floor', 4, Y(a.start-a.dd)-4);
+}
+
+/* ============ FIRMS TABLE ============ */
+function renderFirms(){
+  const rows = FIRMS.filter(f=>f.id!=='custom').map(f=>`<tr>
+    <td><b>${f.name}</b></td>
+    <td>${fmt0(f.dd)} <span class="pill ${f.ddType==='trailing-intraday'?'red':f.ddType==='trailing-eod'?'blue':'green'}">${f.ddType==='trailing-intraday'?'INTRADAY':f.ddType==='trailing-eod'?'EOD':'STATIC'}</span></td>
+    <td>${f.daily>0?fmt0(f.daily):'<span class="pill green">NONE</span>'}</td>
+    <td>${fmt0(f.target)}</td>
+    <td>${f.maxC}</td>
+    <td>${f.cons>0? f.cons+'%':'—'}</td>
+    <td style="color:var(--muted)">${f.price}</td>
+    <td style="color:var(--muted)">${f.payout}</td>
+  </tr>`).join('');
+  $('firmTable').innerHTML = '<tr><th>Firm (50K)</th><th>Max Drawdown</th><th>Daily Loss</th><th>Target</th><th>Max Contracts</th><th>Consistency</th><th>Typical Price</th><th>Payout Split</th></tr>'+rows;
+}
+
+/* ============ EXPORT / IMPORT ============ */
+function exportData(){
+  const blob = new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'propshield-backup-'+today()+'.json';
+  a.click(); toast('Backup downloaded ✓');
+}
+function importData(ev){
+  const f = ev.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try{ const s = JSON.parse(r.result); if(!s.account) throw 0;
+      state = s; save(); renderAll(); toast('Data imported ✓');
+    }catch(e){ toast('Invalid backup file'); }
+  };
+  r.readAsText(f);
+}
+
+/* ============ INIT ============ */
+function renderAll(){ renderAccountForm(); renderSymbols(); renderFirms(); renderDashboard(); renderJournal(); }
+renderAll();
+</script>
+</body>
+</html>
