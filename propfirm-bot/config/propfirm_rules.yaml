@@ -1,0 +1,56 @@
+# Propfirm rule-sets. Pick one with `active_preset`, or add your own.
+# All dollar values are positive numbers in account currency.
+# VERIFY every number against your firm's current rules before going live —
+# firms change limits often and this file is the single source of truth
+# the bot enforces.
+
+active_preset: apex_50k
+
+presets:
+  apex_50k:
+    name: "Apex 50K (example)"
+    account_size: 50000
+    max_daily_loss: 0          # Apex has no daily loss limit -> bot-side soft cap below
+    max_drawdown: 2500
+    drawdown_mode: trailing_intraday
+    profit_target: 3000
+    max_contracts: 10
+    risk_per_trade_pct: 0.5
+    daily_loss_soft_stop_pct: 100
+    consistency_max_day_pct: 30
+    timezone: America/Chicago
+    sessions: [["08:30", "15:00"]]
+    blackouts: [["07:25", "07:35"], ["09:00", "09:05"]]   # e.g. CPI/ISM windows
+    flat_by: "15:55"
+
+  topstep_50k:
+    name: "Topstep 50K (example)"
+    account_size: 50000
+    max_daily_loss: 1000
+    max_drawdown: 2000
+    drawdown_mode: trailing_eod
+    profit_target: 3000
+    max_contracts: 5
+    risk_per_trade_pct: 0.5
+    daily_loss_soft_stop_pct: 80
+    consistency_max_day_pct: 50
+    timezone: America/Chicago
+    sessions: [["08:30", "15:00"]]
+    blackouts: []
+    flat_by: "15:55"
+
+  ftmo_100k_style:
+    name: "FTMO-style 100K (example)"
+    account_size: 100000
+    max_daily_loss: 5000
+    max_drawdown: 10000
+    drawdown_mode: static
+    profit_target: 10000
+    max_contracts: 10
+    risk_per_trade_pct: 0.5
+    daily_loss_soft_stop_pct: 70
+    consistency_max_day_pct: 0
+    timezone: America/Chicago
+    sessions: [["02:00", "15:00"]]
+    blackouts: []
+    flat_by: ""

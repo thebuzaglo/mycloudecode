@@ -1,0 +1,49 @@
+# Strategy / council configuration.
+
+instrument:
+  symbol: NQ
+  tick_size: 0.25
+  point_value: 20.0      # NQ = $20/point; use 2.0 for MNQ
+
+# Timeframes the council sits on (TradingView interval strings: minutes).
+timeframes: ["5", "15", "60"]
+decision_timeframe: "5"  # entries are triggered on this TF's bar close
+
+# Starting weights; the Learner adapts these on the fly (persisted in the DB).
+member_weights:
+  trend_ema: 1.0
+  momentum_rsi: 1.0
+  mean_reversion: 1.0
+  breakout: 1.0
+  slope: 1.0
+timeframe_weights:
+  "5": 1.0
+  "15": 1.2
+  "60": 1.5
+
+params:
+  entry_threshold: 0.35  # |council score| needed to fire
+  stop_atr_mult: 1.5
+  reward_risk: 2.0
+  min_coverage: 0.5
+
+correlation:
+  references: [ES, YM, RTY]   # add DXY/ZN if you feed them alerts too
+  timeframe: "5"
+  window: 60
+  min_multiplier: 0.4   # max attenuation when the complex disagrees
+  boost: 0.15           # max boost when everything confirms
+
+learning:
+  eta: 0.10             # weight-update aggressiveness
+  review_every: 20      # closed trades between parameter reviews
+
+webhook:
+  host: 0.0.0.0
+  port: 8787
+  secret: "CHANGE_ME"   # must match the `secret` field in your TV alerts
+
+execution:
+  mode: paper           # paper | webhook
+  url: ""               # execution bridge URL when mode=webhook
+  secret: ""
