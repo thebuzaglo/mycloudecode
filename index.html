@@ -20,7 +20,8 @@
   nav{position:sticky; top:0; z-index:10; background:rgba(15,17,21,.92); backdrop-filter:blur(8px); padding:10px 8px; display:flex; gap:6px; overflow-x:auto; border-bottom:1px solid #232733;}
   nav a{flex:0 0 auto; text-decoration:none; color:var(--txt); background:var(--card); border:1px solid #2e3340; border-radius:999px; padding:6px 14px; font-size:.9rem;}
   nav a:active{background:var(--accent); color:#000;}
-  h2{font-size:1.25rem; margin:34px 0 4px; display:flex; align-items:center; gap:8px;}
+  h2{font-size:1.25rem; margin:34px 0 4px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .daychip{font-size:.78rem; font-weight:700; background:var(--card2); border:1px solid #2e3340; border-radius:999px; padding:3px 12px; color:var(--accent);}
   .sub{color:var(--muted); font-size:.9rem; margin-bottom:14px;}
   .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px;}
   .card{background:var(--card); border:1px solid #262b36; border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column;}
@@ -31,6 +32,8 @@
   .tag.snack{color:var(--gold);}
   .card h3{font-size:1.05rem;}
   .meta{font-size:.83rem; color:var(--muted);}
+  .macros{display:flex; gap:6px; flex-wrap:wrap;}
+  .macros span{font-size:.78rem; background:var(--card2); border-radius:8px; padding:3px 9px;}
   .note{font-size:.85rem; background:var(--card2); border-radius:10px; padding:8px 10px;}
   .btn{margin-top:auto; text-align:center; text-decoration:none; font-weight:700; font-size:.9rem; background:var(--accent); color:#06210f; border-radius:12px; padding:10px;}
   .btn.blue{background:var(--accent2); color:#071a33;}
@@ -46,6 +49,10 @@
   ul.rules li.no::before{content:"⛔ ";}
   ul.rules li.free::before{content:"🆓 ";}
   .banner{background:linear-gradient(135deg,#1d2738,#192030); border:1px solid #2e3a52; border-radius:var(--radius); padding:16px 18px; margin:14px 0; font-size:.92rem;}
+  .targets{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; margin:14px 0;}
+  .tbox{background:var(--card); border:1px solid #2e3340; border-radius:var(--radius); padding:14px; text-align:center;}
+  .tbox .big{font-size:1.45rem; font-weight:800; color:var(--accent);}
+  .tbox .lbl{font-size:.8rem; color:var(--muted); margin-top:2px;}
   .day-anchor{scroll-margin-top:70px;}
   footer{text-align:center; color:var(--muted); font-size:.8rem; margin-top:44px; padding:0 16px;}
 </style>
@@ -53,38 +60,49 @@
 <body>
 
 <header>
-  <h1>🍽️ התפריט השבועי של שלומי</h1>
-  <p>לפי התפריט של דור אקשטיין · מטרה: ירידה באחוזי שומן + בניית מסת שריר · מינימום בישול</p>
+  <h1>🍽️ התפריט השבועי של שלומי — גרסת PROMEAL</h1>
+  <p>לפי התפריט של דור אקשטיין · ירידה באחוזי שומן + בניית מסת שריר · אפס חיתוך ובישול</p>
   <div>
-    <span class="pill">🥩 צהריים: ~350 ג׳ בשר רזה + 3 ירוקים</span>
-    <span class="pill">🍚 ערב: חלבון + פחמימה + 3 ירקות</span>
-    <span class="pill">🍕 פעם בשבוע: ערב אימון</span>
+    <span class="pill">📦 הזמנה אחת לשבוע — ראשון עד ראשון</span>
+    <span class="pill">🍕 שבת = אימון + פיצה מבחוץ</span>
   </div>
 </header>
 
 <nav>
-  <a href="#day-sun">ראשון</a><a href="#day-mon">שני</a><a href="#day-tue">שלישי</a>
-  <a href="#day-wed">רביעי</a><a href="#day-thu">חמישי</a><a href="#day-fri">שישי</a><a href="#day-sat">שבת</a>
-  <a href="#order">🛒 הזמנה</a><a href="#wolt">🛍️ וולט</a><a href="#rules">📜 חוקים</a>
+  <a href="#targets">🎯 יעדים</a>
+  <a href="#day-sun">א</a><a href="#day-mon">ב</a><a href="#day-tue">ג</a>
+  <a href="#day-wed">ד</a><a href="#day-thu">ה</a><a href="#day-fri">ו</a><a href="#day-sat">ש</a>
+  <a href="#order">🛒 הזמנה</a><a href="#rules">📜 חוקים</a>
 </nav>
 
 <div class="wrap">
 
+<!-- ============ ניתוח יעדים ============ -->
+<h2 id="targets" class="day-anchor">🎯 ניתוח התפריט של דור — כמה מותר לך ביום</h2>
+<p class="sub">חישוב לפי כל האופציות בתפריט: צהריים (חלבון+ירוקים) + ביניים + ערב (חלבון+פחמימה+ירקות) + 100 קלוריות פינוק.</p>
+<div class="targets">
+  <div class="tbox"><div class="big">~1,800</div><div class="lbl">קק״ל — תקרה מוחלטת ליום<br>(מסלול "בשר שמן" + כל התוספות)</div></div>
+  <div class="tbox"><div class="big">1,400–1,650</div><div class="lbl">קק״ל — טווח עבודה רגיל<br>(גירעון ~800–1,000 מתחזוקה 2,430)</div></div>
+  <div class="tbox"><div class="big">110–185 ג׳</div><div class="lbl">חלבון · לכוון ל־150+<br>(מסלול רזה = מקסימום חלבון)</div></div>
+  <div class="tbox"><div class="big">עד ~100 ג׳</div><div class="lbl">שומן — רק אם בוחרים בשר שמן<br>ביום רגיל: 15–50 ג׳</div></div>
+  <div class="tbox"><div class="big">עד ~100 ג׳</div><div class="lbl">פחמימות — רובן בערב<br>(אורז/פסטה/פתיתים/לחם)</div></div>
+  <div class="tbox"><div class="big">~2,100</div><div class="lbl">קק״ל בשבת (יום אימון)<br>צהריים פרומיל + פיצה אחרי אימון</div></div>
+</div>
 <div class="banner">
-  💡 <b>איך זה עובד:</b> משלוח Promeal מגיע ביום ראשון ומכסה את ימים ראשון–חמישי (צהריים + ערב, חימום 3 דק׳ במיקרו). שישי–שבת מתבססים על מוצרים מ‑Wolt Market בלי בישול (טונה, גבינות, ביצים). ארוחת ביניים — אופציונלית, מהמקרר.
+  📊 <b>איך זה יוצא בפועל בתוכנית למטה:</b> כל הימים סוגרים 900–1,250 קק״ל עם 91–190 ג׳ חלבון — עמוק מתחת לתקרה. נשאר מרווח בטוח לארוחת ביניים (~230 קק״ל), לפינוק הערב, ולעוד חלבון רזה אם רעבים. אין יום שמתקרב לגבול.
 </div>
 
 <!-- ============ ראשון ============ -->
-<h2 id="day-sun" class="day-anchor">🟢 יום ראשון</h2>
-<p class="sub">היום מגיע המשלוח של Promeal — מסדרים במקרר ויוצאים לדרך.</p>
+<h2 id="day-sun" class="day-anchor">🟢 יום ראשון <span class="daychip">1,059 קק״ל · 156 ח׳ · 14 ש׳ · 66 פ׳</span></h2>
+<p class="sub">המשלוח מגיע היום — מסדרים במקרר (כל המנות מחזיקות שבוע).</p>
 <div class="grid">
   <div class="card">
     <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10610_1e03bcc2-2a25-4199-a372-ae884d9f8acd.jpg?v=1766478376" alt="שווארמה הודו PROtein plus" loading="lazy">
     <div class="body">
       <span class="tag">☀️ צהריים</span>
       <h3>רצועות שווארמה הודו PROtein plus</h3>
-      <div class="meta">300 ג׳ · 407 קק״ל · 90 ג׳ חלבון · ₪70</div>
-      <div class="note">+ 3 ירקות ירוקים מהמקרר: מלפפון, חסה, פלפל ירוק 🥒</div>
+      <div class="meta">300 ג׳ · ₪70</div>
+      <div class="macros"><span>🔥 407</span><span>🥩 90.2</span><span>🧈 2.4</span><span>🍞 0</span></div>
       <a class="btn" href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy" target="_blank">למנה באתר ↗</a>
     </div>
   </div>
@@ -93,75 +111,48 @@
     <div class="body">
       <span class="tag dinner">🌙 ערב</span>
       <h3>חזה עוף מדורה ואורז</h3>
-      <div class="meta">552 קק״ל · 65.6 ג׳ חלבון · ₪70</div>
-      <div class="note">+ 3 ירקות בכל צבע. מהאורז אוכלים עד ~120 ג׳ (לא חובה לסיים)</div>
+      <div class="meta">₪70</div>
+      <div class="macros"><span>🔥 552</span><span>🥩 65.6</span><span>🧈 ~7</span><span>🍞 ~55</span></div>
       <a class="btn blue" href="https://promealfood.com/products/חזה-עוף-מדורה-ואורז" target="_blank">למנה באתר ↗</a>
     </div>
   </div>
 </div>
 
 <!-- ============ שני ============ -->
-<h2 id="day-mon" class="day-anchor">🟢 יום שני</h2>
+<h2 id="day-mon" class="day-anchor">🟢 יום שני <span class="daychip">1,002 קק״ל · 135 ח׳ · 20 ש׳ · 66 פ׳</span></h2>
+<div class="grid">
+  <div class="card">
+    <div class="body">
+      <span class="tag">☀️ צהריים — שתי מנות</span>
+      <h3>עוף פהאיטאס + ברוקולי ושעועית ירוקה<br><span style="color:var(--muted); font-size:.9rem">+ פסטרמה טבעית בטעם של פעם</span></h3>
+      <div class="meta">₪63 + ₪50 — הירקות כבר בפנים, בלי לחתוך כלום</div>
+      <div class="macros"><span>🔥 450</span><span>🥩 95.4</span><span>🧈 ~3</span><span>🍞 ~10</span></div>
+      <a class="btn" href="https://promealfood.com/products/עוף-פהאיטס-ברוקולי-ושעועית-ירוקה" target="_blank">פהאיטאס וירקות ↗</a>
+      <a class="btn ghost" href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy-1" target="_blank">פסטרמה ↗</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="body">
+      <span class="tag dinner">🌙 ערב</span>
+      <h3>ראגו בולונז בתוספת פסטה, אפונה וגזר</h3>
+      <div class="meta">₪65 · בשר טחון = אופציית "בשר שמן", פסטה = הפחמימה</div>
+      <div class="macros"><span>🔥 452</span><span>🥩 39.3</span><span>🧈 11.7</span><span>🍞 44.5</span></div>
+      <a class="btn blue" href="https://promealfood.com/products/בולונז-פסטה-אפונה-וגזר-1" target="_blank">למנה באתר ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ שלישי ============ -->
+<h2 id="day-tue" class="day-anchor">🟢 יום שלישי <span class="daychip">1,222 קק״ל · 190 ח׳ · 8 ש׳ · 64 פ׳</span></h2>
 <div class="grid">
   <div class="card">
     <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal6136_ee159f2e-ccaa-4cd0-bf17-9fd7793c33d7.jpg?v=1766478322" alt="המבורגר עוף PROtein plus" loading="lazy">
     <div class="body">
       <span class="tag">☀️ צהריים</span>
       <h3>המבורגר עוף PROtein plus</h3>
-      <div class="meta">400 ג׳ · 600 קק״ל · 124 ג׳ חלבון · ₪80</div>
-      <div class="note">אוכלים ~300 ג׳ בצהריים, ושומרים המבורגר אחד (~100 ג׳) לארוחת הביניים. + 3 ירקות ירוקים</div>
+      <div class="meta">400 ג׳ · ₪80 · אפשר לשמור המבורגר אחד לארוחת ביניים</div>
+      <div class="macros"><span>🔥 600</span><span>🥩 124</span><span>🧈 1.6</span><span>🍞 8</span></div>
       <a class="btn" href="https://promealfood.com/products/המבורגר-עוף-copy" target="_blank">למנה באתר ↗</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10603.jpg?v=1766477707" alt="שווארמה הודו אורז אדום" loading="lazy">
-    <div class="body">
-      <span class="tag dinner">🌙 ערב</span>
-      <h3>שווארמה הודו + אורז אדום וירקות מהגריל</h3>
-      <div class="meta">392 קק״ל · 49.5 ג׳ חלבון · ₪63</div>
-      <div class="note">מנה משולבת — חלבון, פחמימה וירקות במגש אחד 👌</div>
-      <a class="btn blue" href="https://promealfood.com/products/שווארמה-הודו-אורז-אדום-ירקות-בגריל" target="_blank">למנה באתר ↗</a>
-    </div>
-  </div>
-</div>
-
-<!-- ============ שלישי ============ -->
-<h2 id="day-tue" class="day-anchor">🟢 יום שלישי</h2>
-<div class="grid">
-  <div class="card">
-    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10627.jpg?v=1766477869" alt="חזה עוף מהגריל" loading="lazy">
-    <div class="body">
-      <span class="tag">☀️ צהריים</span>
-      <h3>חזה עוף מהגריל + פסטרמה טבעית</h3>
-      <div class="meta">150 ג׳ + 150 ג׳ = 300 ג׳ · ~452 קק״ל · ~91 ג׳ חלבון · ₪100</div>
-      <div class="note">שתי מנות נקיות שמצטרפות לכמות של התפריט. + 3 ירקות ירוקים</div>
-      <a class="btn" href="https://promealfood.com/products/חזה-עוף-מהגריל" target="_blank">חזה עוף ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy-1" target="_blank">פסטרמה ↗</a>
-    </div>
-  </div>
-  <div class="card">
-    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/promeal1238174.jpg?v=1771269684" alt="קציצות עוף ופתיתים" loading="lazy">
-    <div class="body">
-      <span class="tag dinner">🌙 ערב</span>
-      <h3>קציצות עוף ופתיתים</h3>
-      <div class="meta">724 קק״ל · 28.4 ג׳ חלבון · ₪70</div>
-      <div class="note">קציצות = אופציית "בשר שמן" בתפריט. מהפתיתים אוכלים עד ~95 ג׳. + 3 ירקות טריים</div>
-      <a class="btn blue" href="https://promealfood.com/products/קציצות-עוף-ופתיתים" target="_blank">למנה באתר ↗</a>
-    </div>
-  </div>
-</div>
-
-<!-- ============ רביעי ============ -->
-<h2 id="day-wed" class="day-anchor">🟢 יום רביעי</h2>
-<div class="grid">
-  <div class="card">
-    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10610_1e03bcc2-2a25-4199-a372-ae884d9f8acd.jpg?v=1766478376" alt="שווארמה הודו PROtein plus" loading="lazy">
-    <div class="body">
-      <span class="tag">☀️ צהריים</span>
-      <h3>רצועות שווארמה הודו PROtein plus</h3>
-      <div class="meta">300 ג׳ · 407 קק״ל · 90 ג׳ חלבון · ₪70</div>
-      <div class="note">+ 3 ירקות ירוקים 🥬</div>
-      <a class="btn" href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy" target="_blank">למנה באתר ↗</a>
     </div>
   </div>
   <div class="card">
@@ -169,173 +160,181 @@
     <div class="body">
       <span class="tag dinner">🌙 ערב</span>
       <h3>המקסיקנית — עוף, פלפלים ואורז מקסיקני</h3>
-      <div class="meta">522 קק״ל · 66 ג׳ חלבון · ₪65</div>
-      <div class="note">חלבון + פחמימה + ירקות במנה אחת</div>
+      <div class="meta">₪65 · חלבון + פחמימה + ירקות במגש אחד</div>
+      <div class="macros"><span>🔥 522</span><span>🥩 66</span><span>🧈 1.2</span><span>🍞 45.4</span></div>
       <a class="btn blue" href="https://promealfood.com/products/המקסיקנית" target="_blank">למנה באתר ↗</a>
     </div>
   </div>
 </div>
 
-<!-- ============ חמישי ============ -->
-<h2 id="day-thu" class="day-anchor">🟢 יום חמישי</h2>
+<!-- ============ רביעי ============ -->
+<h2 id="day-wed" class="day-anchor">🟢 יום רביעי <span class="daychip">899 קק״ל · 140 ח׳ · 12 ש׳ · 45 פ׳</span></h2>
+<p class="sub">היום הקל בשבוע — מקום מצוין לארוחת ביניים מלאה או תוספת חלבון.</p>
 <div class="grid">
   <div class="card">
-    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10398.jpg?v=1766477590" alt="עוף פהאיטאס מקסיקני" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10610_1e03bcc2-2a25-4199-a372-ae884d9f8acd.jpg?v=1766478376" alt="שווארמה הודו PROtein plus" loading="lazy">
     <div class="body">
       <span class="tag">☀️ צהריים</span>
-      <h3>עוף פהאיטאס מקסיקני + השלמת חלבון</h3>
-      <div class="meta">295 קק״ל · 56 ג׳ חלבון · ₪40</div>
-      <div class="note">משלימים עם 100 ג׳ קוטג׳ 3% מהמקרר כדי להגיע לכמות החלבון. + ירקות ירוקים</div>
-      <a class="btn" href="https://promealfood.com/products/עוף-פהאיטס" target="_blank">למנה באתר ↗</a>
+      <h3>רצועות שווארמה הודו PROtein plus</h3>
+      <div class="meta">300 ג׳ · ₪70</div>
+      <div class="macros"><span>🔥 407</span><span>🥩 90.2</span><span>🧈 2.4</span><span>🍞 0</span></div>
+      <a class="btn" href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy" target="_blank">למנה באתר ↗</a>
     </div>
   </div>
   <div class="card">
-    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/ChatGPTImageMar2_2026_06_41_12PM_2685a97b-06cd-41e7-b485-5c793ad5b183.png?v=1772472967" alt="חזה עוף עם ירקות מאודים" loading="lazy">
+    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10603.jpg?v=1766477707" alt="שווארמה הודו אורז אדום" loading="lazy">
     <div class="body">
       <span class="tag dinner">🌙 ערב</span>
-      <h3>חזה עוף מהגריל עם ירקות מאודים + אורז לבן</h3>
-      <div class="meta">306 + 212 קק״ל · ~52 ג׳ חלבון · ₪60 + ₪25</div>
-      <div class="note">מהאורז אוכלים עד ~120 ג׳</div>
-      <a class="btn blue" href="https://promealfood.com/products/חזה-עוף-על-הגריל-עם-ירקות-מאודים" target="_blank">המנה ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/אורז-לבן-מאודה" target="_blank">תוספת אורז ↗</a>
+      <h3>שווארמה הודו + אורז אדום וירקות מהגריל</h3>
+      <div class="meta">₪63</div>
+      <div class="macros"><span>🔥 392</span><span>🥩 49.5</span><span>🧈 4.3</span><span>🍞 34.2</span></div>
+      <a class="btn blue" href="https://promealfood.com/products/שווארמה-הודו-אורז-אדום-ירקות-בגריל" target="_blank">למנה באתר ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ חמישי ============ -->
+<h2 id="day-thu" class="day-anchor">🟢 יום חמישי <span class="daychip">998 קק״ל · 112 ח׳ · 19 ש׳ · 89 פ׳</span></h2>
+<div class="grid">
+  <div class="card">
+    <div class="body">
+      <span class="tag">☀️ צהריים</span>
+      <h3>המבורגר עוף עם לקט ירוקים מאודים</h3>
+      <div class="meta">₪63 · שעועית, ברוקולי ואדממה — הירוקים כלולים</div>
+      <div class="macros"><span>🔥 416</span><span>🥩 74</span><span>🧈 5.2</span><span>🍞 15.6</span></div>
+      <a class="btn" href="https://promealfood.com/products/המבורגר-עוף-עם-לקט-ירוקים" target="_blank">למנה באתר ↗</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="body">
+      <span class="tag dinner">🌙 ערב</span>
+      <h3>בקר סצ׳ואן בתוספת אורז לבן</h3>
+      <div class="meta">₪65 · בקר = "בשר שמן" · מכיל מעט סויה (מותר כף)</div>
+      <div class="macros"><span>🔥 482</span><span>🥩 38.1</span><span>🧈 8.7</span><span>🍞 62</span></div>
+      <a class="btn blue" href="https://promealfood.com/products/בקר-סצואן-אורז-לבן" target="_blank">למנה באתר ↗</a>
     </div>
   </div>
 </div>
 
 <!-- ============ שישי ============ -->
-<h2 id="day-fri" class="day-anchor">🔵 יום שישי — יום אימון 🏋️</h2>
-<p class="sub">בלי בישול בכלל. בערב — הארוחה החד-שבועית אחרי האימון.</p>
+<h2 id="day-fri" class="day-anchor">🟢 יום שישי <span class="daychip">~837 קק״ל · 91 ח׳ · 21 ש׳ · 62 פ׳</span></h2>
 <div class="grid">
   <div class="card">
+    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/square-promeal10609.jpg?v=1766477318" alt="שווארמה הודו וירקות מהגריל" loading="lazy">
     <div class="body">
       <span class="tag">☀️ צהריים</span>
-      <h3>🐟 טונה בשמן מסוננת — 240 ג׳ (2 קופסאות)</h3>
-      <div class="meta">מ‑Wolt Market · פתיחת קופסה וסינון — זהו</div>
-      <div class="note">+ 3 ירקות ירוקים. אפשר כף חרדל/קטשופ דל קלוריות</div>
-      <a class="btn blue" href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=טונה" target="_blank">טונה בוולט ↗</a>
+      <h3>שווארמה הודו וירקות מהגריל</h3>
+      <div class="meta">₪49 · גזר, בצל, פלפל וזוקיני בפנים</div>
+      <div class="macros"><span>🔥 357</span><span>🥩 62.9</span><span>🧈 4</span><span>🍞 11.3</span></div>
+      <a class="btn" href="https://promealfood.com/products/שווארמה-הודו-וירקות-גריל" target="_blank">למנה באתר ↗</a>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/promeal1238174.jpg?v=1771269684" alt="קציצות עוף ופתיתים" loading="lazy">
+    <div class="body">
+      <span class="tag dinner">🌙 ערב</span>
+      <h3>קציצות עוף ופתיתים</h3>
+      <div class="meta">₪70 · קציצות = "בשר שמן"</div>
+      <div class="macros"><span>🔥 ~380*</span><span>🥩 28.4</span><span>🧈 12</span><span>🍞 ~40*</span></div>
+      <div class="note">*המנה מגיעה עם המון פתיתים (125 ג׳ פחמימה). לפי התפריט אוכלים עד ~95 ג׳ פתיתים — בערך רבע מהתוספת — וככה יוצאים ~380 קק״ל במקום 724.</div>
+      <a class="btn blue" href="https://promealfood.com/products/קציצות-עוף-ופתיתים" target="_blank">למנה באתר ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ שבת ============ -->
+<h2 id="day-sat" class="day-anchor">🔵 שבת — יום אימון 🏋️ <span class="daychip">~2,100 קק״ל כולל הפיצה</span></h2>
+<p class="sub">☕ 30 דק׳ לפני האימון: קפה חזק בלי סוכר · הארוחה הגדולה — בדיוק 60 דק׳ אחרי האימון.</p>
+<div class="grid">
+  <div class="card">
+    <img src="https://cdn.shopify.com/s/files/1/0686/8818/3457/files/ChatGPTImageMar2_2026_06_41_12PM_2685a97b-06cd-41e7-b485-5c793ad5b183.png?v=1772472967" alt="חזה עוף עם ירקות מאודים" loading="lazy">
+    <div class="body">
+      <span class="tag">☀️ צהריים — שתי מנות</span>
+      <h3>חזה עוף על הגריל עם ירקות מאודים<br><span style="color:var(--muted); font-size:.9rem">+ פסטרמה טבעית</span></h3>
+      <div class="meta">₪60 + ₪50</div>
+      <div class="macros"><span>🔥 510</span><span>🥩 92.7</span><span>🧈 9.4</span><span>🍞 9.3</span></div>
+      <a class="btn" href="https://promealfood.com/products/חזה-עוף-על-הגריל-עם-ירקות-מאודים" target="_blank">חזה עוף וירקות ↗</a>
+      <a class="btn ghost" href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy-1" target="_blank">פסטרמה ↗</a>
     </div>
   </div>
   <div class="card">
     <div class="body">
-      <span class="tag dinner">🌙 ערב אימון — הארוחה השבועית</span>
-      <h3>🍕 6 משולשי פיצה <span style="color:var(--muted)">או</span> 🍣 6 רולים של סושי</h3>
-      <div class="meta">בדיוק 60 דק׳ אחרי האימון · סושי עם דג, לא מטוגן</div>
-      <div class="note">☕ 30 דק׳ לפני האימון: קפה חזק בלי סוכר.<br>אפשר לחלק לשתי ארוחות ערב קטנות. + 3 ירקות בכל הצבעים</div>
+      <span class="tag dinner">🌙 ערב אימון — הארוחה השבועית 🍕</span>
+      <h3>6 משולשי פיצה (הזמנה מבחוץ)</h3>
+      <div class="meta">~1,400–1,600 קק״ל · או 6 רולים של סושי עם דג, לא מטוגן</div>
+      <div class="note">אפשר לחלק לשתי ארוחות ערב קטנות · לא חובה לסיים הכל</div>
       <a class="btn blue" href="https://wolt.com/he/isr/tel-aviv/search?q=פיצה" target="_blank">פיצה בוולט ↗</a>
       <a class="btn ghost" href="https://wolt.com/he/isr/tel-aviv/search?q=סושי" target="_blank">סושי בוולט ↗</a>
     </div>
   </div>
 </div>
 
-<!-- ============ שבת ============ -->
-<h2 id="day-sat" class="day-anchor">🔵 שבת</h2>
-<p class="sub">יום גבינות — אפס בישול, הכל מהמקרר.</p>
-<div class="grid">
-  <div class="card">
-    <div class="body">
-      <span class="tag">☀️ צהריים</span>
-      <h3>🧀 570 ג׳ גבינה לבנה / קוטג׳ 3% <span style="color:var(--muted)">או</span> 400 ג׳ בולגרית 5%</h3>
-      <div class="meta">מ‑Wolt Market</div>
-      <div class="note">+ 3 ירקות ירוקים</div>
-      <a class="btn blue" href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=קוטג" target="_blank">קוטג׳ בוולט ↗</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="body">
-      <span class="tag dinner">🌙 ערב</span>
-      <h3>🥪 8 פרוסות גבינה צהובה 9% + 2 פרוסות לחם לבן/קל</h3>
-      <div class="meta">טוסט בלי טוסטר 😎 אפס בישול</div>
-      <div class="note">+ 3 ירקות בכל צבע. אופציה: חביתה מ‑9 לבנים + 5 צהובים עם ספריי שמן (5 דק׳ מחבת)</div>
-      <a class="btn blue" href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=גבינה צהובה 9" target="_blank">גבינה צהובה בוולט ↗</a>
-    </div>
-  </div>
-</div>
-
 <!-- ============ ביניים ============ -->
-<h2>🥨 ארוחת ביניים קבועה (לא חובה — כל יום)</h2>
+<h2>🥨 ארוחת ביניים (לא חובה — יש לה מקום בתקציב כל יום)</h2>
 <div class="grid">
   <div class="card">
     <div class="body">
-      <span class="tag snack">🕒 ביניים</span>
+      <span class="tag snack">🕒 ביניים · ~230 קק״ל</span>
       <h3>2 פרוסות לחם קל / 4 פרכיות + חלבון</h3>
-      <div class="note">החלבון: 50 ג׳ בשר רזה (נשאר מהצהריים) / 100 ג׳ קוטג׳ 3% / פרוסת גבינה צהובה 9% + ירק ירוק אחד 🥒</div>
-      <a class="btn blue" href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=לחם קל" target="_blank">לחם קל בוולט ↗</a>
+      <div class="note">החלבון הכי פשוט: המבורגר ששמרת משלישי / שווארמה שנשארה / 100 ג׳ קוטג׳ / פרוסת צהובה 9% + מלפפון (בלי חיתוך 😎)</div>
     </div>
   </div>
   <div class="card">
     <div class="body">
-      <span class="tag snack">🍫 פינוק ערב (כל ערב)</span>
+      <span class="tag snack">🍫 פינוק ערב — כל ערב</span>
       <h3>4 קוביות שוקולד / פרי / 100 קלוריות חופשיות</h3>
-      <div class="note">ניתן לצבור מיום ליום 😉</div>
-      <a class="btn blue" href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=שוקולד מריר" target="_blank">שוקולד בוולט ↗</a>
+      <div class="note">כבר מחושב בתוך הסיכום היומי · ניתן לצבור מיום ליום</div>
     </div>
   </div>
 </div>
 
-<!-- ============ הזמנת פרומיל ============ -->
-<h2 id="order" class="day-anchor">🛒 ההזמנה השבועית מ‑PROMEAL</h2>
-<p class="sub">10 מנות + 2 תוספות · מכסה ראשון–חמישי · משלוח בימי ראשון · במנוי שבועי יש 10% הנחה מההזמנה השנייה · ניתן לשנות עד יום שלישי 23:59</p>
+<!-- ============ הזמנה ============ -->
+<h2 id="order" class="day-anchor">🛒 ההזמנה השבועית מ‑PROMEAL — ראשון עד ראשון</h2>
+<p class="sub">14 פריטים · 13 ארוחות (7 צהריים + 6 ערב) · משלוח בימי ראשון · במנוי שבועי 10% הנחה מההזמנה השנייה (₪858 במקום ₪953) · שינויים עד שלישי 23:59</p>
 <table>
-  <tr><th>מנה</th><th>כמות</th><th>מחיר</th><th>לינק</th></tr>
-  <tr><td>רצועות שווארמה הודו PROtein plus (300 ג׳)</td><td>2</td><td>₪140</td><td><a href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>המבורגר עוף PROtein plus (400 ג׳)</td><td>1</td><td>₪80</td><td><a href="https://promealfood.com/products/המבורגר-עוף-copy" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>חזה עוף מהגריל (150 ג׳)</td><td>2</td><td>₪100</td><td><a href="https://promealfood.com/products/חזה-עוף-מהגריל" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>פסטרמה טבעית בטעם של פעם (150 ג׳)</td><td>1</td><td>₪50</td><td><a href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy-1" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>עוף פהאיטאס מקסיקני</td><td>1</td><td>₪40</td><td><a href="https://promealfood.com/products/עוף-פהאיטס" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>חזה עוף מדורה ואורז</td><td>1</td><td>₪70</td><td><a href="https://promealfood.com/products/חזה-עוף-מדורה-ואורז" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>שווארמה הודו + אורז אדום וירקות מהגריל</td><td>1</td><td>₪63</td><td><a href="https://promealfood.com/products/שווארמה-הודו-אורז-אדום-ירקות-בגריל" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>קציצות עוף ופתיתים</td><td>1</td><td>₪70</td><td><a href="https://promealfood.com/products/קציצות-עוף-ופתיתים" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>המקסיקנית</td><td>1</td><td>₪65</td><td><a href="https://promealfood.com/products/המקסיקנית" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>חזה עוף על הגריל עם ירקות מאודים</td><td>1</td><td>₪60</td><td><a href="https://promealfood.com/products/חזה-עוף-על-הגריל-עם-ירקות-מאודים" target="_blank">פתח ↗</a></td></tr>
-  <tr><td>אורז לבן מאודה (תוספת)</td><td>1</td><td>₪25</td><td><a href="https://promealfood.com/products/אורז-לבן-מאודה" target="_blank">פתח ↗</a></td></tr>
-  <tr class="total"><td>סה״כ</td><td>13 פריטים</td><td>₪763</td><td><a href="https://promealfood.com/" target="_blank">לאתר ↗</a></td></tr>
+  <tr><th>מנה</th><th>כמות</th><th>בשביל</th><th>מחיר</th><th>לינק</th></tr>
+  <tr><td>רצועות שווארמה הודו PROtein plus (300 ג׳)</td><td>2</td><td>צהריים א׳, ד׳</td><td>₪140</td><td><a href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>עוף פהאיטאס + ברוקולי ושעועית ירוקה</td><td>1</td><td>צהריים ב׳</td><td>₪63</td><td><a href="https://promealfood.com/products/עוף-פהאיטס-ברוקולי-ושעועית-ירוקה" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>פסטרמה טבעית בטעם של פעם (150 ג׳)</td><td>2</td><td>השלמה לצהריים ב׳, ש׳</td><td>₪100</td><td><a href="https://promealfood.com/products/רצועות-שווארמה-הודו-copy-1" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>המבורגר עוף PROtein plus (400 ג׳)</td><td>1</td><td>צהריים ג׳ (+ביניים)</td><td>₪80</td><td><a href="https://promealfood.com/products/המבורגר-עוף-copy" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>המבורגר עוף עם לקט ירוקים מאודים</td><td>1</td><td>צהריים ה׳</td><td>₪63</td><td><a href="https://promealfood.com/products/המבורגר-עוף-עם-לקט-ירוקים" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>שווארמה הודו וירקות מהגריל</td><td>1</td><td>צהריים ו׳</td><td>₪49</td><td><a href="https://promealfood.com/products/שווארמה-הודו-וירקות-גריל" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>חזה עוף על הגריל עם ירקות מאודים</td><td>1</td><td>צהריים ש׳</td><td>₪60</td><td><a href="https://promealfood.com/products/חזה-עוף-על-הגריל-עם-ירקות-מאודים" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>חזה עוף מדורה ואורז</td><td>1</td><td>ערב א׳</td><td>₪70</td><td><a href="https://promealfood.com/products/חזה-עוף-מדורה-ואורז" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>ראגו בולונז + פסטה, אפונה וגזר</td><td>1</td><td>ערב ב׳</td><td>₪65</td><td><a href="https://promealfood.com/products/בולונז-פסטה-אפונה-וגזר-1" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>המקסיקנית</td><td>1</td><td>ערב ג׳</td><td>₪65</td><td><a href="https://promealfood.com/products/המקסיקנית" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>שווארמה הודו + אורז אדום וירקות מהגריל</td><td>1</td><td>ערב ד׳</td><td>₪63</td><td><a href="https://promealfood.com/products/שווארמה-הודו-אורז-אדום-ירקות-בגריל" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>בקר סצ׳ואן בתוספת אורז לבן</td><td>1</td><td>ערב ה׳</td><td>₪65</td><td><a href="https://promealfood.com/products/בקר-סצואן-אורז-לבן" target="_blank">פתח ↗</a></td></tr>
+  <tr><td>קציצות עוף ופתיתים</td><td>1</td><td>ערב ו׳</td><td>₪70</td><td><a href="https://promealfood.com/products/קציצות-עוף-ופתיתים" target="_blank">פתח ↗</a></td></tr>
+  <tr class="total"><td>סה״כ</td><td>14</td><td>שבוע מלא</td><td>₪953</td><td><a href="https://promealfood.com/" target="_blank">לאתר ↗</a></td></tr>
 </table>
 
-<!-- ============ וולט ============ -->
-<h2 id="wolt" class="day-anchor">🛍️ רשימת השלמות — Wolt Market פלורנטין</h2>
-<p class="sub">כל שורה לחיצה — נפתח חיפוש של המוצר בתוך הסניף.</p>
-<table>
-  <tr><th>מוצר</th><th>כמות</th><th>בשביל מה</th><th>לינק</th></tr>
-  <tr><td>🐟 טונה בשמן (קופסאות)</td><td>4</td><td>צהריים שישי + רזרבה</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=טונה בשמן" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🧀 קוטג׳ 3%</td><td>3</td><td>שבת צהריים + ביניים + השלמת חמישי</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=קוטג 3%" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🧀 גבינה לבנה 3%</td><td>2</td><td>שבת צהריים (570 ג׳)</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=גבינה לבנה 3%" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🧀 גבינה צהובה 9% פרוסות</td><td>2</td><td>שבת ערב (8 פרוסות) + ביניים</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=גבינה צהובה 9%" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🥚 ביצים L (תבנית)</td><td>1</td><td>אופציית ערב שבת</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=ביצים" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🍞 לחם קל</td><td>1</td><td>ארוחות ביניים + ערב שבת</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=לחם קל" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🍘 פרכיות אורז</td><td>1</td><td>חלופה ללחם בביניים</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=פרכיות" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🥒 מלפפונים</td><td>1 ק״ג</td><td>הירק הירוק הקבוע</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=מלפפון" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🥬 חסה</td><td>1</td><td>ירוקים לצהריים</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=חסה" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🫑 פלפל ירוק + צבעוני</td><td>5–6</td><td>ירוקים לצהריים, צבעוני לערב</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=פלפל" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🥬 סלרי</td><td>1</td><td>ירק ירוק לנשנוש</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=סלרי" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🍅 עגבניות / שרי</td><td>1 ק״ג</td><td>ירקות ערב (כל צבע)</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=עגבניות שרי" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🥫 קטשופ דל קלוריות / חרדל / סויה</td><td>1 כ״א</td><td>הרטבים היחידים המותרים (כף)</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=קטשופ דל קלוריות" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🍫 שוקולד מריר</td><td>1–2</td><td>4 קוביות בערב</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=שוקולד מריר" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🍎 פירות</td><td>5–6</td><td>חלופה לשוקולד הערב</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=תפוח" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🧴 ספריי שמן</td><td>1</td><td>השמן היחיד המותר</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=ספריי שמן" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>🥤 סודה / משקאות זירו</td><td>חופשי</td><td>שתייה חופשית</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=זירו" target="_blank">חפש ↗</a></td></tr>
-  <tr><td>☕ קפה</td><td>1</td><td>חופשי + לפני אימון</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=קפה" target="_blank">חפש ↗</a></td></tr>
-  <tr class="total"><td colspan="3">לסניף Wolt Market פלורנטין</td><td><a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine" target="_blank">פתח ↗</a></td></tr>
-</table>
+<div class="banner">
+  🛍️ <b>וולט — רק אם בא לך (הכל אופציונלי):</b>
+  <a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=שוקולד מריר" target="_blank" style="color:var(--accent2)">שוקולד מריר</a> לפינוק הערב ·
+  <a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=לחם קל" target="_blank" style="color:var(--accent2)">לחם קל</a> +
+  <a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=קוטג" target="_blank" style="color:var(--accent2)">קוטג׳</a> לארוחת ביניים ·
+  <a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=מלפפון בייבי" target="_blank" style="color:var(--accent2)">מלפפוני בייבי ועגבניות שרי</a> (נשנוש בלי חיתוך) ·
+  <a href="https://wolt.com/he/isr/tel-aviv/venue/wolt-market-florentine/search?q=זירו" target="_blank" style="color:var(--accent2)">משקאות זירו</a>
+</div>
 
 <!-- ============ חוקים ============ -->
-<h2 id="rules" class="day-anchor">📜 חוקי התפריט — תזכורת מהירה</h2>
+<h2 id="rules" class="day-anchor">📜 חוקי התפריט — תזכורת</h2>
 <ul class="rules">
-  <li class="no">ירקות מצליבים: ברוקולי, כרובית, כרוב, קייל, צנון, רוקט, קולורבי</li>
-  <li class="no">בטטה, אבוקדו, שעועית, אפונה, תירס, בורגול, קינואה, סלק, אגוזים, שקדים, חומוס, טחינה</li>
-  <li class="no">רטבים (חוץ מכף קטשופ דל קלוריות / מיוקל / סויה / חרדל)</li>
-  <li class="no">שמן — רק ספריי</li>
-  <li class="ok">חלבון רזה נוסף אם רעבים (בשר רזה / גבינות רזות / דגים רזים)</li>
-  <li class="ok">חלב — עד חצי כוס ביום</li>
-  <li class="free">סודה ומים · שתייה זירו · קפה/תה בלי סוכר · תיבול יבש · מסטיקים</li>
-  <li class="ok">משקל בשר — לפני בישול · משקל פחמימה — אחרי בישול</li>
+  <li class="ok">פשרה מאושרת: ירקות מצליבים וירוקים שמגיעים בתוך מנות פרומיל (ברוקולי, שעועית ירוקה, אדממה) — כדי לא לחתוך ולבשל</li>
+  <li class="no">עדיין מחוץ לתחום: רטבים מתוקים (סריראצ׳ה־דבש, צ׳ילי מתוק, טריאקי, פסטו, קארי קוקוס), בטטה, קינואה, בורגול, מטוגן</li>
+  <li class="ok">חלבון רזה נוסף אם רעבים — חופשי</li>
+  <li class="ok">חלב עד חצי כוס ביום</li>
+  <li class="free">סודה ומים · זירו · קפה/תה בלי סוכר · תיבול יבש · מסטיקים</li>
+  <li class="ok">בשבת אימון: קפה 30 דק׳ לפני, פיצה 60 דק׳ אחרי</li>
 </ul>
 
 <div class="banner">
-  ⚠️ <b>שקיפות מלאה:</b> מנות Promeal מוכנות עם מעט שמן זית ותיבול — זו ההתאמה הקרובה ביותר שקיימת לתפריט בלי לבשל לבד. מנות עם רטבים מתוקים (סריראצ׳ה-דבש, צ׳ילי מתוק, טריאקי, פסטו), ברוקולי, שעועית ירוקה, בטטה, קינואה ובורגול — <b>הוצאו בכוונה</b> מהבחירה כי הן מנוגדות לתפריט. אם מתחשק גיוון — לבדוק רכיבים מול רשימת ה‑⛔ למעלה.
+  ⚠️ <b>הערות דיוק:</b> הערכים נלקחו מטבלאות התזונה הרשמיות בדפי המוצר של פרומיל (למנה מלאה). ערכים עם ~ הם הערכה (לא פורסמו באתר). שתי מנות (בולונז, בקר סצ׳ואן) מכילות מעט רוטב/סויה — בגבול הכף המותרת בתפריט. המנות מוכנות עם מעט שמן זית — ההתאמה הקרובה ביותר שקיימת ל"ספריי בלבד" בלי לבשל לבד.
 </div>
 
 <footer>
-  נבנה לפי התפריט של דור אקשטיין · קלוריות תחזוקה 2430 · עודכן יוני 2026<br>
+  נבנה לפי התפריט של דור אקשטיין · תחזוקה 2,430 קק״ל · תקרה יומית ~1,800 קק״ל · עודכן יוני 2026<br>
   המסמך אינו תחליף להתוויה רפואית
 </footer>
 
