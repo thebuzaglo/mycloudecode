@@ -4,9 +4,30 @@
 # firms change limits often and this file is the single source of truth
 # the bot enforces.
 
-active_preset: apex_50k
+active_preset: tpt_25k_test
 
 presets:
+  tpt_25k_test:
+    name: "Take Profit Trader 25K Test (verified 2026-06)"
+    account_size: 25000
+    # TPT has no daily loss limit since 2025; this is a SELF-IMPOSED soft
+    # stop so one bad day can't eat the whole EOD trailing drawdown.
+    max_daily_loss: 400
+    max_drawdown: 1500
+    drawdown_mode: trailing_eod          # TPT computes drawdown at EOD only
+    drawdown_stops_at_start: true        # floor freezes at $25,000
+    profit_target: 1500
+    max_contracts: 5                     # firm allows 30 micros; stay small
+    risk_per_trade_pct: 0.4              # $100/trade on 25K
+    daily_loss_soft_stop_pct: 100
+    consistency_max_day_pct: 45          # firm: <50%; keep a buffer
+    timezone: America/Chicago
+    sessions: [["08:30", "15:00"]]
+    blackouts: [["07:25", "07:35"], ["09:00", "09:05"]]
+    flat_by: "15:30"                     # firm hard cutoff: 16:00 CT (5pm ET)
+    # NOTE: TPT also requires a minimum of 5 trading days to pass — the bot
+    # can't "enforce" that, just keep it running.
+
   apex_50k:
     name: "Apex 50K (example)"
     account_size: 50000

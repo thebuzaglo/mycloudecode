@@ -116,6 +116,19 @@ Tradovate/Rithmic) או במצב נייר.
 | `bot/tradingview.py` | שרת ה־webhook ונרמול סימבולים |
 | `bot/market.py` | מחסן נתוני שוק + resample בין טיים־פריימים |
 
+## כוונון פרמטרים (tune.py)
+
+```bash
+python scripts/fetch_data.py --days=60 NQ=F ES=F YM=F RTY=F
+python scripts/tune.py --feed NQ:5=data/nq_5m.csv --feed ES:5=data/es_5m.csv \
+    --feed YM:5=data/ym_5m.csv --feed RTY:5=data/rty_5m.csv
+```
+
+הסקריפט מפצל את הדאטה כרונולוגית (60% אימון / 40% ולידציה), מריץ את
+הבוט המלא על רשת פרמטרים, ומדרג לפי תוחלת R על חלון הולידציה שלא
+נראה — עם מסנן דרודאון. הקונפיג הנוכחי כבר מכיל את התוצאה של ריצה כזו
+(2026-06-11) עבור פריסט `tpt_25k_test`.
+
 ## דרך עבודה מומלצת
 
 1. הרץ `replay` על דאטה היסטורי (אפשר לייצא CSV מ־TradingView) כדי

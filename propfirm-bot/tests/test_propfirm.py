@@ -72,6 +72,15 @@ class TestRulesEngine(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("drawdown", reason)
 
+    def test_drawdown_freeze_at_start_balance(self):
+        engine = make_engine(drawdown_stops_at_start=True)
+        engine.on_realized_pnl(5_000.0, in_session(day=15))   # eq 55k
+        engine.can_trade(in_session(day=16))                  # anchor -> 55k
+        # without the freeze the floor would be 53k; with it, 50k
+        self.assertAlmostEqual(engine.drawdown_remaining(), 5_000.0)
+        engine.rules.drawdown_stops_at_start = False
+        self.assertAlmostEqual(engine.drawdown_remaining(), 2_000.0)
+
     def test_risk_budget_is_min_of_caps(self):
         engine = make_engine()  # per-trade 1% = $500
         self.assertAlmostEqual(engine.risk_budget(), 500.0)

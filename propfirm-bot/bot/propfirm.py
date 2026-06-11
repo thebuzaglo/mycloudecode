@@ -23,6 +23,8 @@ class PropFirmRules:
     max_daily_loss: float = 1_000.0
     max_drawdown: float = 2_000.0
     drawdown_mode: str = "trailing_eod"  # static | trailing_eod | trailing_intraday
+    # TPT-style: trailing stops once the floor reaches the starting balance
+    drawdown_stops_at_start: bool = False
     profit_target: float = 3_000.0
     # Position limits
     max_contracts: int = 5
@@ -110,7 +112,11 @@ class RulesEngine:
         return soft_limit + min(self.state.day_realized_pnl, 0.0)
 
     def drawdown_remaining(self) -> float:
-        floor = self.state.drawdown_anchor - self.rules.max_drawdown
+        anchor = self.state.drawdown_anchor
+        if self.rules.drawdown_stops_at_start:
+            # floor never rises above the starting balance (e.g. TPT)
+            anchor = min(anchor, self.rules.account_size + self.rules.max_drawdown)
+        floor = anchor - self.rules.max_drawdown
         return self.state.equity - floor
 
     def risk_budget(self) -> float:

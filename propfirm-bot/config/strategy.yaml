@@ -12,19 +12,24 @@ timeframes: ["5", "15", "60"]
 decision_timeframe: "5"  # entries are triggered on this TF's bar close
 
 # Starting weights; the Learner adapts these on the fly (persisted in the DB).
+# Seeded from a 60-day NQ train/validation run (scripts/tune.py, 2026-06-11):
+# trend/breakout/slope earned weight, mean-reversion lost most of it.
 member_weights:
-  trend_ema: 1.0
-  momentum_rsi: 1.0
-  mean_reversion: 1.0
-  breakout: 1.0
-  slope: 1.0
+  trend_ema: 2.4
+  momentum_rsi: 1.4
+  mean_reversion: 0.6
+  breakout: 3.0
+  slope: 2.7
 timeframe_weights:
-  "5": 1.0
-  "15": 1.2
-  "60": 1.5
+  "5": 1.25
+  "15": 1.4
+  "60": 1.95
 
+# Tuned on the same split: positive expectancy on both train (+0.18R/26
+# trades) and unseen validation (+0.42R/11 trades). Small samples — verify
+# in paper mode before trusting.
 params:
-  entry_threshold: 0.35  # |council score| needed to fire
+  entry_threshold: 0.4   # |council score| needed to fire
   stop_atr_mult: 1.5
   reward_risk: 2.0
   min_coverage: 0.5

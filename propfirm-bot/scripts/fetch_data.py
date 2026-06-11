@@ -45,8 +45,12 @@ def fetch(symbol: str, days: int = 30) -> Path:
 
 
 if __name__ == "__main__":
-    symbols = sys.argv[1:] or ["NQ=F", "ES=F"]
-    paths = [fetch(s) for s in symbols]
+    args = sys.argv[1:]
+    days = 30
+    if args and args[0].startswith("--days="):
+        days = min(60, int(args.pop(0).split("=")[1]))  # Yahoo 5m cap: ~60d
+    symbols = args or ["NQ=F", "ES=F"]
+    paths = [fetch(s, days) for s in symbols]
     feeds = " ".join(
         f"--feed {p.name.split('_')[0].upper()}:5={p}" for p in paths)
     print(f"\nnow run:\n  python -m bot replay {feeds}")
