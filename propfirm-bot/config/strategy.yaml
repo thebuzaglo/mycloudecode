@@ -3,7 +3,9 @@
 instrument:
   symbol: NQ
   tick_size: 0.25
-  point_value: 20.0      # NQ = $20/point; use 2.0 for MNQ
+  # $ per point per contract. 2.0 = MNQ (micro) — the sane default: with a
+  # 0.5% risk budget a full NQ ($20/pt) rarely fits one ATR-stop contract.
+  point_value: 2.0
 
 # Timeframes the council sits on (TradingView interval strings: minutes).
 timeframes: ["5", "15", "60"]
