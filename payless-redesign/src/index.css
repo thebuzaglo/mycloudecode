@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  PAYLESS design tokens — derived 1:1 from the original brand palette.
+  Light tokens kept for reference; the redesign is dark-first.
+*/
+@layer base {
+  :root {
+    --background: 200 12% 97%;
+    --foreground: 200 35% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 35% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 35% 15%;
+    --primary: 200 42% 21%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 43 55% 65%;
+    --secondary-foreground: 200 35% 15%;
+    --accent: 190 55% 38%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 200 15% 93%;
+    --muted-foreground: 200 20% 40%;
+    --border: 200 18% 88%;
+    --input: 200 18% 88%;
+    --ring: 200 42% 21%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --radius: 0.75rem;
+
+    --gold: 43 55% 65%;
+    --gold-soft: 43 65% 75%;
+    --cyan: 195 55% 50%;
+    --navy-950: 204 45% 5%;
+    --navy-900: 202 40% 7%;
+    --navy-850: 201 38% 9%;
+    --navy-800: 200 35% 12%;
+  }
+
+  .dark {
+    --background: 202 40% 6%;
+    --foreground: 40 20% 93%;
+    --card: 201 36% 9%;
+    --card-foreground: 40 20% 93%;
+    --popover: 201 38% 8%;
+    --popover-foreground: 40 20% 93%;
+    --primary: 195 55% 50%;
+    --primary-foreground: 200 40% 7%;
+    --secondary: 43 65% 58%;
+    --secondary-foreground: 200 40% 7%;
+    --accent: 185 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 200 30% 14%;
+    --muted-foreground: 200 15% 62%;
+    --border: 200 26% 16%;
+    --input: 200 25% 18%;
+    --ring: 195 55% 50%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 98%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: hsl(var(--gold) / 0.85);
+    color: hsl(var(--navy-950));
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--navy-950));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(200 25% 20%);
+    border-radius: 5px;
+    border: 2px solid hsl(var(--navy-950));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--cyan) / 0.6);
+  }
+}
+
+@layer components {
+  /* === Surface primitives ============================================ */
+
+  .glass {
+    background: linear-gradient(
+      165deg,
+      hsl(201 36% 11% / 0.82),
+      hsl(202 40% 7% / 0.88)
+    );
+    backdrop-filter: blur(18px) saturate(1.15);
+    -webkit-backdrop-filter: blur(18px) saturate(1.15);
+    border: 1px solid hsl(200 30% 28% / 0.35);
+    box-shadow:
+      inset 0 1px 0 0 hsl(0 0% 100% / 0.05),
+      0 18px 50px -18px hsl(200 60% 3% / 0.7);
+  }
+
+  .glass-bright {
+    background: linear-gradient(
+      165deg,
+      hsl(200 32% 15% / 0.75),
+      hsl(202 38% 9% / 0.85)
+    );
+    backdrop-filter: blur(20px) saturate(1.2);
+    -webkit-backdrop-filter: blur(20px) saturate(1.2);
+    border: 1px solid hsl(195 45% 45% / 0.25);
+  }
+
+  .hairline-gold {
+    border: 1px solid hsl(var(--gold) / 0.28);
+  }
+
+  /* === Typography ===================================================== */
+
+  .text-gradient-gold {
+    background: linear-gradient(
+      100deg,
+      hsl(43 70% 78%) 0%,
+      hsl(43 60% 58%) 45%,
+      hsl(36 65% 50%) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-gradient-cyan {
+    background: linear-gradient(100deg, hsl(190 80% 70%), hsl(200 70% 48%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-gradient-ice {
+    background: linear-gradient(180deg, hsl(40 25% 96%), hsl(200 25% 72%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* === Decorative ===================================================== */
+
+  .noise-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/></svg>");
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(hsl(195 55% 50% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(195 55% 50% / 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 75%);
+  }
+
+  .beam-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--gold) / 0.5) 30%,
+      hsl(var(--cyan) / 0.5) 70%,
+      transparent
+    );
+  }
+
+  .ring-conic {
+    background: conic-gradient(
+      from 140deg,
+      transparent 0deg,
+      hsl(var(--gold) / 0.55) 70deg,
+      transparent 160deg,
+      hsl(var(--cyan) / 0.4) 250deg,
+      transparent 330deg
+    );
+  }
+
+  .card-spotlight {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      420px circle at var(--spot-x, 50%) var(--spot-y, 0%),
+      hsl(195 60% 55% / 0.12),
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    pointer-events: none;
+  }
+  .card-spotlight:hover::before {
+    opacity: 1;
+  }
+
+  .gold-shimmer-border {
+    position: relative;
+  }
+  .gold-shimmer-border::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      120deg,
+      hsl(var(--gold) / 0.0),
+      hsl(var(--gold) / 0.7),
+      hsl(var(--cyan) / 0.5),
+      hsl(var(--gold) / 0)
+    );
+    background-size: 300% 100%;
+    animation: shimmer 5s linear infinite;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* RTL-aware marquee track (animation translates in X, duplicated content) */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 3rem;
+  }
+}
+
+@layer utilities {
+  .pause-on-hover:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .perspective-1200 {
+    perspective: 1200px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
