@@ -49,7 +49,7 @@ export default function Accessibility() {
           {features.map((f, i) => (
             <Reveal key={f.title} delay={i * 0.06} className="h-full">
               <GlassCard className="flex h-full flex-col items-center p-6 text-center">
-                <span className="mb-4 flex h-13 w-13 items-center justify-center rounded-2xl bg-primary/10 p-3">
+                <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 p-3">
                   <f.Icon className="h-7 w-7 text-primary" />
                 </span>
                 <h3 className="mb-1.5 font-extrabold">{f.title}</h3>

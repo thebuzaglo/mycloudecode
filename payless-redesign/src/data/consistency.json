@@ -1,0 +1,2075 @@
+[
+  {
+    "id": "mffu",
+    "name": "My Funded Futures",
+    "shortName": "MFFU",
+    "couponCode": "PAYLESS",
+    "companyPageUrl": "/company/mffu",
+    "plans": [
+      {
+        "name": "Pro",
+        "accountSizes": [
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 100,
+                "minTradingDays": 2,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $100 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 200,
+                "minTradingDays": 2,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $200 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 300,
+                "minTradingDays": 2,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $300 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Flex",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 50,
+                "minTradingDays": 2,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $50 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": 100,
+                "note": "ללא עקביות, מינימום $100 ליום רווחי"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 100,
+                "minTradingDays": 2,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $100 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": 150,
+                "note": "ללא עקביות, מינימום $150 ליום רווחי"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rapid",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 50,
+                "minTradingDays": 2,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $50 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות, משיכות יומיות"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 100,
+                "minTradingDays": 2,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $100 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות, משיכות יומיות"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 200,
+                "minTradingDays": 2,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $200 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות, משיכות יומיות"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "consistencyLeniency": 300,
+                "minTradingDays": 2,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "סטיית תקן מותרת: $300 הפרש מקסימלי בין ימים"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות, משיכות יומיות"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Builder",
+        "accountSizes": [
+          {
+            "size": "$50,000 (Default)",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 50,
+                "minTradingDays": 2,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "עקביות 50% במשיכות בלבד, באפר $2,000"
+              }
+            ]
+          },
+          {
+            "size": "$50,000 (Add-On)",
+            "sizeValue": 50001,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 50,
+                "minTradingDays": 2,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "עקביות 50% במשיכות בלבד, באפר $1,500"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpt",
+    "name": "Take Profit Trader",
+    "shortName": "TPT",
+    "couponCode": "NOFEE30",
+    "companyPageUrl": "/company/tpt",
+    "plans": [
+      {
+        "name": "מבחן",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 5,
+                "profitTarget": 1500,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 5,
+                "profitTarget": 3000,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$75,000",
+            "sizeValue": 75000,
+            "profitTarget": 4500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 5,
+                "profitTarget": 4500,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 5,
+                "profitTarget": 6000,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 5,
+                "profitTarget": 9000,
+                "minProfitPerDay": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fundednext",
+    "name": "FundedNext",
+    "couponCode": "",
+    "companyPageUrl": "/company/fundednext",
+    "plans": [
+      {
+        "name": "Legacy",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1250,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 1250,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן — אף יום בודד לא יעלה על 40% מסך הרווח"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן — אף יום בודד לא יעלה על 40% מסך הרווח"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן — אף יום בודד לא יעלה על 40% מסך הרווח"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Rapid",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 5000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": 5000,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Flex",
+        "accountSizes": [
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 2500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 2500,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן בלבד (לא ניתן לעבור ביום אחד)"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "5 ימי Benchmark של $200+, רווח נטו $500+ במחזור. עד 5 משיכות ואז Live."
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 5000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 5000,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן בלבד"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "5 ימי Benchmark של $200+, רווח נטו $500+ במחזור. עד 5 משיכות ואז Live."
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 8000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "אתגר",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 8000,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן בלבד"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 250,
+                "note": "5 ימי Benchmark של $250+, רווח נטו $500+ במחזור. עד 5 משיכות ואז Live."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Bolt",
+        "accountSizes": [
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 3000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "alpha-futures",
+    "name": "Alpha Futures",
+    "couponCode": "PAYLESS",
+    "companyPageUrl": "/company/alpha-futures",
+    "plans": [
+      {
+        "name": "Premium",
+        "accountSizes": [
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": null,
+                "profitTarget": 3000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות בחשבון מוסמך. נדרשים 5 ימי מסחר מנצחים של $200+ עד למשיכה הראשונה."
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": null,
+                "profitTarget": 6000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות בחשבון מוסמך. נדרשים 5 ימי מסחר מנצחים של $200+ עד למשיכה הראשונה."
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": null,
+                "profitTarget": 9000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות בחשבון מוסמך. נדרשים 5 ימי מסחר מנצחים של $200+ עד למשיכה הראשונה."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Advanced",
+        "accountSizes": [
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 4000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 2,
+                "profitTarget": 4000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 8000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 2,
+                "profitTarget": 8000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 12000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 50,
+                "minTradingDays": 2,
+                "profitTarget": 12000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Zero",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lucidtrading",
+    "name": "Lucid Trading",
+    "couponCode": "PAYLESS",
+    "companyPageUrl": "/company/lucidtrading",
+    "plans": [
+      {
+        "name": "Flex",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1250,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 52,
+                "consistencyBase": "target",
+                "minTradingDays": 2,
+                "profitTarget": 1250,
+                "minProfitPerDay": null,
+                "note": "עקביות 50% + סטיית תקן 4% (מקסימום 52% מיעד הרווח ליום)"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 52,
+                "consistencyBase": "target",
+                "minTradingDays": 2,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "עקביות 50% + סטיית תקן 4% (מקסימום 52% מיעד הרווח ליום)"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 52,
+                "consistencyBase": "target",
+                "minTradingDays": 2,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "עקביות 50% + סטיית תקן 4% (מקסימום 52% מיעד הרווח ליום)"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 52,
+                "consistencyBase": "target",
+                "minTradingDays": 2,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "עקביות 50% + סטיית תקן 4% (מקסימום 52% מיעד הרווח ליום)"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא דרישת עקביות בחשבון הממומן"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Pro",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "ניתן לעבור ביום אחד - ללא עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ניתן לעבור ביום אחד - ללא עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "ניתן לעבור ביום אחד - ללא עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "ניתן לעבור ביום אחד - ללא עקביות במבחן"
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Direct",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 20,
+                "minTradingDays": 10,
+                "profitTarget": 1500,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 20,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 20,
+                "minTradingDays": 10,
+                "profitTarget": 3000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 20,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 20,
+                "minTradingDays": 10,
+                "profitTarget": 6000,
+                "minProfitPerDay": null
+              },
+              {
+                "name": "funded",
+                "nameHe": "חשבון ממומן",
+                "consistencyRule": 20,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "top-one-futures",
+    "name": "Top One Futures",
+    "shortName": "TOF",
+    "couponCode": "PAYLESS",
+    "companyPageUrl": "/company/top-one-futures",
+    "plans": [
+      {
+        "name": "Instant",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 20,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן, ישירות למימון דמה עם עקביות 20%"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 20,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן, ישירות למימון דמה עם עקביות 20%"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 20,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן, ישירות למימון דמה עם עקביות 20%"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 20,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן, ישירות למימון דמה עם עקביות 20%"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Ignite",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 15,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "כלל עקביות 15%, סקיילינג מובנה"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 15,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "כלל עקביות 15%, סקיילינג מובנה"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 15,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "כלל עקביות 15%, סקיילינג מובנה"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 7500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": 7500,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 15,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "כלל עקביות 15%, סקיילינג מובנה"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Elite ACCESS",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "ללא כלל עקביות בשלב ההערכה"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "עקביות 40%, מינימום 5 ימים רווחיים ($200/יום)"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא כלל עקביות בשלב ההערכה"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 250,
+                "note": "עקביות 40%, מינימום 5 ימים רווחיים ($250/יום)"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "ללא כלל עקביות בשלב ההערכה"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 300,
+                "note": "עקביות 40%, מינימום 5 ימים רווחיים ($300/יום)"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "ללא כלל עקביות בשלב ההערכה"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 350,
+                "note": "עקביות 40%, מינימום 5 ימים רווחיים ($350/יום)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Elite Daily",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן בלבד, יעד 6%"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות, סטופ EOD $1,000, DLL $500, משיכות יומיות מיום 1 (חוק התקדמות 50% מהמשיכה השנייה)"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן בלבד, יעד 6%"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות, סטופ EOD $2,000, DLL $1,000, משיכות יומיות מיום 1 (חוק התקדמות 50% מהמשיכה השנייה)"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": 40,
+                "minTradingDays": null,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "עקביות 40% במבחן בלבד, יעד 6%"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": null,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות, סטופ EOD $3,000, DLL $1,250, משיכות יומיות מיום 1 (חוק התקדמות 50% מהמשיכה השנייה)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fff",
+    "name": "Funded Futures Family",
+    "shortName": "FFF",
+    "couponCode": "PAYLESS",
+    "companyPageUrl": "/company/funded-futures-family",
+    "plans": [
+      {
+        "name": "PRIME",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1250,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 1250,
+                "minProfitPerDay": null,
+                "note": "במסלול PRIME אין כלל עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "עקביות 40% (משיכות 1–3), מינימום 3 ימי מסחר בין משיכות עם רווח של $200+ ביום"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "במסלול PRIME אין כלל עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "עקביות 40% (משיכות 1–3), מינימום 3 ימי מסחר בין משיכות עם רווח של $200+ ביום"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "במסלול PRIME אין כלל עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "עקביות 40% (משיכות 1–3), מינימום 3 ימי מסחר בין משיכות עם רווח של $200+ ביום"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "במסלול PRIME אין כלל עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "עקביות 40% (משיכות 1–3), מינימום 3 ימי מסחר בין משיכות עם רווח של $200+ ביום"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PREMIER PLUS Intraday",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום. כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום. כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום. כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום. כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PREMIER PLUS EOD",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 1500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 1500,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום (סטופ EOD). כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 3000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 3000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום (סטופ EOD). כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 6000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 6000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום (סטופ EOD). כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 9000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 9000,
+                "minProfitPerDay": null,
+                "note": "ללא עקביות בשלב המבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": null,
+                "minTradingDays": 5,
+                "profitTarget": null,
+                "minProfitPerDay": 200,
+                "note": "ללא דרישת עקביות — נדרשים 5 ימי מסחר מוסמכים עם רווח של $200+ ביום (סטופ EOD). כלל Net Profit: יתרת החשבון חייבת להיות לפחות $1 מעל היתרה במשיכה הקודמת. ללא Buffer. לאחר המשיכה הראשונה ה-Drawdown ננעל ליתרת הבסיס לכל חיי החשבון. תקרת רווח של $100K לסוחר במימון דמה."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "VELOCITY",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 2500,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 2500,
+                "minProfitPerDay": null,
+                "note": "מסלול אגרסיבי — ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "עקביות 40%, מינימום 3 ימי מסחר בין משיכות. סטופ Intraday Trailing שלא ננעל לעולם — ה-MLL ממשיך לרדוף את השיא גם מעל הסכום ההתחלתי."
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 4000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 4000,
+                "minProfitPerDay": null,
+                "note": "מסלול אגרסיבי — ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "עקביות 40%, מינימום 3 ימי מסחר בין משיכות. סטופ Intraday Trailing שלא ננעל לעולם — ה-MLL ממשיך לרדוף את השיא גם מעל הסכום ההתחלתי."
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 7000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 7000,
+                "minProfitPerDay": null,
+                "note": "מסלול אגרסיבי — ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "עקביות 40%, מינימום 3 ימי מסחר בין משיכות. סטופ Intraday Trailing שלא ננעל לעולם — ה-MLL ממשיך לרדוף את השיא גם מעל הסכום ההתחלתי."
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 10000,
+            "stages": [
+              {
+                "name": "eval",
+                "nameHe": "מבחן",
+                "consistencyRule": null,
+                "minTradingDays": 1,
+                "profitTarget": 10000,
+                "minProfitPerDay": null,
+                "note": "מסלול אגרסיבי — ללא עקביות במבחן"
+              },
+              {
+                "name": "simFunded",
+                "nameHe": "מימון דמה",
+                "consistencyRule": 40,
+                "minTradingDays": 3,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "עקביות 40%, מינימום 3 ימי מסחר בין משיכות. סטופ Intraday Trailing שלא ננעל לעולם — ה-MLL ממשיך לרדוף את השיא גם מעל הסכום ההתחלתי."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "S2F Direct",
+        "accountSizes": [
+          {
+            "size": "$25,000",
+            "sizeValue": 25000,
+            "profitTarget": 0,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון ישיר",
+                "consistencyRule": 25,
+                "minTradingDays": 7,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן — עקביות 25% ו-7 ימי מסחר מינימום (סטופ EOD)"
+              }
+            ]
+          },
+          {
+            "size": "$50,000",
+            "sizeValue": 50000,
+            "profitTarget": 0,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון ישיר",
+                "consistencyRule": 25,
+                "minTradingDays": 7,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן — עקביות 25% ו-7 ימי מסחר מינימום (סטופ EOD)"
+              }
+            ]
+          },
+          {
+            "size": "$100,000",
+            "sizeValue": 100000,
+            "profitTarget": 0,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון ישיר",
+                "consistencyRule": 25,
+                "minTradingDays": 7,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן — עקביות 25% ו-7 ימי מסחר מינימום (סטופ EOD)"
+              }
+            ]
+          },
+          {
+            "size": "$150,000",
+            "sizeValue": 150000,
+            "profitTarget": 0,
+            "stages": [
+              {
+                "name": "simFunded",
+                "nameHe": "מימון ישיר",
+                "consistencyRule": 25,
+                "minTradingDays": 7,
+                "profitTarget": null,
+                "minProfitPerDay": null,
+                "note": "ללא מבחן — עקביות 25% ו-7 ימי מסחר מינימום (סטופ EOD)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

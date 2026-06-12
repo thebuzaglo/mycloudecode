@@ -68,7 +68,7 @@ export default function NewsletterCta() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
-                  className="h-13 flex-1 rounded-xl border border-white/10 bg-navy-950/60 px-5 py-3.5 text-left font-medium text-foreground outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-secondary/60"
+                  className="flex-1 rounded-xl border border-white/10 bg-navy-950/60 px-5 py-3.5 text-left font-medium text-foreground outline-none transition-colors placeholder:text-muted-foreground/50 focus:border-secondary/60"
                   aria-label="כתובת אימייל"
                 />
                 <button

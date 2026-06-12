@@ -1,16 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Flame, Sparkles } from "lucide-react";
+import { Menu, X, ChevronDown, Flame, Sparkles, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navItems } from "@/data/site";
 import { activeOffersCount } from "@/data/offers";
+import SearchDialog from "./SearchDialog";
 import logo from "@/assets/brand/payless-logo-optimized.webp";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [openPanel, setOpenPanel] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
   const closeTimer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -19,6 +21,17 @@ export default function Navbar() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   useEffect(() => {
@@ -111,6 +124,14 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={() => setSearchOpen(true)}
+              aria-label="חיפוש (Ctrl+K)"
+              title="חיפוש (Ctrl+K)"
+              className="flex h-10 w-10 items-center justify-center rounded-xl glass-bright text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
+            >
+              <Search className="h-5 w-5" />
+            </button>
             <Link
               to="/offers"
               className="group inline-flex items-center gap-2 rounded-xl bg-gradient-gold px-5 py-2.5 text-sm font-bold text-navy-950 transition-all duration-300 hover:shadow-glow-gold hover:-translate-y-0.5"
@@ -120,14 +141,23 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile burger */}
-          <button
-            className="lg:hidden rounded-xl glass-bright p-2.5 text-foreground"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? "סגור תפריט" : "פתח תפריט"}
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Mobile: search + burger */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              className="rounded-xl glass-bright p-2.5 text-foreground"
+              onClick={() => setSearchOpen(true)}
+              aria-label="חיפוש"
+            >
+              <Search className="h-5 w-5" />
+            </button>
+            <button
+              className="rounded-xl glass-bright p-2.5 text-foreground"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? "סגור תפריט" : "פתח תפריט"}
+            >
+              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
 
           {/* Mega panel */}
           <AnimatePresence>
@@ -195,6 +225,8 @@ export default function Navbar() {
           </AnimatePresence>
         </nav>
       </div>
+
+      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Mobile menu */}
       <AnimatePresence>

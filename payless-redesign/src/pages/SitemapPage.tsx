@@ -92,7 +92,7 @@ export default function SitemapPage() {
               <GlassCard className="h-full p-6">
                 <div className="mb-4 flex items-center gap-2.5">
                   <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/10">
-                    <g.Icon className="h-4.5 w-4.5 text-secondary" />
+                    <g.Icon className="h-5 w-5 text-secondary" />
                   </span>
                   <h2 className="font-extrabold">{g.title}</h2>
                 </div>
