@@ -19,6 +19,7 @@ export default function Layout() {
 
   return (
     <div className="relative flex min-h-screen flex-col bg-background">
+      <a href="#main-content" className="skip-link">דלג לתוכן הראשי</a>
       <ScrollToTop />
       {/* page scroll progress */}
       <motion.div
@@ -26,7 +27,7 @@ export default function Layout() {
         style={{ scaleX }}
       />
       <Navbar />
-      <main className="flex-1 pt-[88px]">
+      <main id="main-content" className="flex-1 pt-[88px]">
         <Outlet />
       </main>
       <Footer />

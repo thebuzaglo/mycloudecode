@@ -4,6 +4,7 @@ import { TrendingUp, ShieldCheck, Flame, ChevronDown } from "lucide-react";
 import { GoldButton, GhostButton, CountUp } from "@/components/ui/primitives";
 import { companies } from "@/data/companies";
 import { activeOffersCount } from "@/data/offers";
+import heroBg from "@/assets/brand/hero-bg.webp";
 
 const MarketScene = lazy(() => import("@/components/three/MarketScene"));
 
@@ -23,10 +24,18 @@ export default function Hero() {
     <section className="relative flex min-h-[calc(100svh-88px)] flex-col justify-center overflow-hidden">
       {/* layered backdrop */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_60%_at_50%_-10%,hsl(199_50%_16%)_0%,hsl(202_40%_6%)_62%)]" />
+      {/* generated cinematic poster — base layer + reduced-motion/mobile fallback */}
+      <img
+        src={heroBg}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover opacity-40"
+        style={{ maskImage: "linear-gradient(to bottom, black 55%, transparent)", WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent)" }}
+      />
       <div className="grid-overlay absolute inset-0" />
       {show3d && (
         <Suspense fallback={null}>
-          <MarketScene className="absolute inset-0 opacity-80" />
+          <MarketScene className="absolute inset-0 opacity-70" />
         </Suspense>
       )}
       <div className="noise-overlay" />

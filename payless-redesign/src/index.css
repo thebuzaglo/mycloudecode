@@ -79,6 +79,42 @@
     color: hsl(var(--navy-950));
   }
 
+  /* keyboard focus ring — visible only for keyboard users */
+  :focus-visible {
+    outline: 2px solid hsl(var(--secondary));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* skip-to-content link for screen-reader / keyboard users */
+  .skip-link {
+    position: fixed;
+    top: -100px;
+    right: 1rem;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.75rem;
+    background: hsl(var(--secondary));
+    color: hsl(var(--navy-950));
+    font-weight: 800;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* respect reduced-motion: neutralise large/looping motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   ::-webkit-scrollbar {
     width: 10px;
   }

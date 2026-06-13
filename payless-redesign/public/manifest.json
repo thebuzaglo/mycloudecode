@@ -1,0 +1,15 @@
+{
+  "name": "PAYLESS — השוואת חברות מימון למסחר",
+  "short_name": "PAYLESS",
+  "description": "פלטפורמת ההשוואה המובילה בישראל לחברות מימון (Prop Firms) למסחר בחוזים עתידיים",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a131b",
+  "theme_color": "#0b141d",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    { "src": "/payless-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/payless-icon-180.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
