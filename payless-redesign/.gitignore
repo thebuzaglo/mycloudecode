@@ -1,3 +1,8 @@
 node_modules
 dist
 *.local
+
+# dev tooling (screenshots/QA)
+shot.mjs
+shots-scroll.mjs
+qa.mjs
