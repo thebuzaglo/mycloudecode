@@ -34,7 +34,8 @@ Wrap the Hebrew content in an RTL container so the whole block aligns to the rig
 ```
 
 - Keep a **blank line** right after `<div dir="rtl">` and right before `</div>`, otherwise the Markdown inside (lists, bold, links, tables) may not render.
-- This is the technique that reliably produces right-alignment ("מוצמד לימין") in renderers that honor HTML: the Claude web / desktop / mobile apps, GitHub, and IDE Markdown previews.
+- This produces right-alignment ("מוצמד לימין") **only in renderers that honor raw HTML**: GitHub, IDE Markdown previews, and a browser — i.e. in **files / artifacts you generate** (such as `index.html`).
+- **Important — chat UI:** the Claude Code **web chat strips `dir` / `align` and lays every message out LTR** (verified). So this wrapper does **not** right-align chat replies there, and neither do Unicode marks. Block alignment in chat is set by the app's CSS and **cannot** be forced from message content. Use this wrapper for generated files, not to "fix" chat alignment.
 - Do **not** wrap fenced code blocks inside the RTL div — keep them outside it (see below).
 
 ### 2. RTL reading order with Unicode marks (lightweight, invisible, always safe)
@@ -70,11 +71,20 @@ Inside a Hebrew sentence, English words / numbers / code / URLs / paths usually 
 4. Inline English / numbers reading out of order → isolate with `<span dir="ltr">…</span>` or backticks.
 5. Pure-English or code-only reply → leave it LTR, do nothing.
 
-## Note on the viewing client
+## Note on the viewing client (read this)
 
-Block **alignment** (snapping to the right edge) is ultimately decided by the app
-that renders the Markdown. The `<div dir="rtl">` wrapper is honored by the Claude
-web / desktop / mobile apps, GitHub, and IDE previews. In a plain terminal that
-does not render HTML, the wrapper cannot force alignment, but the Unicode marks
-above still keep the **reading order** correct. When in doubt, prefer technique 1
-for guaranteed right-alignment.
+Block **alignment** (snapping to the right edge) is decided by the app that renders
+the Markdown — **not** by the text content. What a skill can and cannot do:
+
+- **Generated files / artifacts** (`.html`, `.md` for GitHub, IDE previews, anything
+  opened in a browser): `dir="rtl"` **is** honored → real right-alignment. ✅
+- **Claude Code web chat**: strips `dir` / `align` and lays every message out LTR
+  (verified by testing). No content-level trick — HTML wrapper, `align`, RLM, BiDi
+  embedding — can right-align a chat reply there. ❌ The only ways to right-align the
+  chat itself are app-level: a built-in RTL option in the app (if/when one exists),
+  or browser CSS injected by the user (e.g. a Stylus userstyle scoped to the site).
+- **What the skill still does in chat:** keep correct RTL **reading order** and handle
+  **mixed** Hebrew/English/number/code runs so nothing renders scrambled.
+
+So: use technique 1 for files; rely on techniques 2–3 for clean mixed text in chat;
+do not promise visual right-alignment of chat replies.
