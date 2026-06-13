@@ -9,8 +9,6 @@ import {
   Clapperboard,
   ExternalLink,
   Gift,
-  LineChart,
-  Newspaper,
   ShieldAlert,
   Sparkles,
   X,
@@ -360,11 +358,7 @@ function NewsTrackerPage() {
 
       {/* economic calendar widget */}
       <section className="container relative py-14">
-        <SectionHeading
-          eyebrow={<><Newspaper className="inline h-4 w-4" /> אירועים כלכליים</> as unknown as string}
-          title="לוח אירועים"
-          highlight="כלכליים"
-        />
+        <SectionHeading eyebrow="אירועים כלכליים" title="לוח אירועים" highlight="כלכליים" />
         <Reveal>
           <GlassCard className="mx-auto max-w-4xl overflow-hidden p-2 md:p-3">
             <iframe
