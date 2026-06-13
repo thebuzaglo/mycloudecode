@@ -82,7 +82,9 @@ the Markdown — **not** by the text content. What a skill can and cannot do:
   (verified by testing). No content-level trick — HTML wrapper, `align`, RLM, BiDi
   embedding — can right-align a chat reply there. ❌ The only ways to right-align the
   chat itself are app-level: a built-in RTL option in the app (if/when one exists),
-  or browser CSS injected by the user (e.g. a Stylus userstyle scoped to the site).
+  or browser CSS injected by the user. A ready userstyle for this lives at
+  `claude-chat-rtl.user.css` in the repo root (install via the Stylus extension); it
+  uses `unicode-bidi: plaintext` so each paragraph auto-picks its direction.
 - **What the skill still does in chat:** keep correct RTL **reading order** and handle
   **mixed** Hebrew/English/number/code runs so nothing renders scrambled.
 

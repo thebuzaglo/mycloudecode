@@ -1,0 +1,45 @@
+/* ==UserStyle==
+@name           Claude Chat RTL (Hebrew)
+@namespace      shlomi
+@version        1.0.0
+@description    מיישר טקסט עברי בצ'אט של Claude לימין (RTL). אנגלית, מספרים וקוד נשארים LTR, כולל בטקסט מעורב. הזרקה דרך התוסף Stylus.
+@author         shlomi
+@preprocessor   default
+==/UserStyle== */
+
+/* אם הדומיין שמופיע אצלך בשורת הכתובת שונה — עדכן את השורה הבאה אליו. */
+@-moz-document domain("claude.ai"), domain("claude.com"), domain("anthropic.com") {
+
+  /* טקסט הצ'אט: כיוון אוטומטי לכל פסקה לפי התו החזק הראשון בה.
+     עברית  -> RTL מיושר לימין
+     אנגלית -> LTR מיושר לשמאל
+     מעורב  -> מסודר נכון אוטומטית                                  */
+  p,
+  li,
+  h1, h2, h3, h4, h5, h6,
+  blockquote,
+  td, th {
+    unicode-bidi: plaintext !important;
+    text-align: start !important;
+  }
+
+  /* תיבת ההקלדה — אותו כיוון אוטומטי בזמן שאתה כותב */
+  textarea,
+  [contenteditable="true"],
+  [contenteditable=""] {
+    unicode-bidi: plaintext !important;
+    text-align: start !important;
+  }
+
+  /* קוד תמיד משמאל לימין — גם מוטבע בתוך משפט עברי וגם בבלוקים */
+  code, kbd, samp {
+    unicode-bidi: isolate !important;
+    direction: ltr !important;
+  }
+  pre,
+  pre code {
+    unicode-bidi: isolate !important;
+    direction: ltr !important;
+    text-align: left !important;
+  }
+}
