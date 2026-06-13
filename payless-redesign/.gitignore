@@ -6,3 +6,5 @@ dist
 shot.mjs
 shots-scroll.mjs
 qa.mjs
+tsconfig.tsbuildinfo
+*.tsbuildinfo
