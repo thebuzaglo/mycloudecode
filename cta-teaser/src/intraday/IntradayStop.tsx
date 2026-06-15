@@ -24,6 +24,7 @@ import {
 
 export type IntradayStopProps = {
   voiceover?: string | null; // staticFile path under public/, or null for silent
+  music?: string | null; // background music bed under public/, or null
   useLogoFile?: boolean; // use public/logo.png instead of the SVG recreation
 };
 
@@ -137,6 +138,7 @@ const CtaEndCard: React.FC<{ useLogoFile?: boolean }> = ({ useLogoFile }) => {
 
 export const IntradayStop: React.FC<IntradayStopProps> = ({
   voiceover = "voiceover/intraday-stop.mp3",
+  music = "music-bed.mp3",
   useLogoFile = false,
 }) => {
   const frame = useCurrentFrame();
@@ -171,6 +173,27 @@ export const IntradayStop: React.FC<IntradayStopProps> = ({
           </Sequence>
         ))}
       </BrandFrame>
+
+      {music ? (
+        <Audio
+          src={staticFile(music)}
+          // Duck the bed under a voiceover; otherwise keep it present but soft.
+          volume={(f) => {
+            const base = voiceover ? 0.26 : 0.6;
+            const inFade = interpolate(f, [0, 18], [0, 1], {
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+            });
+            const outFade = interpolate(
+              f,
+              [TOTAL_FRAMES - 24, TOTAL_FRAMES - 1],
+              [1, 0],
+              { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+            );
+            return base * inFade * outFade;
+          }}
+        />
+      ) : null}
 
       {voiceover ? (
         <Audio
