@@ -1,0 +1,486 @@
+{
+  "source": "apextraderfunding.com product config (window.productPickerConfig) + help-center articles, fetched 2026-09-10",
+  "coupon_discount_percent": 90,
+  "promo_expiration_ET": "2026-09-22 23:59",
+  "plans": {
+    "intraday": [
+      {
+        "size": "25K",
+        "eval_price_standard": 167,
+        "eval_price_standard_after_90off": 16.7,
+        "five_pack_standard": 749.5,
+        "five_pack_standard_after_90off": 74.95,
+        "eval_price_no_activation_fee": 690,
+        "eval_price_no_activation_fee_after_90off": 69.0,
+        "five_pack_no_activation_fee": 2950,
+        "five_pack_no_activation_fee_after_90off": 295.0,
+        "pa_activation_fee_standard": 59,
+        "profit_target": 1500,
+        "max_drawdown": 1000,
+        "eval_daily_loss_limit": null,
+        "eval_max_contracts_mini": 4,
+        "eval_max_contracts_micro": 40,
+        "pa_max_contracts_top_tier": 2,
+        "pa_safety_net": 26100,
+        "pa_min_balance_to_request_payout": 26600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 1250
+      },
+      {
+        "size": "50K",
+        "eval_price_standard": 249,
+        "eval_price_standard_after_90off": 24.9,
+        "five_pack_standard": 950,
+        "five_pack_standard_after_90off": 95.0,
+        "eval_price_no_activation_fee": 490,
+        "eval_price_no_activation_fee_after_90off": 49.0,
+        "five_pack_no_activation_fee": 2450,
+        "five_pack_no_activation_fee_after_90off": 245.0,
+        "pa_activation_fee_standard": 59,
+        "profit_target": 3000,
+        "max_drawdown": 2000,
+        "eval_daily_loss_limit": null,
+        "eval_max_contracts_mini": 6,
+        "eval_max_contracts_micro": 60,
+        "pa_max_contracts_top_tier": 4,
+        "pa_safety_net": 52100,
+        "pa_min_balance_to_request_payout": 52600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 3000
+      },
+      {
+        "size": "100K",
+        "eval_price_standard": 399,
+        "eval_price_standard_after_90off": 39.9,
+        "five_pack_standard": 1750,
+        "five_pack_standard_after_90off": 175.0,
+        "eval_price_no_activation_fee": 590,
+        "eval_price_no_activation_fee_after_90off": 59.0,
+        "five_pack_no_activation_fee": 2950,
+        "five_pack_no_activation_fee_after_90off": 295.0,
+        "pa_activation_fee_standard": 59,
+        "profit_target": 6000,
+        "max_drawdown": 3000,
+        "eval_daily_loss_limit": null,
+        "eval_max_contracts_mini": 8,
+        "eval_max_contracts_micro": 80,
+        "pa_max_contracts_top_tier": 6,
+        "pa_safety_net": 103100,
+        "pa_min_balance_to_request_payout": 103600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 3500
+      },
+      {
+        "size": "150K",
+        "eval_price_standard": 599,
+        "eval_price_standard_after_90off": 59.9,
+        "five_pack_standard": 2450,
+        "five_pack_standard_after_90off": 245.0,
+        "eval_price_no_activation_fee": 1690,
+        "eval_price_no_activation_fee_after_90off": 169.0,
+        "five_pack_no_activation_fee": 7950,
+        "five_pack_no_activation_fee_after_90off": 795.0,
+        "pa_activation_fee_standard": 59,
+        "profit_target": 9000,
+        "max_drawdown": 4000,
+        "eval_daily_loss_limit": null,
+        "eval_max_contracts_mini": 12,
+        "eval_max_contracts_micro": 120,
+        "pa_max_contracts_top_tier": 10,
+        "pa_safety_net": 154100,
+        "pa_min_balance_to_request_payout": 154600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 4000
+      }
+    ],
+    "eod": [
+      {
+        "size": "25K",
+        "eval_price_standard": 450,
+        "eval_price_standard_after_90off": 45.0,
+        "five_pack_standard": 1950,
+        "five_pack_standard_after_90off": 195.0,
+        "eval_price_no_activation_fee": 990,
+        "eval_price_no_activation_fee_after_90off": 99.0,
+        "five_pack_no_activation_fee": 4450,
+        "five_pack_no_activation_fee_after_90off": 445.0,
+        "pa_activation_fee_standard": 119,
+        "profit_target": 1500,
+        "max_drawdown": 1000,
+        "eval_daily_loss_limit": 500,
+        "eval_max_contracts_mini": 4,
+        "eval_max_contracts_micro": 40,
+        "pa_max_contracts_top_tier": 2,
+        "pa_safety_net": 26100,
+        "pa_min_balance_to_request_payout": 26600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 1250
+      },
+      {
+        "size": "50K",
+        "eval_price_standard": 550,
+        "eval_price_standard_after_90off": 55.0,
+        "five_pack_standard": 2450,
+        "five_pack_standard_after_90off": 245.0,
+        "eval_price_no_activation_fee": 1190,
+        "eval_price_no_activation_fee_after_90off": 119.0,
+        "five_pack_no_activation_fee": 5450,
+        "five_pack_no_activation_fee_after_90off": 545.0,
+        "pa_activation_fee_standard": 139,
+        "profit_target": 3000,
+        "max_drawdown": 2000,
+        "eval_daily_loss_limit": 1000,
+        "eval_max_contracts_mini": 6,
+        "eval_max_contracts_micro": 60,
+        "pa_max_contracts_top_tier": 4,
+        "pa_safety_net": 52100,
+        "pa_min_balance_to_request_payout": 52600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 3000
+      },
+      {
+        "size": "100K",
+        "eval_price_standard": 990,
+        "eval_price_standard_after_90off": 99.0,
+        "five_pack_standard": 4450,
+        "five_pack_standard_after_90off": 445.0,
+        "eval_price_no_activation_fee": 1590,
+        "eval_price_no_activation_fee_after_90off": 159.0,
+        "five_pack_no_activation_fee": null,
+        "five_pack_no_activation_fee_after_90off": null,
+        "pa_activation_fee_standard": 149,
+        "profit_target": 6000,
+        "max_drawdown": 3000,
+        "eval_daily_loss_limit": 1500,
+        "eval_max_contracts_mini": 8,
+        "eval_max_contracts_micro": 80,
+        "pa_max_contracts_top_tier": 6,
+        "pa_safety_net": 103100,
+        "pa_min_balance_to_request_payout": 103600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 3500
+      },
+      {
+        "size": "150K",
+        "eval_price_standard": 1890,
+        "eval_price_standard_after_90off": 189.0,
+        "five_pack_standard": 8950,
+        "five_pack_standard_after_90off": 895.0,
+        "eval_price_no_activation_fee": 2490,
+        "eval_price_no_activation_fee_after_90off": 249.0,
+        "five_pack_no_activation_fee": null,
+        "five_pack_no_activation_fee_after_90off": null,
+        "pa_activation_fee_standard": 159,
+        "profit_target": 9000,
+        "max_drawdown": 4000,
+        "eval_daily_loss_limit": 2000,
+        "eval_max_contracts_mini": 12,
+        "eval_max_contracts_micro": 120,
+        "pa_max_contracts_top_tier": 10,
+        "pa_safety_net": 154100,
+        "pa_min_balance_to_request_payout": 154600,
+        "pa_min_payout": 500,
+        "pa_max_payout_requests": 6,
+        "pa_consistency_percent": 50,
+        "pa_qualifying_days": 5,
+        "pa_top_tier_daily_loss_limit": 4000
+      }
+    ]
+  },
+  "pa_min_daily_profit_for_qualifying_day": {
+    "intraday": {
+      "25K": 100,
+      "50K": 200,
+      "100K": 250,
+      "150K": 300
+    },
+    "eod": {
+      "25K": 100,
+      "50K": 250,
+      "100K": 300,
+      "150K": 350
+    }
+  },
+  "pa_payout_ladder": {
+    "intraday": {
+      "25K": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "50K": [
+        1500,
+        2000,
+        2500,
+        2500,
+        3000,
+        3000
+      ],
+      "100K": [
+        2000,
+        2500,
+        3000,
+        3000,
+        4000,
+        4000
+      ],
+      "150K": [
+        2500,
+        3000,
+        3000,
+        4000,
+        4000,
+        5000
+      ]
+    },
+    "eod": {
+      "25K": [
+        1000,
+        1000,
+        1000,
+        1000,
+        1000,
+        1000
+      ],
+      "50K": [
+        1500,
+        1500,
+        2000,
+        2500,
+        2500,
+        3000
+      ],
+      "100K": [
+        2000,
+        2500,
+        2500,
+        3000,
+        4000,
+        4000
+      ],
+      "150K": [
+        2500,
+        3000,
+        3000,
+        3000,
+        4000,
+        5000
+      ]
+    }
+  },
+  "pa_scaling_tiers": {
+    "25K": [
+      {
+        "profit_range": "$0-$999",
+        "max_contracts": 1,
+        "dll": 500
+      },
+      {
+        "profit_range": "$1,000-$1,999",
+        "max_contracts": 2,
+        "dll": 500
+      },
+      {
+        "profit_range": "$2,000+",
+        "max_contracts": 2,
+        "dll": 1250
+      }
+    ],
+    "50K": [
+      {
+        "profit_range": "$0-$1,499",
+        "max_contracts": 2,
+        "dll": 1000
+      },
+      {
+        "profit_range": "$1,500-$2,999",
+        "max_contracts": 3,
+        "dll": 1000
+      },
+      {
+        "profit_range": "$3,000-$5,999",
+        "max_contracts": 4,
+        "dll": 2000
+      },
+      {
+        "profit_range": "$6,000+",
+        "max_contracts": 4,
+        "dll": 3000
+      }
+    ],
+    "100K": [
+      {
+        "profit_range": "$0-$1,999",
+        "max_contracts": 3,
+        "dll": 1750
+      },
+      {
+        "profit_range": "$2,000-$2,999",
+        "max_contracts": 4,
+        "dll": 1750
+      },
+      {
+        "profit_range": "$3,000-$4,999",
+        "max_contracts": 5,
+        "dll": 1750
+      },
+      {
+        "profit_range": "$5,000-$9,999",
+        "max_contracts": 6,
+        "dll": 2500
+      },
+      {
+        "profit_range": "$10,000+",
+        "max_contracts": 6,
+        "dll": 3500
+      }
+    ],
+    "150K": [
+      {
+        "profit_range": "$0-$1,999",
+        "max_contracts": 4,
+        "dll": 2500
+      },
+      {
+        "profit_range": "$2,000-$2,999",
+        "max_contracts": 5,
+        "dll": 2500
+      },
+      {
+        "profit_range": "$3,000-$4,999",
+        "max_contracts": 7,
+        "dll": 2500
+      },
+      {
+        "profit_range": "$5,000-$9,999",
+        "max_contracts": 10,
+        "dll": 3000
+      },
+      {
+        "profit_range": "$10,000+",
+        "max_contracts": 10,
+        "dll": 4000
+      }
+    ]
+  },
+  "legacy": {
+    "note": "Legacy evaluations re-released for a limited time; monthly recurring billing; 90% off first month, 80% off recurring months with coupon; one-time PA fee currently shown as $125 for all sizes",
+    "evals": [
+      {
+        "size": "25K",
+        "monthly": 167,
+        "first_month_after_90off": 16.7,
+        "contracts_mini": 4,
+        "contracts_micro": 40,
+        "profit_target": 1500,
+        "trailing_drawdown": 1500,
+        "one_time_pa_fee": 125
+      },
+      {
+        "size": "50K",
+        "monthly": 197,
+        "first_month_after_90off": 19.7,
+        "contracts_mini": 10,
+        "contracts_micro": 100,
+        "profit_target": 3000,
+        "trailing_drawdown": 2500,
+        "one_time_pa_fee": 125
+      },
+      {
+        "size": "100K",
+        "monthly": 297,
+        "first_month_after_90off": 29.7,
+        "contracts_mini": 14,
+        "contracts_micro": 140,
+        "profit_target": 6000,
+        "trailing_drawdown": 3000,
+        "one_time_pa_fee": 125
+      },
+      {
+        "size": "150K",
+        "monthly": 497,
+        "first_month_after_90off": 49.7,
+        "contracts_mini": 17,
+        "contracts_micro": 170,
+        "profit_target": 9000,
+        "trailing_drawdown": 5000,
+        "one_time_pa_fee": 125
+      },
+      {
+        "size": "250K",
+        "monthly": 597,
+        "first_month_after_90off": 59.7,
+        "contracts_mini": 27,
+        "contracts_micro": 270,
+        "profit_target": 15000,
+        "trailing_drawdown": 6500,
+        "one_time_pa_fee": 125
+      },
+      {
+        "size": "300K",
+        "monthly": 697,
+        "first_month_after_90off": 69.7,
+        "contracts_mini": 35,
+        "contracts_micro": 350,
+        "profit_target": 20000,
+        "trailing_drawdown": 7500,
+        "one_time_pa_fee": 125
+      }
+    ],
+    "pa_payout_rules": {
+      "split": "100% of first $25,000 per account, then 90/10",
+      "trading_days": "at least 8 trading days since last request, at least 5 of them with $50+ profit",
+      "safety_net": "drawdown + $100, applies to first 3 payouts only",
+      "consistency": "30% until 6th payout or live transfer",
+      "min_payout": 500,
+      "max_payout_first_five": {
+        "25K": 1500,
+        "50K": 2000,
+        "100K": 2500,
+        "150K": 2750,
+        "250K": 3000,
+        "300K": 3500
+      },
+      "from_6th_payout": "no maximum",
+      "min_balance_to_request": {
+        "25K": 26600,
+        "50K": 52600,
+        "100K": 103100,
+        "150K": 155100,
+        "250K": 256600,
+        "300K": 307600
+      }
+    },
+    "pa_trading_rules": [
+      "half of max contracts until EOD balance exceeds start + drawdown + $100",
+      "30% negative P&L (MAE) rule (50% once EOD profit doubles the safety net)",
+      "5:1 risk-reward rule",
+      "no hedging",
+      "one-direction rule"
+    ]
+  }
+}
