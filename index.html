@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>התפריט השבועי של שלומי 🍗 · 20–26.9</title>
+<title>התפריט השבועי של שלומי 🍗 · 20–26.9 · חיטוב</title>
 <style>
 <style>
   :root{
@@ -57,248 +57,261 @@
   .day-anchor{scroll-margin-top:70px;}
   footer{text-align:center; color:var(--muted); font-size:.8rem; margin-top:44px; padding:0 16px 70px;}
 </style>
+  .plan{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; margin:12px 0;}
+  .plan .box{background:var(--card); border:1px solid #2e3340; border-radius:var(--radius); padding:14px;}
+  .plan .box b{color:var(--accent);}
+  .plan .box ul{margin:6px 16px 0 0; font-size:.88rem; color:var(--muted);}
+  .plan .box ul li{margin:3px 0;}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🍽️ התפריט השבועי של שלומי</h1>
-  <p>שבוע 20–26.9 · ראשון צהריים → שבת צהריים · 100% פרומיל · בלי דגים · 20 מנות שונות, אפס חזרות בין ימים</p>
+  <h1>🍽️ התפריט השבועי של שלומי — שלב חיטוב</h1>
+  <p>שבוע 20–26.9 · בנוי 1:1 על "הערות לתפריט היומי — חיטוב" של דור · כל ארוחה = ירק + חלבון + פחמימה · 100% פרומיל · 13 מנות שונות, אפס חזרות בין ימים</p>
   <div>
     <span class="pill">📦 הזמנות עד חמישי 17.9 בשעה 23:59 — משלוח ראשון 20/09, מגיע במוצ״ש 19.9</span>
-    <span class="pill">🎯 שבת צהריים: 0.7 ג׳ פחמימה</span>
-    <span class="pill">🇹🇭 פאד קה פאו — פעמיים</span>
-    <span class="pill">🍕 שבת ערב: פיצה צ׳יט</span>
+    <span class="pill">☕ צום בוקר ≥3 שעות מהקימה</span>
+    <span class="pill">🎁 150 קק״ל חופשיות ביום</span>
+    <span class="pill">🏋️ שבת ערב: העמסה (פיצה)</span>
   </div>
 </header>
 
 <nav>
-  <a href="#targets">🎯 יעדים</a>
+  <a href="#plan">📋 התוכנית</a>
   <a href="#day-sun">א</a><a href="#day-mon">ב</a><a href="#day-tue">ג</a><a href="#day-wed">ד</a><a href="#day-thu">ה</a><a href="#day-fri">ו</a><a href="#day-sat">ש</a>
   <a href="#order">🛒 הזמנה</a>
+  <a href="#dev">⚠️ סטיות</a>
 </nav>
 
 <div class="wrap">
 
 <div class="banner good">
-  ✅ <b>סריקה חיה (16.9):</b> 52 מוצרים בקטלוג, <b>49 זמינים למשלוח 20/09</b>. האתר מציין מפורשות: <i>"ההזמנות ליום ראשון הקרוב נסגרות בכל חמישי בשעה 23:59"</i>. לא זמינים השבוע: בקר סצ׳ואן PROtein plus ורצועות שווארמה הודו PROtein plus ("אזל · זמין מיום ראשון 27/09"). <b>המבורגר עוף PROtein plus חזר</b> ונכנס ליום שני. שתי מנות חדשות בתפריט: המבורגר עוף עם פירה בטטה, ובשר צלעות מפורק עם פריקי.
+  ✅ <b>סריקה חיה (16.9):</b> 52 מוצרים בקטלוג, <b>49 זמינים למשלוח 20/09</b>. האתר מציין: <i>"ההזמנות ליום ראשון הקרוב נסגרות בכל חמישי בשעה 23:59"</i>. לא זמינים השבוע: בקר סצ׳ואן PROtein plus, רצועות שווארמה הודו PROtein plus. כל 13 המנות בתפריט אומתו כזמינות, המאקרו הרשמי מהאתר.
 </div>
 
-<div class="banner">
-  ⚠️ <b>מול התוכנית של דור:</b> היעדים למטה מבוססים על התוכנית שניתחנו (תקרה ~1,800 קק״ל, 150+ ג׳ חלבון, פחמימה בערב). דפי <i>cut-notes</i> ו־<i>menu</i> באתר של דור חסומים מאחורי התחברות — ברגע שהטקסט שלהם יגיע, התפריט יעודכן להנחיות החיתוך המדויקות לשבועיים הקרובים.
-  <br>📅 <b>שימו לב:</b> יום שני 21.9 הוא יום כיפור. אם צמים — הצהריים של שני יורדים (2 מנות) והערב הופך לארוחה שאחרי הצום.
+<!-- ============ התוכנית ============ -->
+<h2 id="plan" class="day-anchor">📋 מה כל ארוחה צריכה לפי דור — ואיך התפריט סוגר את זה</h2>
+<div class="plan">
+  <div class="box"><b>🥦 ירקות</b> — 250 ג׳ צבעוניים <i>או</i> 415 ג׳ ירוקים (שקילה חיה)
+    <ul><li>כל מנת צהריים/ערב בתפריט מכילה ירק מפרומיל (זודלס, ברוקולי, לקט אסייאתי, פלפלים…)</li><li>הכמות במנה קטנה מ‑250 ג׳ — משלימים ירק חי בצד (מלפפון/עגבנייה/פטריות בלי הגבלה)</li></ul></div>
+  <div class="box"><b>🍗 חלבון</b> — 265 ג׳ בשר רזה חי (חזה עוף, הודו, פסטרמה, שייטל) <i>או</i> 185 ג׳ בשר שמן (טחון, קציצות, פרגיות)
+    <ul><li>265 ג׳ חזה עוף חי ≈ 60 ג׳ חלבון — מנות העוף בתפריט: 54–66 ג׳ ✅</li><li>מנות הבשר הטחון (סלופי/ראגו/בולונז) = מסלול "בשר שמן": 40–58 ג׳ חלבון ✅</li></ul></div>
+  <div class="box"><b>🍚 פחמימה</b> — 210 ג׳ אורז לבן מבושל (לא בסמטי) / 155 ג׳ פתיתים, קוסקוס או פסטה / 310 ג׳ תפו״א חי / 105 ג׳ לחם לבן
+    <ul><li>210 ג׳ אורז ≈ 59 ג׳ פחמימה — כל ארוחה בתפריט: 46–69 ג׳ ✅</li><li>רק אורז לבן, פסטה ופתיתים. <b>בלי</b> בטטה, מג׳דרה, פריקי, סובה, קינואה, אורז אדום או בסמטי — הוצאו מהתפריט</li></ul></div>
+  <div class="box"><b>📏 היום כולו</b>
+    <ul><li>צום בוקר ≥3 שעות (קפה/סודה) → צהריים → ערב. בלי ביניים (ויתרת)</li><li>150 קק״ל חופשיות ביום (אפשר לצבור) · חלב עד 200 מ״ל · מים 2–3 ליטר</li><li>זירו רק בארוחות · קפה/תה בלי סוכר בלי הגבלה · שמן רק ספריי</li><li>העמסה פעם בשבוע אחרי אימון כוח במקום ערב — שבת 🍕</li></ul></div>
 </div>
 
-<!-- ============ יעדים ============ -->
-<h2 id="targets" class="day-anchor">🎯 התקציב היומי (מהתפריט של דור)</h2>
 <div class="targets">
-  <div class="tbox"><div class="big">~1,800</div><div class="lbl">קק״ל — תקרה יומית מוחלטת</div></div>
-  <div class="tbox"><div class="big">1,134–1,319</div><div class="lbl">קק״ל — מה שהתוכנית סוגרת</div></div>
-  <div class="tbox"><div class="big">138–211 ג׳</div><div class="lbl">חלבון ביום מהמנות 💪</div></div>
-  <div class="tbox"><div class="big">0.7 ג׳</div><div class="lbl">פחמימה בשבת צהריים 🎯<br>לפני פיצת הצ׳יט</div></div>
-  <div class="tbox"><div class="big">124 ג׳</div><div class="lbl">חלבון במנה אחת — PROtein plus חזר 🔥</div></div>
-  <div class="tbox"><div class="big">~1,223</div><div class="lbl">גירעון יומי ממוצע מול 2,430 🔥</div></div>
+  <div class="tbox"><div class="big">~1,270</div><div class="lbl">קק״ל — 2 ארוחות לפי התוכנית (מסלול רזה)</div></div>
+  <div class="tbox"><div class="big">1,025–1,176</div><div class="lbl">קק״ל — מה שהתפריט סוגר (א–ו)</div></div>
+  <div class="tbox"><div class="big">98–125 ג׳</div><div class="lbl">חלבון ביום (יעד ~120 ג׳ מ‑2 ארוחות)</div></div>
+  <div class="tbox"><div class="big">105–127 ג׳</div><div class="lbl">פחמימה ביום (יעד ~120–140 ג׳)</div></div>
+  <div class="tbox"><div class="big">+150</div><div class="lbl">קק״ל חופשיות — מה שבא לך 🎁</div></div>
+  <div class="tbox"><div class="big">~1,167</div><div class="lbl">גירעון יומי מול 2,430 (כולל החופשיות) 🔥</div></div>
 </div>
 
 <!-- ============ יום ראשון ============ -->
-<h2 id="day-sun" class="day-anchor">🟢 יום ראשון 20.9 — פותחים בכפל סריראצ׳ה 🌶️ <span class="daychip">1,182 קק״ל · 158 ח׳ · 18 ש׳ · 81 פ׳</span></h2>
-<p class="sub">המשלוח הגיע במוצ״ש — הכפל האהוב לצהריים, והפאד קה פאו כבר בערב הראשון.</p>
+<h2 id="day-sun" class="day-anchor">🟢 יום ראשון 20.9 <span class="daychip">1,025 קק״ל · 117 ח׳ · 13 ש׳ · 109 פ׳</span></h2>
+<p class="sub">המשלוח הגיע במוצ״ש. פותחים את השבוע עם האהוב שלך כבר בערב הראשון ❤️</p>
 <div class="grid">
   <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10562.jpg?v=1766477327&width=640" alt="רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10470.jpg?v=1766477611&width=640" alt="רצועות עוף בסריראצ&#x27;ה דבש ולקט ירוקים" loading="lazy"></div>
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10435.jpg?v=1766477600&width=640" alt="המבורגר עוף עם לקט ירוקים מאודים" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10744.jpg?v=1766477895&width=640" alt="אורז לבן מאודה" loading="lazy"></div>
     <div class="body">
-      <span class="tag">☀️ צהריים — כפל סריראצ׳ה 🥦 ירק במנה</span>
-      <h3>רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס ➕ רצועות עוף בסריראצ&#x27;ה דבש ולקט ירוקים</h3>
-      <div class="meta">₪55 + ₪63 · זודלס + לקט ירוקים בתוך המנות</div>
-      <div class="macros"><span class="ph">🥩 100.5</span><span>🔥 690</span><span>🧈 11</span><span>🍞 31.6</span></div>
-      <a class="btn" href="https://promealfood.com/products/%D7%A8%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%A6%D7%94-%D7%93%D7%91%D7%A9-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%90%D7%A6%D7%94-%D7%93%D7%91%D7%A9-%D7%95%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%95%D7%A7" target="_blank">רצועות עוף בסריראצ&#x27;ה דבש ולקט ירוקים ↗</a>
+      <span class="tag ">☀️ צהריים — ירק + חלבון + פחמימה</span>
+      <h3>המבורגר עוף עם לקט ירוקים מאודים ➕ אורז לבן מאודה</h3>
+      <div class="meta">₪63 + ₪25 · 🥦 ירק ירוק: שעועית, ברוקולי, אדממה · 🍗 חלבון רזה: המבורגר עוף · 🍚 אורז לבן</div>
+      <div class="macros"><span class="ph">🥩 59.9</span><span>🔥 533</span><span>🧈 5.6</span><span>🍞 59.7</span></div>
+      <a class="btn " href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">המבורגר עוף עם לקט ירוקים מאודים ↗</a><a class="btn ghost" href="https://promealfood.com/products/%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F-%D7%9E%D7%90%D7%95%D7%93%D7%94" target="_blank">אורז לבן מאודה ↗</a>
     </div>
   </div>
   <div class="card">
     <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/promeal6026.jpg?v=1766478145&width=640" alt="פאד קה פאו עוף ואורז" loading="lazy"></div>
     <div class="body">
-      <span class="tag dinner">🌙 ערב — האהוב שלך ❤️</span>
+      <span class="tag dinner">🌙 ערב — ירק + חלבון + פחמימה</span>
       <h3>פאד קה פאו עוף ואורז</h3>
-      <div class="meta">₪65 · עוף טחון חריף תאילנדי + אורז</div>
+      <div class="meta">₪65 · 🥦 ירק: בזיליקום, פלפלים · 🍗 עוף טחון · 🍚 אורז לבן</div>
       <div class="macros"><span class="ph">🥩 57</span><span>🔥 492</span><span>🧈 7.3</span><span>🍞 49.2</span></div>
-      <a class="btn blue" href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%95%D7%A3-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">לדף המנה ↗</a>
+      <a class="btn dinner" href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%95%D7%A3-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">פאד קה פאו עוף ואורז ↗</a>
     </div>
   </div>
 </div>
 <!-- ============ יום שני ============ -->
-<h2 id="day-mon" class="day-anchor">🟢 יום שני 21.9 — יום שיא חלבון 💪 <span class="daychip">1,319 קק״ל · 211 ח׳ · 9 ש׳ · 58 פ׳</span></h2>
-<p class="sub">המבורגר PROtein plus (124 ג׳ חלבון במנה אחת!) + פאד קה פאו ירקות — ובערב המנה החדשה של המבורגר עם פירה בטטה.</p>
+<h2 id="day-mon" class="day-anchor">🟢 יום שני 21.9 <span class="daychip">1,100 קק״ל · 125 ח׳ · 22 ש׳ · 105 פ׳</span></h2>
+<p class="sub">📅 יום כיפור — אם צמים: הצהריים יורדים, הערב הופך לארוחה שאחרי הצום.</p>
 <div class="grid">
   <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/promeal6136_fee22b96-ff5c-4a95-ba40-351c0f517d27.jpg?v=1766478322&width=640" alt="המבורגר עוף PROtein plus" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10487.jpg?v=1766477367&width=640" alt="פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים" loading="lazy"></div>
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10429.jpg?v=1766940830&width=640" alt="רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10744.jpg?v=1766477895&width=640" alt="אורז לבן מאודה" loading="lazy"></div>
     <div class="body">
-      <span class="tag">☀️ צהריים — מנה כפולה 🥦 ירק במנה</span>
-      <h3>המבורגר עוף PROtein plus ➕ פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים</h3>
-      <div class="meta">₪80 + ₪54 · אפונה, ברוקולי ושעועית בתוך המנה</div>
-      <div class="macros"><span class="ph">🥩 160</span><span>🔥 918</span><span>🧈 7.6</span><span>🍞 20</span></div>
-      <a class="btn" href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-copy" target="_blank">המבורגר עוף PROtein plus ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A4%D7%95%D7%A0%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99-%D7%A9%D7%A2%D7%95%D7%A2%D7%99%D7%AA" target="_blank">פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים ↗</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10418.jpg?v=1766477516&width=640" alt="המבורגר עוף בתוספת פירה בטטה,ברוקולי ושעועית ירוקה" loading="lazy"></div>
-    <div class="body">
-      <span class="tag dinner">🌙 ערב — חדש בתפריט ✨</span>
-      <h3>המבורגר עוף בתוספת פירה בטטה,ברוקולי ושעועית ירוקה</h3>
-      <div class="meta">₪63 · המבורגר + פירה בטטה + ברוקולי ושעועית · 1.4 ג׳ שומן בלבד</div>
-      <div class="macros"><span class="ph">🥩 51.3</span><span>🔥 401</span><span>🧈 1.4</span><span>🍞 38.1</span></div>
-      <a class="btn blue" href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-%D7%91%D7%98%D7%98%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99-%D7%95%D7%A9%D7%A2%D7%95%D7%A2%D7%99%D7%AA-%D7%99%D7%A8%D7%95%D7%A7%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99" target="_blank">לדף המנה ↗</a>
-    </div>
-  </div>
-</div>
-<!-- ============ יום שלישי ============ -->
-<h2 id="day-tue" class="day-anchor">🟢 יום שלישי 22.9 — אסייאתי בצהריים, סריראצ׳ה ואורז בערב <span class="daychip">1,134 קק״ל · 165 ח׳ · 24 ש׳ · 70 פ׳</span></h2>
-
-<div class="grid">
-  <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10429.jpg?v=1766940830&width=640" alt="רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10769.jpg?v=1766477935&width=640" alt="עוף בפסטו" loading="lazy"></div>
-    <div class="body">
-      <span class="tag">☀️ צהריים — מנה כפולה 🥦 ירק במנה</span>
-      <h3>רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי ➕ עוף בפסטו</h3>
-      <div class="meta">₪63 + ₪50 · ירקות אסייאתים בתוך המנה + פסטו כתוספת חלבון</div>
-      <div class="macros"><span class="ph">🥩 111.2</span><span>🔥 626</span><span>🧈 17.5</span><span>🍞 10.5</span></div>
-      <a class="btn" href="https://promealfood.com/products/%D7%A7%D7%95%D7%91%D7%99%D7%95%D7%AA-%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%95%D7%A7%D7%A4%D7%A5-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A1%D7%99%D7%99%D7%90%D7%AA%D7%99%D7%9D" target="_blank">רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A4%D7%A1%D7%98%D7%95" target="_blank">עוף בפסטו ↗</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ChatGPTImageJul1_2026_02_52_22PM.png?v=1782906766&width=640" alt="עוף בסריראצה-דבש בתוספת אורז לבן" loading="lazy"></div>
-    <div class="body">
-      <span class="tag dinner">🌙 ערב — חלבון + פחמימה + ירק</span>
-      <h3>עוף בסריראצה-דבש בתוספת אורז לבן</h3>
-      <div class="meta">₪56 · רצועות עוף בסריראצ׳ה-דבש + אורז + לקט ירוקים</div>
-      <div class="macros"><span class="ph">🥩 54</span><span>🔥 508</span><span>🧈 6.8</span><span>🍞 59</span></div>
-      <a class="btn blue" href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%90%D7%A6%D7%94-%D7%95%D7%93%D7%91%D7%A9-%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">לדף המנה ↗</a>
-    </div>
-  </div>
-</div>
-<!-- ============ יום רביעי ============ -->
-<h2 id="day-wed" class="day-anchor">🟢 יום רביעי 23.9 — ערב בשר 🥩 <span class="daychip">1,179 קק״ל · 147 ח׳ · 36 ש׳ · 60 פ׳</span></h2>
-<p class="sub">המנה החדשה: בשר צלעות מפורק עם פריקי וירקות שורש — עשירה יותר בשומן, לכן הצהריים הכי רזים בשבוע.</p>
-<div class="grid">
-  <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10370.jpg?v=1766477299&width=640" alt="רצועות עוף ברוטב עגבניות קרמי על מצע זודלס" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/GAL_1041_resized.jpg?v=1766477215&width=640" alt="פסטרמה טבעית בטעם של פעם" loading="lazy"></div>
-    <div class="body">
-      <span class="tag">☀️ צהריים — מנה כפולה 🥦 ירק במנה</span>
-      <h3>רצועות עוף ברוטב עגבניות קרמי על מצע זודלס ➕ פסטרמה טבעית בטעם של פעם</h3>
-      <div class="meta">₪54 + ₪50 · זודלס בתוך המנה + פסטרמה כתוספת חלבון</div>
-      <div class="macros"><span class="ph">🥩 91.4</span><span>🔥 555</span><span>🧈 13.2</span><span>🍞 12.9</span></div>
-      <a class="btn" href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A8%D7%95%D7%98%D7%91-%D7%A2%D7%92%D7%91%D7%A0%D7%99%D7%95%D7%AA-%D7%A7%D7%A8%D7%9E%D7%99-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">רצועות עוף ברוטב עגבניות קרמי על מצע זודלס ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/%D7%A8%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%A9%D7%95%D7%95%D7%90%D7%A8%D7%9E%D7%94-%D7%94%D7%95%D7%93%D7%95-copy-1" target="_blank">פסטרמה טבעית בטעם של פעם ↗</a>
-    </div>
-  </div>
-  <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/promeal1238050.jpg?v=1771254584&width=640" alt="בשר צלעות מפורק עם פריקי וירקות שורש" loading="lazy"></div>
-    <div class="body">
-      <span class="tag dinner">🌙 ערב — חדש בתפריט ✨</span>
-      <h3>בשר צלעות מפורק עם פריקי וירקות שורש</h3>
-      <div class="meta">₪70 · בשר בקר מפורק + פריקי + ירקות שורש</div>
-      <div class="macros"><span class="ph">🥩 56</span><span>🔥 624</span><span>🧈 23.2</span><span>🍞 47.2</span></div>
-      <a class="btn blue" href="https://promealfood.com/products/%D7%91%D7%A9%D7%A8-%D7%A6%D7%9C%D7%A2%D7%95%D7%AA-%D7%9E%D7%A4%D7%95%D7%A8%D7%A7-%D7%A2%D7%9D-%D7%A4%D7%A8%D7%99%D7%A7%D7%99-%D7%95%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%A9%D7%95%D7%A8%D7%A9" target="_blank">לדף המנה ↗</a>
-    </div>
-  </div>
-</div>
-<!-- ============ יום חמישי ============ -->
-<h2 id="day-thu" class="day-anchor">🟢 יום חמישי 24.9 — יום המבורגר 🍔 <span class="daychip">1,173 קק״ל · 182 ח׳ · 17 ש׳ · 64 פ׳</span></h2>
-
-<div class="grid">
-  <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10435.jpg?v=1766477600&width=640" alt="המבורגר עוף עם לקט ירוקים מאודים" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/promeal6136.jpg?v=1766478126&width=640" alt="המבורגר עוף" loading="lazy"></div>
-    <div class="body">
-      <span class="tag">☀️ צהריים — כפל המבורגר 🥦 ירק במנה</span>
-      <h3>המבורגר עוף עם לקט ירוקים מאודים ➕ המבורגר עוף</h3>
-      <div class="meta">₪63 + ₪50 · שעועית, ברוקולי ואדממה בתוך המנה</div>
-      <div class="macros"><span class="ph">🥩 116.5</span><span>🔥 621</span><span>🧈 6</span><span>🍞 15.7</span></div>
-      <a class="btn" href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">המבורגר עוף עם לקט ירוקים מאודים ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3" target="_blank">המבורגר עוף ↗</a>
+      <span class="tag ">☀️ צהריים — ירק + חלבון + פחמימה</span>
+      <h3>רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי ➕ אורז לבן מאודה</h3>
+      <div class="meta">₪63 + ₪25 · 🥦 ירק צבעוני: לקט אסייאתי · 🍗 חזה עוף · 🍚 אורז לבן</div>
+      <div class="macros"><span class="ph">🥩 59.6</span><span>🔥 548</span><span>🧈 11.6</span><span>🍞 56.7</span></div>
+      <a class="btn " href="https://promealfood.com/products/%D7%A7%D7%95%D7%91%D7%99%D7%95%D7%AA-%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%95%D7%A7%D7%A4%D7%A5-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A1%D7%99%D7%99%D7%90%D7%AA%D7%99%D7%9D" target="_blank">רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי ↗</a><a class="btn ghost" href="https://promealfood.com/products/%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F-%D7%9E%D7%90%D7%95%D7%93%D7%94" target="_blank">אורז לבן מאודה ↗</a>
     </div>
   </div>
   <div class="card">
     <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/promeal1238111.jpg?v=1771262402&width=640" alt="חזה עוף מדורה ואורז" loading="lazy"></div>
     <div class="body">
-      <span class="tag dinner">🌙 ערב — חלבון + פחמימה + ירק</span>
+      <span class="tag dinner">🌙 ערב — ירק + חלבון + פחמימה</span>
       <h3>חזה עוף מדורה ואורז</h3>
-      <div class="meta">₪70 · חזה עוף מדורה + אורז + ירקות</div>
+      <div class="meta">₪70 · 🥦 ירק · 🍗 חזה עוף (66 ג׳ חלבון) · 🍚 אורז לבן</div>
       <div class="macros"><span class="ph">🥩 65.6</span><span>🔥 552</span><span>🧈 10.8</span><span>🍞 48</span></div>
-      <a class="btn blue" href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%93%D7%95%D7%A8%D7%94-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">לדף המנה ↗</a>
+      <a class="btn dinner" href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%93%D7%95%D7%A8%D7%94-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">חזה עוף מדורה ואורז ↗</a>
     </div>
   </div>
 </div>
-<!-- ============ יום שישי ============ -->
-<h2 id="day-fri" class="day-anchor">🟢 יום שישי 25.9 — כפל בקר בצהריים, פסטו בערב <span class="daychip">1,256 קק״ל · 138 ח׳ · 36 ש׳ · 89 פ׳</span></h2>
+<!-- ============ יום שלישי ============ -->
+<h2 id="day-tue" class="day-anchor">🟢 יום שלישי 22.9 <span class="daychip">1,176 קק״ל · 123 ח׳ · 18 ש׳ · 122 פ׳</span></h2>
 
 <div class="grid">
   <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10380.jpg?v=1766477401&width=640" alt="ראגו בולונז על מצע זודלס" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10532_b5140792-1211-41bb-acea-64fe2fbae3d8.jpg?v=1766477696&width=640" alt="בקר סצ&#x27;ואן" loading="lazy"></div>
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10562.jpg?v=1766477327&width=640" alt="רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10744.jpg?v=1766477895&width=640" alt="אורז לבן מאודה" loading="lazy"></div>
     <div class="body">
-      <span class="tag">☀️ צהריים — כפל בקר 🥦 ירק במנה</span>
-      <h3>ראגו בולונז על מצע זודלס ➕ בקר סצ&#x27;ואן</h3>
-      <div class="meta">₪60 + ₪45 · זודלס + פלפלים ובצל בתוך המנות</div>
-      <div class="macros"><span class="ph">🥩 73.7</span><span>🔥 640</span><span>🧈 23.3</span><span>🍞 29.7</span></div>
-      <a class="btn" href="https://promealfood.com/products/%D7%A8%D7%90%D7%92%D7%95-%D7%91%D7%95%D7%9C%D7%95%D7%A0%D7%96-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">ראגו בולונז על מצע זודלס ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/%D7%91%D7%A7%D7%A8-%D7%A1%D7%A6%D7%95%D7%90%D7%9F-%D7%A4%D7%9C%D7%A4%D7%9C%D7%99%D7%9D-%D7%91%D7%A6%D7%9C-%D7%9C%D7%91%D7%9F-%D7%99%D7%A8%D7%95%D7%A7" target="_blank">בקר סצ&#x27;ואן ↗</a>
+      <span class="tag ">☀️ צהריים — ירק + חלבון + פחמימה</span>
+      <h3>רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס ➕ אורז לבן מאודה</h3>
+      <div class="meta">₪55 + ₪25 · 🥦 ירק ירוק: זודלס (קישוא) · 🍗 רצועות עוף · 🍚 אורז לבן</div>
+      <div class="macros"><span class="ph">🥩 59</span><span>🔥 560</span><span>🧈 5</span><span>🍞 62.8</span></div>
+      <a class="btn " href="https://promealfood.com/products/%D7%A8%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%A6%D7%94-%D7%93%D7%91%D7%A9-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס ↗</a><a class="btn ghost" href="https://promealfood.com/products/%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F-%D7%9E%D7%90%D7%95%D7%93%D7%94" target="_blank">אורז לבן מאודה ↗</a>
     </div>
   </div>
   <div class="card">
     <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/promeal1237993.jpg?v=1770808006&width=640" alt="חזה עוף בפסטו עם פתיתים ועגבניות מיובשות" loading="lazy"></div>
     <div class="body">
-      <span class="tag dinner">🌙 ערב — חלבון + פחמימה + ירק</span>
+      <span class="tag dinner">🌙 ערב — ירק + חלבון + פחמימה</span>
       <h3>חזה עוף בפסטו עם פתיתים ועגבניות מיובשות</h3>
-      <div class="meta">₪70 · חזה עוף בפסטו + פתיתים + עגבניות מיובשות</div>
+      <div class="meta">₪70 · 🥦 עגבניות מיובשות · 🍗 חזה עוף · 🍝 פתיתים (155 ג׳ בתוכנית)</div>
       <div class="macros"><span class="ph">🥩 64.4</span><span>🔥 616</span><span>🧈 13.2</span><span>🍞 59.6</span></div>
-      <a class="btn blue" href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%91%D7%A4%D7%A1%D7%98%D7%95-%D7%A2%D7%9D-%D7%A4%D7%AA%D7%99%D7%AA%D7%99%D7%9D-%D7%95%D7%A2%D7%92%D7%91%D7%A0%D7%99%D7%95%D7%AA-%D7%9E%D7%99%D7%95%D7%91%D7%A9%D7%95%D7%AA" target="_blank">לדף המנה ↗</a>
+      <a class="btn dinner" href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%91%D7%A4%D7%A1%D7%98%D7%95-%D7%A2%D7%9D-%D7%A4%D7%AA%D7%99%D7%AA%D7%99%D7%9D-%D7%95%D7%A2%D7%92%D7%91%D7%A0%D7%99%D7%95%D7%AA-%D7%9E%D7%99%D7%95%D7%91%D7%A9%D7%95%D7%AA" target="_blank">חזה עוף בפסטו עם פתיתים ועגבניות מיובשות ↗</a>
+    </div>
+  </div>
+</div>
+<!-- ============ יום רביעי ============ -->
+<h2 id="day-wed" class="day-anchor">🟢 יום רביעי 23.9 <span class="daychip">1,118 קק״ל · 98 ח׳ · 15 ש׳ · 106 פ׳</span></h2>
+<p class="sub">פאד קה פאו פעם שנייה השבוע 🇹🇭</p>
+<div class="grid">
+  <div class="card">
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10487.jpg?v=1766477367&width=640" alt="פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10744.jpg?v=1766477895&width=640" alt="אורז לבן מאודה" loading="lazy"></div>
+    <div class="body">
+      <span class="tag ">☀️ צהריים — ירק + חלבון + פחמימה</span>
+      <h3>פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים ➕ אורז לבן מאודה</h3>
+      <div class="meta">₪54 + ₪25 · 🥦 ירק ירוק: אפונה, ברוקולי, שעועית · 🍗 עוף טחון · 🍚 אורז לבן</div>
+      <div class="macros"><span class="ph">🥩 40.4</span><span>🔥 530</span><span>🧈 6.4</span><span>🍞 60</span></div>
+      <a class="btn " href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A4%D7%95%D7%A0%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99-%D7%A9%D7%A2%D7%95%D7%A2%D7%99%D7%AA" target="_blank">פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים ↗</a><a class="btn ghost" href="https://promealfood.com/products/%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F-%D7%9E%D7%90%D7%95%D7%93%D7%94" target="_blank">אורז לבן מאודה ↗</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/promeal6118.jpg?v=1766478186&width=640" alt="סלופי גו על פפרדלה" loading="lazy"></div>
+    <div class="body">
+      <span class="tag dinner">🌙 ערב — ירק + חלבון + פחמימה</span>
+      <h3>סלופי גו על פפרדלה</h3>
+      <div class="meta">₪70 · 🥩 בשר טחון (מסלול "בשר שמן" 185 ג׳) · 🍝 פסטה עם רוטב עגבניות · ירק ברוטב</div>
+      <div class="macros"><span class="ph">🥩 58</span><span>🔥 588</span><span>🧈 8.8</span><span>🍞 46.4</span></div>
+      <a class="btn dinner" href="https://promealfood.com/products/%D7%A1%D7%9C%D7%95%D7%A4%D7%99-%D7%92%D7%95-%D7%A2%D7%9C-%D7%A4%D7%A4%D7%A8%D7%93%D7%9C%D7%94" target="_blank">סלופי גו על פפרדלה ↗</a>
+    </div>
+  </div>
+</div>
+<!-- ============ יום חמישי ============ -->
+<h2 id="day-thu" class="day-anchor">🟢 יום חמישי 24.9 <span class="daychip">1,091 קק״ל · 98 ח׳ · 22 ש׳ · 123 פ׳</span></h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10380.jpg?v=1766477401&width=640" alt="ראגו בולונז על מצע זודלס" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10744.jpg?v=1766477895&width=640" alt="אורז לבן מאודה" loading="lazy"></div>
+    <div class="body">
+      <span class="tag ">☀️ צהריים — ירק + חלבון + פחמימה</span>
+      <h3>ראגו בולונז על מצע זודלס ➕ אורז לבן מאודה</h3>
+      <div class="meta">₪60 + ₪25 · 🥦 ירק ירוק: זודלס · 🥩 בשר טחון (מסלול שמן) · 🍚 אורז לבן</div>
+      <div class="macros"><span class="ph">🥩 44.4</span><span>🔥 583</span><span>🧈 15.4</span><span>🍞 63.7</span></div>
+      <a class="btn " href="https://promealfood.com/products/%D7%A8%D7%90%D7%92%D7%95-%D7%91%D7%95%D7%9C%D7%95%D7%A0%D7%96-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">ראגו בולונז על מצע זודלס ↗</a><a class="btn ghost" href="https://promealfood.com/products/%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F-%D7%9E%D7%90%D7%95%D7%93%D7%94" target="_blank">אורז לבן מאודה ↗</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ChatGPTImageJul1_2026_02_52_22PM.png?v=1782906766&width=640" alt="עוף בסריראצה-דבש בתוספת אורז לבן" loading="lazy"></div>
+    <div class="body">
+      <span class="tag dinner">🌙 ערב — ירק + חלבון + פחמימה</span>
+      <h3>עוף בסריראצה-דבש בתוספת אורז לבן</h3>
+      <div class="meta">₪56 · 🥦 לקט ירוקים · 🍗 רצועות עוף · 🍚 אורז לבן</div>
+      <div class="macros"><span class="ph">🥩 54</span><span>🔥 508</span><span>🧈 6.8</span><span>🍞 59</span></div>
+      <a class="btn dinner" href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%90%D7%A6%D7%94-%D7%95%D7%93%D7%91%D7%A9-%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">עוף בסריראצה-דבש בתוספת אורז לבן ↗</a>
+    </div>
+  </div>
+</div>
+<!-- ============ יום שישי ============ -->
+<h2 id="day-fri" class="day-anchor">🟢 יום שישי 25.9 <span class="daychip">1,166 קק״ל · 101 ח׳ · 27 ש׳ · 127 פ׳</span></h2>
+
+<div class="grid">
+  <div class="card">
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10638.jpg?v=1766477547&width=640" alt="עוף בקארי אדום בתוספת אורז לבן" loading="lazy"></div>
+    <div class="body">
+      <span class="tag ">☀️ צהריים — ירק + חלבון + פחמימה</span>
+      <h3>עוף בקארי אדום בתוספת אורז לבן</h3>
+      <div class="meta">₪63 · 🥦 ירק · 🍗 עוף · 🍚 אורז לבן — מנה משולבת אחת</div>
+      <div class="macros"><span class="ph">🥩 50.3</span><span>🔥 546</span><span>🧈 12.1</span><span>🍞 58.1</span></div>
+      <a class="btn " href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A7%D7%90%D7%A8%D7%99-%D7%90%D7%93%D7%95%D7%9D-%D7%95%D7%97%D7%9C%D7%91-%D7%A7%D7%95%D7%A7%D7%95%D7%A1-%D7%A2%D7%9D-%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F" target="_blank">עוף בקארי אדום בתוספת אורז לבן ↗</a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ChatGPT_Image_Jul_1_2026_01_56_31_PM.png?v=1782903420&width=640" alt="פסטה בולונז איטלקי" loading="lazy"></div>
+    <div class="body">
+      <span class="tag dinner">🌙 ערב — ירק + חלבון + פחמימה</span>
+      <h3>פסטה בולונז איטלקי</h3>
+      <div class="meta">₪65 · 🥦 ירק צבעוני: אפונה וגזר · 🥩 בשר טחון (מסלול שמן) · 🍝 פסטה ברוטב עגבניות</div>
+      <div class="macros"><span class="ph">🥩 50.8</span><span>🔥 620</span><span>🧈 15.2</span><span>🍞 68.8</span></div>
+      <a class="btn dinner" href="https://promealfood.com/products/%D7%91%D7%95%D7%9C%D7%95%D7%A0%D7%96-%D7%A4%D7%A1%D7%98%D7%94-%D7%90%D7%A4%D7%95%D7%A0%D7%94-%D7%95%D7%92%D7%96%D7%A8-1" target="_blank">פסטה בולונז איטלקי ↗</a>
     </div>
   </div>
 </div>
 <!-- ============ שבת ============ -->
-<h2 id="day-sat" class="day-anchor">🎯 שבת 26.9 — 0.7 ג׳ פחמימה לפני הפיצה 🍕 <span class="daychip">543 קק״ל · 103 ח׳ · 13 ש׳ · 1 פ׳</span></h2>
-<p class="sub">צהריים בלבד מפרומיל — הזיווג היחיד בקטלוג שסוגר ירק + 100+ ג׳ חלבון עם פחות מ־1 ג׳ פחמימה. בערב: פיצה צ׳יט.</p>
+<h2 id="day-sat" class="day-anchor">🎯 שבת 26.9 <span class="daychip">507 קק״ל · 60 ח׳ · 8 ש׳ · 49 פ׳ (צהריים בלבד)</span></h2>
+<p class="sub">🏋️ יום אימון כוח → בערב <b>ארוחת ההעמסה</b> במקום ארוחת ערב (סעיף 12–13 בתוכנית: "לא מוותרים על ההעמסה") — פיצה בחוץ.</p>
 <div class="grid">
   <div class="card">
-    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10398.jpg?v=1766477590&width=640" alt="עוף פהאיטאס מקסיקני" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10627_567faac1-f5af-4007-af73-5d2c663dbdf9.jpg?v=1766477869&width=640" alt="חזה עוף מהגריל" loading="lazy"></div>
+    <div class="imgs"><img src="https://promealfood.com/cdn/shop/files/ProMeal10398.jpg?v=1766477590&width=640" alt="עוף פהאיטאס מקסיקני" loading="lazy"><img src="https://promealfood.com/cdn/shop/files/ProMeal10744.jpg?v=1766477895&width=640" alt="אורז לבן מאודה" loading="lazy"></div>
     <div class="body">
-      <span class="tag">☀️ צהריים — מנה כפולה 🥦 ירק במנה · 🌮 המקסיקני של השבוע</span>
-      <h3>עוף פהאיטאס מקסיקני ➕ חזה עוף מהגריל</h3>
-      <div class="meta">₪40 + ₪50 · פלפלים ובצל בתוך הפהאיטאס</div>
-      <div class="macros"><span class="ph">🥩 102.6</span><span>🔥 543</span><span>🧈 12.6</span><span>🍞 0.7</span></div>
-      <a class="btn" href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%A4%D7%94%D7%90%D7%99%D7%98%D7%A1" target="_blank">עוף פהאיטאס מקסיקני ↗</a>
-      <a class="btn ghost" href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%94%D7%92%D7%A8%D7%99%D7%9C" target="_blank">חזה עוף מהגריל ↗</a>
+      <span class="tag ">☀️ צהריים — ירק + חלבון + פחמימה</span>
+      <h3>עוף פהאיטאס מקסיקני ➕ אורז לבן מאודה</h3>
+      <div class="meta">₪40 + ₪25 · 🥦 ירק צבעוני: פלפלים ובצל · 🍗 חזה עוף · 🍚 אורז לבן · 🌮 המקסיקני של השבוע</div>
+      <div class="macros"><span class="ph">🥩 60.5</span><span>🔥 507</span><span>🧈 7.8</span><span>🍞 48.7</span></div>
+      <a class="btn " href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%A4%D7%94%D7%90%D7%99%D7%98%D7%A1" target="_blank">עוף פהאיטאס מקסיקני ↗</a><a class="btn ghost" href="https://promealfood.com/products/%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F-%D7%9E%D7%90%D7%95%D7%93%D7%94" target="_blank">אורז לבן מאודה ↗</a>
     </div>
   </div>
   <div class="card">
     <div class="imgs"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=640&q=70" alt="פיצה" loading="lazy"></div>
     <div class="body">
-      <span class="tag dinner">🌙 ערב — פיצה צ׳יט 🍕</span>
-      <h3>פיצה צ׳יט — בהזמנה מבחוץ</h3>
-      <div class="meta">מוזמנת בחוץ — לא חלק מההזמנה</div>
-      <div class="note">לא מפרומיל. שבת צהריים נסגרה על 0.7 ג׳ פחמימה כדי לפנות מקום.</div>
-      
+      <span class="tag snack">🏋️ ערב — ארוחת ההעמסה (אחרי אימון כוח)</span>
+      <h3>פיצה — ארוחה בחוץ</h3>
+      <div class="meta">לפי התוכנית: פעם בשבוע, רק אחרי אימון כוח, במקום ארוחת הערב. לא חלק מההזמנה.</div>
+      <div class="note">אפשר לפצל לשתי ארוחות בתוך 4 שעות מסוף האימון.</div>
     </div>
   </div>
 </div>
 
 <!-- ============ הזמנה ============ -->
-<h2 id="order" class="day-anchor">🛒 ההזמנה המרוכזת — 20 מנות</h2>
-<p class="sub">כל המנות אומתו כזמינות למשלוח 20/09 בסריקה חיה של הקטלוג (16.9). מחירים לפי האתר.</p>
+<h2 id="order" class="day-anchor">🛒 ההזמנה המרוכזת — 19 פריטים, 13 ארוחות</h2>
+<p class="sub">אורז לבן מאודה ×6 = הפחמימה של הצהריים לימים שהמנה מגיעה בלי פחמימה (התוכנית: 210 ג׳ אורז לבן מבושל). כל השאר — מנה אחת לארוחה.</p>
 <table>
-  <tr><th>#</th><th>מנה</th><th>מתי</th><th>מחיר</th></tr>
-  <tr><td>1</td><td><a href="https://promealfood.com/products/%D7%A8%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%A6%D7%94-%D7%93%D7%91%D7%A9-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס</a></td><td>יום ראשון צהריים</td><td>₪55</td></tr><tr><td>2</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%90%D7%A6%D7%94-%D7%93%D7%91%D7%A9-%D7%95%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%95%D7%A7" target="_blank">רצועות עוף בסריראצ&#x27;ה דבש ולקט ירוקים</a></td><td>יום ראשון צהריים</td><td>₪63</td></tr><tr><td>3</td><td><a href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%95%D7%A3-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">פאד קה פאו עוף ואורז</a></td><td>יום ראשון ערב</td><td>₪65</td></tr><tr><td>4</td><td><a href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-copy" target="_blank">המבורגר עוף PROtein plus</a></td><td>יום שני צהריים</td><td>₪80</td></tr><tr><td>5</td><td><a href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A4%D7%95%D7%A0%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99-%D7%A9%D7%A2%D7%95%D7%A2%D7%99%D7%AA" target="_blank">פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים</a></td><td>יום שני צהריים</td><td>₪54</td></tr><tr><td>6</td><td><a href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-%D7%91%D7%98%D7%98%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99-%D7%95%D7%A9%D7%A2%D7%95%D7%A2%D7%99%D7%AA-%D7%99%D7%A8%D7%95%D7%A7%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99" target="_blank">המבורגר עוף בתוספת פירה בטטה,ברוקולי ושעועית ירוקה</a></td><td>יום שני ערב</td><td>₪63</td></tr><tr><td>7</td><td><a href="https://promealfood.com/products/%D7%A7%D7%95%D7%91%D7%99%D7%95%D7%AA-%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%95%D7%A7%D7%A4%D7%A5-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A1%D7%99%D7%99%D7%90%D7%AA%D7%99%D7%9D" target="_blank">רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי</a></td><td>יום שלישי צהריים</td><td>₪63</td></tr><tr><td>8</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A4%D7%A1%D7%98%D7%95" target="_blank">עוף בפסטו</a></td><td>יום שלישי צהריים</td><td>₪50</td></tr><tr><td>9</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%90%D7%A6%D7%94-%D7%95%D7%93%D7%91%D7%A9-%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">עוף בסריראצה-דבש בתוספת אורז לבן</a></td><td>יום שלישי ערב</td><td>₪56</td></tr><tr><td>10</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A8%D7%95%D7%98%D7%91-%D7%A2%D7%92%D7%91%D7%A0%D7%99%D7%95%D7%AA-%D7%A7%D7%A8%D7%9E%D7%99-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">רצועות עוף ברוטב עגבניות קרמי על מצע זודלס</a></td><td>יום רביעי צהריים</td><td>₪54</td></tr><tr><td>11</td><td><a href="https://promealfood.com/products/%D7%A8%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%A9%D7%95%D7%95%D7%90%D7%A8%D7%9E%D7%94-%D7%94%D7%95%D7%93%D7%95-copy-1" target="_blank">פסטרמה טבעית בטעם של פעם</a></td><td>יום רביעי צהריים</td><td>₪50</td></tr><tr><td>12</td><td><a href="https://promealfood.com/products/%D7%91%D7%A9%D7%A8-%D7%A6%D7%9C%D7%A2%D7%95%D7%AA-%D7%9E%D7%A4%D7%95%D7%A8%D7%A7-%D7%A2%D7%9D-%D7%A4%D7%A8%D7%99%D7%A7%D7%99-%D7%95%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%A9%D7%95%D7%A8%D7%A9" target="_blank">בשר צלעות מפורק עם פריקי וירקות שורש</a></td><td>יום רביעי ערב</td><td>₪70</td></tr><tr><td>13</td><td><a href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">המבורגר עוף עם לקט ירוקים מאודים</a></td><td>יום חמישי צהריים</td><td>₪63</td></tr><tr><td>14</td><td><a href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3" target="_blank">המבורגר עוף</a></td><td>יום חמישי צהריים</td><td>₪50</td></tr><tr><td>15</td><td><a href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%93%D7%95%D7%A8%D7%94-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">חזה עוף מדורה ואורז</a></td><td>יום חמישי ערב</td><td>₪70</td></tr><tr><td>16</td><td><a href="https://promealfood.com/products/%D7%A8%D7%90%D7%92%D7%95-%D7%91%D7%95%D7%9C%D7%95%D7%A0%D7%96-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">ראגו בולונז על מצע זודלס</a></td><td>יום שישי צהריים</td><td>₪60</td></tr><tr><td>17</td><td><a href="https://promealfood.com/products/%D7%91%D7%A7%D7%A8-%D7%A1%D7%A6%D7%95%D7%90%D7%9F-%D7%A4%D7%9C%D7%A4%D7%9C%D7%99%D7%9D-%D7%91%D7%A6%D7%9C-%D7%9C%D7%91%D7%9F-%D7%99%D7%A8%D7%95%D7%A7" target="_blank">בקר סצ&#x27;ואן</a></td><td>יום שישי צהריים</td><td>₪45</td></tr><tr><td>18</td><td><a href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%91%D7%A4%D7%A1%D7%98%D7%95-%D7%A2%D7%9D-%D7%A4%D7%AA%D7%99%D7%AA%D7%99%D7%9D-%D7%95%D7%A2%D7%92%D7%91%D7%A0%D7%99%D7%95%D7%AA-%D7%9E%D7%99%D7%95%D7%91%D7%A9%D7%95%D7%AA" target="_blank">חזה עוף בפסטו עם פתיתים ועגבניות מיובשות</a></td><td>יום שישי ערב</td><td>₪70</td></tr><tr><td>19</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%A4%D7%94%D7%90%D7%99%D7%98%D7%A1" target="_blank">עוף פהאיטאס מקסיקני</a></td><td>שבת צהריים</td><td>₪40</td></tr><tr><td>20</td><td><a href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%94%D7%92%D7%A8%D7%99%D7%9C" target="_blank">חזה עוף מהגריל</a></td><td>שבת צהריים</td><td>₪50</td></tr>
-  <tr class="total"><td></td><td>סה״כ</td><td>13 ארוחות · 20 מנות</td><td>₪1,171 (₪1,054 במנוי)</td></tr>
+  <tr><th>#</th><th>מנה</th><th>כמות</th><th>מתי</th><th>מחיר</th></tr>
+  <tr><td>1</td><td><a href="https://promealfood.com/products/%D7%94%D7%9E%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%95%D7%A3-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">המבורגר עוף עם לקט ירוקים מאודים</a></td><td>1</td><td>יום ראשון צהריים</td><td>₪63</td></tr><tr><td>2</td><td><a href="https://promealfood.com/products/%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F-%D7%9E%D7%90%D7%95%D7%93%D7%94" target="_blank">אורז לבן מאודה</a></td><td>6</td><td>6 צהריים (א, ב, ג, ד, ה, ש)</td><td>₪150</td></tr><tr><td>3</td><td><a href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%95%D7%A3-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">פאד קה פאו עוף ואורז</a></td><td>1</td><td>יום ראשון ערב</td><td>₪65</td></tr><tr><td>4</td><td><a href="https://promealfood.com/products/%D7%A7%D7%95%D7%91%D7%99%D7%95%D7%AA-%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%95%D7%A7%D7%A4%D7%A5-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A1%D7%99%D7%99%D7%90%D7%AA%D7%99%D7%9D" target="_blank">רצועות חזה עוף מוקפץ עם לקט ירקות אסייאתים וטריאקי</a></td><td>1</td><td>יום שני צהריים</td><td>₪63</td></tr><tr><td>5</td><td><a href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%9E%D7%93%D7%95%D7%A8%D7%94-%D7%95%D7%90%D7%95%D7%A8%D7%96" target="_blank">חזה עוף מדורה ואורז</a></td><td>1</td><td>יום שני ערב</td><td>₪70</td></tr><tr><td>6</td><td><a href="https://promealfood.com/products/%D7%A8%D7%A6%D7%95%D7%A2%D7%95%D7%AA-%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%A6%D7%94-%D7%93%D7%91%D7%A9-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">רצועות עוף בסרירצ&#x27;ה דבש על מצע זודלס</a></td><td>1</td><td>יום שלישי צהריים</td><td>₪55</td></tr><tr><td>7</td><td><a href="https://promealfood.com/products/%D7%97%D7%96%D7%94-%D7%A2%D7%95%D7%A3-%D7%91%D7%A4%D7%A1%D7%98%D7%95-%D7%A2%D7%9D-%D7%A4%D7%AA%D7%99%D7%AA%D7%99%D7%9D-%D7%95%D7%A2%D7%92%D7%91%D7%A0%D7%99%D7%95%D7%AA-%D7%9E%D7%99%D7%95%D7%91%D7%A9%D7%95%D7%AA" target="_blank">חזה עוף בפסטו עם פתיתים ועגבניות מיובשות</a></td><td>1</td><td>יום שלישי ערב</td><td>₪70</td></tr><tr><td>8</td><td><a href="https://promealfood.com/products/%D7%A4%D7%90%D7%93-%D7%A7%D7%94-%D7%A4%D7%90%D7%95-%D7%A2%D7%9D-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%90%D7%A4%D7%95%D7%A0%D7%94-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99-%D7%A9%D7%A2%D7%95%D7%A2%D7%99%D7%AA" target="_blank">פאד קא פאו עם אפונה, ברוקולי ושעועית מאודים</a></td><td>1</td><td>יום רביעי צהריים</td><td>₪54</td></tr><tr><td>9</td><td><a href="https://promealfood.com/products/%D7%A1%D7%9C%D7%95%D7%A4%D7%99-%D7%92%D7%95-%D7%A2%D7%9C-%D7%A4%D7%A4%D7%A8%D7%93%D7%9C%D7%94" target="_blank">סלופי גו על פפרדלה</a></td><td>1</td><td>יום רביעי ערב</td><td>₪70</td></tr><tr><td>10</td><td><a href="https://promealfood.com/products/%D7%A8%D7%90%D7%92%D7%95-%D7%91%D7%95%D7%9C%D7%95%D7%A0%D7%96-%D7%A2%D7%9C-%D7%9E%D7%A6%D7%A2-%D7%96%D7%95%D7%93%D7%9C%D7%A1" target="_blank">ראגו בולונז על מצע זודלס</a></td><td>1</td><td>יום חמישי צהריים</td><td>₪60</td></tr><tr><td>11</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A1%D7%A8%D7%99%D7%A8%D7%90%D7%A6%D7%94-%D7%95%D7%93%D7%91%D7%A9-%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%A7%D7%98-%D7%99%D7%A8%D7%A7%D7%95%D7%AA-%D7%99%D7%A8%D7%95%D7%A7%D7%99%D7%9D" target="_blank">עוף בסריראצה-דבש בתוספת אורז לבן</a></td><td>1</td><td>יום חמישי ערב</td><td>₪56</td></tr><tr><td>12</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%91%D7%A7%D7%90%D7%A8%D7%99-%D7%90%D7%93%D7%95%D7%9D-%D7%95%D7%97%D7%9C%D7%91-%D7%A7%D7%95%D7%A7%D7%95%D7%A1-%D7%A2%D7%9D-%D7%90%D7%95%D7%A8%D7%96-%D7%9C%D7%91%D7%9F" target="_blank">עוף בקארי אדום בתוספת אורז לבן</a></td><td>1</td><td>יום שישי צהריים</td><td>₪63</td></tr><tr><td>13</td><td><a href="https://promealfood.com/products/%D7%91%D7%95%D7%9C%D7%95%D7%A0%D7%96-%D7%A4%D7%A1%D7%98%D7%94-%D7%90%D7%A4%D7%95%D7%A0%D7%94-%D7%95%D7%92%D7%96%D7%A8-1" target="_blank">פסטה בולונז איטלקי</a></td><td>1</td><td>יום שישי ערב</td><td>₪65</td></tr><tr><td>14</td><td><a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%A4%D7%94%D7%90%D7%99%D7%98%D7%A1" target="_blank">עוף פהאיטאס מקסיקני</a></td><td>1</td><td>שבת צהריים</td><td>₪40</td></tr>
+  <tr class="total"><td></td><td>סה״כ</td><td>19</td><td>13 ארוחות</td><td>₪944 (₪850 במנוי)</td></tr>
 </table>
 
-<div class="banner" style="margin-top:18px">
-  🥛 <b>מעדן חלבון בסוף היום</b> (אופציונלי, ~100 קק״ל / 20 ג׳ חלבון) ביום שאתה מרגיש שחסר — בעיקר שישי (138 ג׳) ורביעי (147 ג׳). בלי השלמות סופר בתפריט הזה לפי בקשתך.
+<!-- ============ סטיות ============ -->
+<h2 id="dev" class="day-anchor">⚠️ סטיות קטנות מהתוכנית — בשקיפות מלאה</h2>
+<div class="banner">
+  <b>מה כן 100%:</b> מבנה כל ארוחה (ירק + חלבון + פחמימה), סוגי הפחמימה (אורז לבן / פסטה / פתיתים בלבד), סוגי החלבון (עוף/הודו/בשר טחון), כמויות המאקרו לארוחה, ההעמסה בשבת אחרי אימון, בלי דגים.<br><br>
+  <b>מה לא ניתן לסגור ב‑100% עם אוכל מוכן:</b>
+  <ul style="margin:6px 16px 0 0; font-size:.9rem">
+    <li>🍯 <b>רטבים:</b> סריראצ׳ה‑דבש (ג׳ צהריים, ה׳ ערב), טריאקי (ב׳), פסטו (ג׳ ערב), חלב קוקוס בקארי (ו׳) — מכילים מעט סוכר/שמן שלא כתובים בתפריט. סה״כ השומן היומי נשאר 13–27 ג׳, בתוך המסגרת. אם תרצה מחמיר יותר: להחליף את ג׳ צהריים ב‑<a href="https://promealfood.com/products/%D7%A2%D7%95%D7%A3-%D7%A4%D7%94%D7%90%D7%99%D7%98%D7%A1-%D7%91%D7%A8%D7%95%D7%A7%D7%95%D7%9C%D7%99-%D7%95%D7%A9%D7%A2%D7%95%D7%A2%D7%99%D7%AA-%D7%99%D7%A8%D7%95%D7%A7%D7%94" target="_blank" style="color:var(--accent2)">פהאיטאס ברוקולי ושעועית</a> + אורז (458 קק״ל / 55 ח׳ / 1 ש׳).</li>
+    <li>🥦 <b>כמות ירק:</b> במנות פרומיל יש פחות מ‑250 ג׳ ירק. משלימים ירק חי בצד — זה מה שאמרת שתשלים לבד.</li>
+    <li>🍚 <b>מנת האורז של פרומיל</b> (48 ג׳ פחמימה) קצת קטנה מ‑210 ג׳ מבושל (~59 ג׳). הפער נסגר בקלות מ‑150 הקלוריות החופשיות אם רוצים.</li>
+    <li>📅 <b>יום כיפור (שני 21.9):</b> התפריט בנוי כרגיל לפי בקשתך. אם צמים — מורידים את מנת הצהריים של שני (טריאקי + אורז) מהעגלה.</li>
+  </ul>
 </div>
 
-<footer>נבנה מסריקה חיה של promealfood.com ב־16.9.2026 · מאקרו רשמי מהאתר לכל מנה · לינק העגלה מכיל בדיוק את 20 המנות שבטבלה</footer>
+<footer>נבנה מסריקה חיה של promealfood.com ב‑16.9.2026 · מאקרו רשמי מהאתר לכל מנה · לינק העגלה מכיל בדיוק את 19 הפריטים שבטבלה</footer>
 </div>
 
-<div class="cartbar"><a href="https://promealfood.com/cart/45567115198625:1,45567171166369:1,45567363252385:1,45567364268193:1,45567125717153:1,45567140659361:1,45567180341409:1,45567262720161:1,45567100551329:1,45567109103777:1,45567085904033:1,45723964965025:1,45567171002529:1,45567362990241:1,45724180742305:1,45567134335137:1,45567175032993:1,45709290078369:1,45567170969761:1,45567208718497:1" target="_blank">🛒 מלא את העגלה בלחיצה — 20 מנות · ₪1,171</a></div>
+<div class="cartbar"><a href="https://promealfood.com/cart/45567171002529:1,45567218942113:6,45567363252385:1,45567180341409:1,45724180742305:1,45567115198625:1,45709290078369:1,45567125717153:1,45567363416225:1,45567134335137:1,45567100551329:1,45567165137057:1,45567177326753:1,45567170969761:1" target="_blank">🛒 מלא את העגלה בלחיצה — 19 פריטים · ₪944</a></div>
 </body>
 </html>
